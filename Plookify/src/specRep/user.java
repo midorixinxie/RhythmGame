@@ -7,7 +7,7 @@ package specRep;
 
 /**
  *
- * @author xinxie@qmul.ac.uk
+ * @author pro
  */
 public class user {
     
