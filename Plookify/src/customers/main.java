@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package specRep;
+package customers;
 
 /**
  *
- * @author xinxie@qmul.ac.uk
+ * @author pro
  */
-public class user {
+public class main {
     
 }
