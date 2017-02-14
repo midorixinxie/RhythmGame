@@ -7,8 +7,13 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
+<<<<<<< HEAD
 <project name="GMSISTeam16" default="default" basedir=".">
     <description>Builds, tests, and runs the project GMSISTeam16.</description>
+=======
+<project name="Project" default="default" basedir=".">
+    <description>Builds, tests, and runs the project Project.</description>
+>>>>>>> origin/myBranch
     <import file="nbproject/build-impl.xml"/>
     <!--
 
@@ -58,6 +63,7 @@
 
     An example of overriding the target for project execution could look like this:
 
+<<<<<<< HEAD
         <target name="run" depends="GMSISTeam16-impl.jar">
 <project name="GMSIS16" default="default" basedir=".">
     <description>Builds, tests, and runs the project GMSIS16.</description>
@@ -111,6 +117,9 @@
     An example of overriding the target for project execution could look like this:
 
         <target name="run" depends="GMSIS16-impl.jar">
+=======
+        <target name="run" depends="Project-impl.jar">
+>>>>>>> origin/myBranch
             <exec dir="bin" executable="launcher.exe">
                 <arg file="${dist.jar}"/>
             </exec>
