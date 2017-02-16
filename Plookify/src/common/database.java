@@ -15,7 +15,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.sqlite.JDBC;
 
-
+/**
+ *
+ * @author MichelleY
+ */
 public class database {
     
     private static Connection conn = null;
