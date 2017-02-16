@@ -70,6 +70,14 @@ CREATE TABLE "PartsRecord" (
 	FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID)
 );
 
+CREATE TABLE "Users"(
+    `Username`	TEXT PRIMARY KEY,
+	`Password`	TEXT
+);
+
+INSERT INTO `Users` VALUES ('emp1','emp123');
+INSERT INTO `Users` VALUES ('emp2','emp234');
+INSERT INTO `Users` VALUES ('emp3','emp345');
 
 CREATE TABLE "Booking" (
     `ID`  INTEGER PRIMARY KEY,
