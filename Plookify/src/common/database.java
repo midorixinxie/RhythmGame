@@ -43,7 +43,7 @@ public class database {
 			statement = conn.createStatement();
 			statement.setQueryTimeout(10);
 			statement.executeUpdate("drop table if exists 'test'");
-			statement.executeUpdate("create table 'test' ('CustomerID' INTEGER NOT NULL,'WarrantyType'BOOLEAN,'RequiresDiagnosisAndRepair'	BOOLEAN, 'WarrantyCompanyPays'	INTEGER,'CompanyName'	TEXT,'CompanyAddress'	TEXT,'WarrantyExpiry'	DATE,'RegistrationNumber'	TEXT PRIMARY KEY,'Model'	TEXT,'Make'	TEXT,'EngineSize'	TEXT,'FuelType'	TEXT,'Colour'	TEXT,'MoTRenewalDate'INTEGER,'LastServiceDate'INTEGER,'CurrentMileage'INTEGER,'ListOfPartsUsed'TEXT,	 FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID))");
+			statement.executeUpdate("create table 'test' ('CustomerID' INTEGER NOT NULL,'WarrantyType'BOOLEAN,'RequiresDiagnosisAndRepair'	BOOLEAN, 'WarrantyCompanyPays'	INTEGER,'CompanyName'	TEXT,'CompanyAddress'	TEXT,'WarrantyExpiry'	DATE,'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour'	TEXT,'MoTRenewalDate'INTEGER,'LastServiceDate'INTEGER,'CurrentMileage'INTEGER,'ListOfPartsUsed'TEXT, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID))");
 			statement.executeUpdate("insert into 'test' values(1,'N',NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)");
 			statement.executeUpdate("insert into 'test' values(2,'Y',NULL,NULL,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)");
 
