@@ -9,6 +9,6 @@ package specRep;
  *
  * @author pro
  */
-public class user {
+public class specialistRepairCenter{
     
 }
