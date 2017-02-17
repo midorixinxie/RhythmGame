@@ -42,16 +42,16 @@ public class database {
 		try {
 			statement = conn.createStatement();
 			statement.setQueryTimeout(10);
-			statement.executeUpdate("drop table if exists 'test'");
-			statement.executeUpdate("create table 'test' ('CustomerID' INTEGER NOT NULL,'WarrantyType'BOOLEAN,'RequiresDiagnosisAndRepair'	BOOLEAN, 'WarrantyCompanyPays'	INTEGER,'CompanyName'	TEXT,'CompanyAddress'	TEXT,'WarrantyExpiry'	DATE,'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour'	TEXT,'MoTRenewalDate'INTEGER,'LastServiceDate'INTEGER,'CurrentMileage'INTEGER,'ListOfPartsUsed'TEXT, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID))");
-			statement.executeUpdate("insert into 'test' values(1,'N',NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)");
-			statement.executeUpdate("insert into 'test' values(2,'Y',NULL,NULL,NULL,NULL,NULL,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)");
+			//statement.executeUpdate("drop table if exists 'test'");
+			statement.executeUpdate("create table if not exists 'test' ('CustomerID' INTEGER NOT NULL,'WarrantyType'BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' INTEGER,'CompanyName' TEXT,'CompanyAddress'	TEXT,'WarrantyExpiry' DATE,'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour'	TEXT,'MoTRenewalDate'INTEGER,'LastServiceDate'INTEGER,'CurrentMileage'INTEGER,'ListOfPartsUsed'TEXT, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID))");
+			//statement.executeUpdate("insert into 'test' values(1,'N',NULL,NULL,NULL,NULL,NULL,'DRZ 7487',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)");
+			//statement.executeUpdate("insert into 'test' values(2,'Y',NULL,NULL,NULL,NULL,NULL,'YR06 REG',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)");
 
 			ResultSet rs = statement.executeQuery("select * from 'test'");
 
-			System.out.println("CustomerID Model");
+			System.out.println("CustomerID Model  Registration Number");
 			while(rs.next()){
-				System.out.println(rs.getInt("CustomerID")+"	   "+rs.getString("Model"));
+				System.out.println(rs.getInt("CustomerID")+"	   "+rs.getString("Model")+"	        "+rs.getString("RegistrationNumber"));
 			}
 		}
 		catch (SQLException ex) {
