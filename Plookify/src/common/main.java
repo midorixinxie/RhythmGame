@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package specRep;
+package common;
 
 /**
  *
- * @author pro
+ * @author MichelleY
  */
-public class specialistRepairCenter{
+public class main {
     
 }
