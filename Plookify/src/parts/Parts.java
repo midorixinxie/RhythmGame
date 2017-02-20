@@ -25,10 +25,7 @@ public class Parts {
    }
    
    public List<Parts> getPartsUsed(){
-      
-       
-       return null;
-       
+       return null;       
    }
    
    public void editPart(Parts part){
