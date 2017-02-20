@@ -23,7 +23,7 @@ public class Database {
     
     private static Connection conn = null;
     
-     public static void connect() {
+     public  void connect() {
         try {
             // db parameters
             String url = "jdbc:sqlite:../SEProject16/Master/Documents/Databse.db";
@@ -46,6 +46,14 @@ public class Database {
 	public Connection getConnection(){
 		return this.conn;
 	}
+        
+        public void closeConn(){
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
     
 
     /**
