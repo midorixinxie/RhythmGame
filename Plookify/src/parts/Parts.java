@@ -16,6 +16,10 @@ public class Parts {
    private int ID, stockLevel, cost;
    private Date installationDate, warrantyExpiry;
    
+   public Parts(){
+       
+       
+   }
    public void withdrawPart(){
        
    }
