@@ -5,10 +5,46 @@
  */
 package parts;
 
+import java.util.*;
+
 /**
  *
  * @author Moe-MAC
  */
 public class Parts {
-    
+   private String name, description;
+   private int ID, stockLevel, cost;
+   private Date installationDate, warrantyExpiry;
+   
+   public void withdrawPart(){
+       
+   }
+   
+   public void addPart(){
+       
+   }
+   
+   public List<Parts> getPartsUsed(){
+      
+       
+       return null;
+       
+   }
+   
+   public void editPart(Parts part){
+       
+   }
+   
+   public void deletePart(Parts part){
+       
+   }
+   
+   public void searchByName(String name){
+       
+   }
+   
+   public void searchByRegNum(String regNumber){
+       
+   }
 }
+
