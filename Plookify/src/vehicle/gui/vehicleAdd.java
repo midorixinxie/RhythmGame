@@ -118,8 +118,9 @@ public class vehicleAdd extends javax.swing.JFrame {
         jTextField5.setText("jTextField6");
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
 
-        jLabel1.setText("Vehicle");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 11, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel1.setText("Add Vehicle");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jTextField6.setText("jTextField5");
         getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));

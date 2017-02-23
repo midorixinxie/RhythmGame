@@ -9,12 +9,12 @@ package vehicle.gui;
  *
  * @author MichelleY
  */
-public class vehicleSearch extends javax.swing.JFrame {
+public class vehicleEdit extends javax.swing.JFrame {
 
     /**
-     * Creates new form vehicleSearch
+     * Creates new form vehicleEdit
      */
-    public vehicleSearch() {
+    public vehicleEdit() {
         initComponents();
         this.setSize(600,400);
         this.setLocationRelativeTo(null);
@@ -29,11 +29,15 @@ public class vehicleSearch extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        returnButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        returnButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel1.setText("Edit Vehicle");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         returnButton.setText("Return to Vehicle Index");
         returnButton.addActionListener(new java.awt.event.ActionListener() {
@@ -42,10 +46,6 @@ public class vehicleSearch extends javax.swing.JFrame {
             }
         });
         getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel1.setText("Search Vehicle");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -74,20 +74,20 @@ public class vehicleSearch extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vehicleSearch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vehicleEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vehicleSearch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vehicleEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vehicleSearch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vehicleEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vehicleSearch.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vehicleEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new vehicleSearch().setVisible(true);
+                new vehicleEdit().setVisible(true);
             }
         });
     }

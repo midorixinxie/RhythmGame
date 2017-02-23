@@ -31,7 +31,6 @@ public class vehicleIndex extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         addVButton = new javax.swing.JButton();
-        quickAddVButton = new javax.swing.JButton();
         deleteVButton = new javax.swing.JButton();
         searchVButton = new javax.swing.JButton();
         editVButton = new javax.swing.JButton();
@@ -50,21 +49,13 @@ public class vehicleIndex extends javax.swing.JFrame {
         });
         getContentPane().add(addVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 76, -1, -1));
 
-        quickAddVButton.setText("Quick Add Vehicle");
-        quickAddVButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quickAddVButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(quickAddVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 111, -1, -1));
-
         deleteVButton.setText("Delete Vehicle");
         deleteVButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteVButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(deleteVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 146, -1, -1));
+        getContentPane().add(deleteVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
 
         searchVButton.setText("Search Vehicle");
         searchVButton.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +63,7 @@ public class vehicleIndex extends javax.swing.JFrame {
                 searchVButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(searchVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 213, -1, -1));
+        getContentPane().add(searchVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
 
         editVButton.setText("Edit Vehicle");
         editVButton.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +71,7 @@ public class vehicleIndex extends javax.swing.JFrame {
                 editVButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(editVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 181, -1, -1));
+        getContentPane().add(editVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -91,20 +82,22 @@ public class vehicleIndex extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_addVButtonActionPerformed
 
-    private void quickAddVButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quickAddVButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_quickAddVButtonActionPerformed
-
     private void deleteVButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteVButtonActionPerformed
-        // TODO add your handling code here:
+        vehicleDelete delV = new vehicleDelete();
+        delV.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_deleteVButtonActionPerformed
 
     private void searchVButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchVButtonActionPerformed
-        // TODO add your handling code here:
+        vehicleSearch searchV = new vehicleSearch();
+        searchV.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_searchVButtonActionPerformed
 
     private void editVButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editVButtonActionPerformed
-        // TODO add your handling code here:
+        vehicleEdit edV = new vehicleEdit();
+        edV.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_editVButtonActionPerformed
 
     /**
@@ -147,7 +140,6 @@ public class vehicleIndex extends javax.swing.JFrame {
     private javax.swing.JButton deleteVButton;
     private javax.swing.JButton editVButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton quickAddVButton;
     private javax.swing.JButton searchVButton;
     // End of variables declaration//GEN-END:variables
 }
