@@ -35,6 +35,8 @@ public class queries {
 			while(vr.next()){
 				System.out.println(vr.getInt("CustomerID")+"	   "+vr.getString("Model")+"	        "+vr.getString("RegistrationNumber"));
 			}
+                        rs.close();
+                        vr.close();
 		}
 		catch (SQLException ex) {
 			System.err.println(ex.getMessage());

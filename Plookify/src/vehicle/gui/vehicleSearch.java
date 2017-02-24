@@ -31,6 +31,15 @@ public class vehicleSearch extends javax.swing.JFrame {
 
         returnButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        comboBox = new javax.swing.JComboBox<>();
+        inputTextBox = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
+        submitButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        editButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -47,6 +56,45 @@ public class vehicleSearch extends javax.swing.JFrame {
         jLabel1.setText("Search Vehicle");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
+        jLabel7.setText("Search Results:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+
+        jLabel8.setText("Search By:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Registration Number", "Manufacturer" }));
+        getContentPane().add(comboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+        getContentPane().add(inputTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 120, -1));
+
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(table);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 570, 170));
+
+        submitButton.setText("submit");
+        getContentPane().add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, -1, -1));
+
+        deleteButton.setText("delete selected vehicle");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, -1, -1));
+
+        editButton.setText("edit selected vehicle");
+        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -56,6 +104,10 @@ public class vehicleSearch extends javax.swing.JFrame {
         indV.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -93,7 +145,16 @@ public class vehicleSearch extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboBox;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JButton editButton;
+    private javax.swing.JTextField inputTextBox;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton returnButton;
+    private javax.swing.JButton submitButton;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }
