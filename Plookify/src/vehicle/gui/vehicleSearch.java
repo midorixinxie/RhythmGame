@@ -64,6 +64,12 @@ public class vehicleSearch extends javax.swing.JFrame {
 
         comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Registration Number", "Manufacturer" }));
         getContentPane().add(comboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+
+        inputTextBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputTextBoxActionPerformed(evt);
+            }
+        });
         getContentPane().add(inputTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 120, -1));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
@@ -108,6 +114,10 @@ public class vehicleSearch extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void inputTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTextBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputTextBoxActionPerformed
 
     /**
      * @param args the command line arguments
