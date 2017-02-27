@@ -27,7 +27,9 @@ public class Database {
         try {
             // db parameters
             
-            String url = "jdbc:sqlite:Master/Documents/Database.db";
+            //String url = "jdbc:sqlite:Master/Documents/Database.db";
+            String url = "jdbc:sqlite:../SE16/Master/Documents/Database.db";
+
 
             // create a connection to the Database
             conn = DriverManager.getConnection(url);
