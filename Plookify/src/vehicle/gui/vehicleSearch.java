@@ -7,12 +7,14 @@ package vehicle.gui;
 
 import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
+import javax.swing.table.*;
 /**
  *
  * @author MichelleY
  */
 public class vehicleSearch extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form vehicleSearch
      */
@@ -20,6 +22,7 @@ public class vehicleSearch extends javax.swing.JFrame {
         initComponents();
         this.setSize(600,400);
         this.setLocationRelativeTo(null);
+        tableDisplay.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
     }
 
     /**
@@ -82,12 +85,12 @@ public class vehicleSearch extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Customer ID", "Title 2", "Title 3", "Title 4", "Title 5", "null", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11", "Title 12", "Title 13", "Title 14", "Title 15", "Title 16", "Title 17", "Title 18"
+                "CustomerID", "WarrantyType", "RequiresDiagnosisAndRepair", "WarrantyCompanyPays", "CompanyName", "CompanyAddress", "WarrantyExpiry", "VehicleType", "RegistrationNumber", "Model", "Make", "EngineSize", "FuelType", "Colour", "MoTRenewalDate", "LastServiceDate", "CurrentMileage", "ListOfPartsUsed"
             }
         ));
         jScrollPane1.setViewportView(tableDisplay);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 570, 170));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 590, 190));
 
         submitButton.setText("submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -187,4 +190,5 @@ public class vehicleSearch extends javax.swing.JFrame {
     private javax.swing.JButton submitButton;
     private javax.swing.JTable tableDisplay;
     // End of variables declaration//GEN-END:variables
+
 }
