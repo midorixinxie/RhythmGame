@@ -63,7 +63,7 @@ public class specialistRepairCenter {
 
 	public double getCostOfRegularRepairAndDiagonostics() {
 		//get the cost of regular and diagonostics
-	       return cost
+	       return ;
 	}
 
 	public double getTotalCost() {
