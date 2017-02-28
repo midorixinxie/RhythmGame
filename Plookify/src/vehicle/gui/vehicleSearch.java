@@ -5,6 +5,8 @@
  */
 package vehicle.gui;
 
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author MichelleY
@@ -36,7 +38,7 @@ public class vehicleSearch extends javax.swing.JFrame {
         comboBox = new javax.swing.JComboBox<>();
         input = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table = new javax.swing.JTable();
+        tableDisplay = new javax.swing.JTable();
         submitButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
@@ -72,18 +74,18 @@ public class vehicleSearch extends javax.swing.JFrame {
         });
         getContentPane().add(input, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 120, -1));
 
-        table.setModel(new javax.swing.table.DefaultTableModel(
+        tableDisplay.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Customer ID", "Title 2", "Title 3", "Title 4", "Title 5", "null", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11", "Title 12", "Title 13", "Title 14", "Title 15", "Title 16", "Title 17", "Title 18"
             }
         ));
-        jScrollPane1.setViewportView(table);
+        jScrollPane1.setViewportView(tableDisplay);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 570, 170));
 
@@ -128,9 +130,13 @@ public class vehicleSearch extends javax.swing.JFrame {
         // searches for vehicles and displays info
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
         newLogic.searchVehicle(
+                tableDisplay,
                 (String)comboBox.getSelectedItem(),
                 input.getText()
         );
+        
+         
+                
     }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
@@ -179,6 +185,6 @@ public class vehicleSearch extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton returnButton;
     private javax.swing.JButton submitButton;
-    private javax.swing.JTable table;
+    private javax.swing.JTable tableDisplay;
     // End of variables declaration//GEN-END:variables
 }
