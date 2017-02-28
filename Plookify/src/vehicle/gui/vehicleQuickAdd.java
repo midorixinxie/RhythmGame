@@ -29,7 +29,7 @@ public class vehicleQuickAdd extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        regNo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
@@ -56,12 +56,14 @@ public class vehicleQuickAdd extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         addButton = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox<>();
+        customerID = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setText("jTextField1");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
+        regNo.setText("jTextField1");
+        getContentPane().add(regNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
 
         jLabel2.setText("Vehicle Type");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 57, -1, -1));
@@ -82,33 +84,33 @@ public class vehicleQuickAdd extends javax.swing.JFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, -1, -1));
 
         jLabel7.setText("Registration Number");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         jLabel8.setText("Popular");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
         jLabel9.setText("Inc: Model, Make, Engine Size, Fuel Type");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, 10));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, 10));
 
         jLabel11.setText("MoT Renewal Date");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
         jLabel12.setText("Colour");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
 
         jTextField5.setText("jTextField6");
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Add Vehicle");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jTextField7.setText("jTextField7");
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
+        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
 
         jTextField8.setText("jTextField8");
-        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
+        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
 
         jTextField9.setText("jTextField9");
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
@@ -116,16 +118,16 @@ public class vehicleQuickAdd extends javax.swing.JFrame {
                 jTextField9ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
+        getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
 
         jTextField10.setText("jTextField10");
         getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, -1, -1));
 
         jLabel14.setText("Last Service Date");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
 
         jLabel15.setText("Current Mileage");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         jTextField11.setText("jTextField11");
         getContentPane().add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, -1, -1));
@@ -156,7 +158,17 @@ public class vehicleQuickAdd extends javax.swing.JFrame {
         getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 240, -1));
+        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 240, -1));
+
+        customerID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerIDActionPerformed(evt);
+            }
+        });
+        getContentPane().add(customerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 80, -1));
+
+        jLabel16.setText("Customer ID");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -177,6 +189,10 @@ public class vehicleQuickAdd extends javax.swing.JFrame {
         addV.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_addButtonActionPerformed
+
+    private void customerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_customerIDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,6 +234,7 @@ public class vehicleQuickAdd extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JTextField customerID;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -226,6 +243,7 @@ public class vehicleQuickAdd extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -234,7 +252,6 @@ public class vehicleQuickAdd extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
@@ -242,6 +259,7 @@ public class vehicleQuickAdd extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField regNo;
     private javax.swing.JButton returnButton;
     private javax.swing.JButton submit;
     // End of variables declaration//GEN-END:variables

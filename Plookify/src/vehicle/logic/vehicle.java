@@ -16,10 +16,12 @@ import java.sql.Statement;
  */
 public class vehicle {
     
-    public static void addVehicle(String vehicle, String regNo, String  model, String make, String engineSize, String fuelType, String colour, String MoTRenewalDate, String lastServiceDate, String currentMileage, Boolean warrantyType, String compName, String compAddress, String warrantyExpiry) {
+    public static void addVehicle(String ID, String vehicle, String regNo, String  model, String make, String engineSize, String fuelType, String colour, String MoTRenewalDate, String lastServiceDate, String currentMileage, Boolean warrantyType, String compName, String compAddress, String warrantyExpiry) {
         Database db = new Database();
         db.connect();
         
+        int customerID = Integer.parseInt(ID);
+                
         Boolean requireDandR = false;
         Boolean compPays = false;
         
@@ -37,7 +39,7 @@ public class vehicle {
         try {                
                 Statement statement;
                 
-                String query = "INSERT INTO VehicleRecords VALUES (1, '"+warrantyType+"','"+requireDandR+"','"+compPays+"','"+compName+"','"+compAddress+"','"+warrantyExpiry+"','"+vehicle+"','"+regNo+"','"+model+"','"+make+"','"+engineSize+"','"+fuelType+"','"+colour+"','"+MoTRenewalDate+"','"+lastServiceDate+"','"+currentMileage+"',1);";
+                String query = "INSERT INTO VehicleRecords VALUES ('"+customerID+"', '"+warrantyType+"','"+requireDandR+"','"+compPays+"','"+compName+"','"+compAddress+"','"+warrantyExpiry+"','"+vehicle+"','"+regNo+"','"+model+"','"+make+"','"+engineSize+"','"+fuelType+"','"+colour+"','"+MoTRenewalDate+"','"+lastServiceDate+"','"+currentMileage+"',1);";
                 //System.out.println("Query :" + query);
                 statement = db.getConnection().createStatement();
                 statement.setQueryTimeout(10);
