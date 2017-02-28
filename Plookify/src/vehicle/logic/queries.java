@@ -15,8 +15,7 @@ import java.sql.Statement;
  * @author MichelleY
  */
 public class queries {
-    private static final String SQL_INSERT = "INSERT INTO VehicleRecords"
-    + " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+   
     
         
     public static void getData() {
@@ -65,26 +64,20 @@ public class queries {
             compAddress = null;
             warrantyExpiry = null;
         }
-        try {
-                /**Statement statement;
-		statement = db.getConnection().createStatement();
-		statement.setQueryTimeout(10);
-		//statement.executeUpdate("drop table if exists 'test'");
-		statement.executeUpdate("create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,'ListOfPartsUsed'TEXT, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID))");			
-		//statement.executeUpdate("insert into 'VehicleRecords' values(1,"+warrantyType+","+requireDandR+","+compPays+","+compName+","+compAddress+","+warrantyExpiry+","+regNo+","+model+","+make+","+engineSize+","+fuelType+","+colour+","+MoTRenewalDate+","+lastServiceDate+","+currentMileage+",null)");
-                statement.executeUpdate("insert into 'VehicleRecords' values(1,NULL,NULL,NULL,'"+compName+"','"+compAddress+"','"+warrantyExpiry+"','"+regNo+"','"+model+"','"+make+"','"+engineSize+"','"+fuelType+"','"+colour+"','"+MoTRenewalDate+"',"+lastServiceDate+","+currentMileage+",null)");
-
-                 //statement.executeUpdate("insert into 'VehicleRecords' values(2,'Y',NULL,NULL,NULL,NULL,NULL,'YR06 REG',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL)");
-		**/
-                //ResultSet rs = statement.executeQuery("select * from 'test'");
-                
+        try {                
                 Statement statement;
-                String query = "INSERT INTO VehicleRecords VALUES (1, '"+warrantyType+"','"+requireDandR+"','"+compPays+"','"+compName+"','"+compAddress+"','"+warrantyExpiry+"','"+regNo+"','"+model+"','"+make+"','"+engineSize+"','"+fuelType+"','"+colour+"','"+MoTRenewalDate+"','"+lastServiceDate+"','"+currentMileage+"',1);";
-                System.out.println("Query :" + query);
+                
+                String query = "INSERT INTO VehicleRecords VALUES (1, '"+warrantyType+"','"+requireDandR+"','"+compPays+"','"+compName+"','"+compAddress+"','"+warrantyExpiry+"','"+vehicle+"','"+regNo+"','"+model+"','"+make+"','"+engineSize+"','"+fuelType+"','"+colour+"','"+MoTRenewalDate+"','"+lastServiceDate+"','"+currentMileage+"',1);";
+                //System.out.println("Query :" + query);
                 statement = db.getConnection().createStatement();
+                statement.setQueryTimeout(10);
+                
+                //statement.executeUpdate("drop table if exists 'VehicleRecords'");
+                statement.executeUpdate("create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,'ListOfPartsUsed'TEXT, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID))");			
+
                 statement.executeUpdate(query);
 
-                
+                //ResultSet rs = statement.executeQuery("select * from 'test'");
                 ResultSet vr = statement.executeQuery("select * from 'VehicleRecords'");
 
 		System.out.println("CustomerID Model  Registration Number");
