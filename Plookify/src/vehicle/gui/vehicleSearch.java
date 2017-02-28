@@ -34,7 +34,7 @@ public class vehicleSearch extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         comboBox = new javax.swing.JComboBox<>();
-        inputTextBox = new javax.swing.JTextField();
+        input = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         submitButton = new javax.swing.JButton();
@@ -65,12 +65,12 @@ public class vehicleSearch extends javax.swing.JFrame {
         comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Registration Number", "Manufacturer" }));
         getContentPane().add(comboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
 
-        inputTextBox.addActionListener(new java.awt.event.ActionListener() {
+        input.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputTextBoxActionPerformed(evt);
+                inputActionPerformed(evt);
             }
         });
-        getContentPane().add(inputTextBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 120, -1));
+        getContentPane().add(input, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 120, -1));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,6 +88,11 @@ public class vehicleSearch extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 570, 170));
 
         submitButton.setText("submit");
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, -1, -1));
 
         deleteButton.setText("delete selected vehicle");
@@ -115,9 +120,18 @@ public class vehicleSearch extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteButtonActionPerformed
 
-    private void inputTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputTextBoxActionPerformed
+    private void inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputTextBoxActionPerformed
+    }//GEN-LAST:event_inputActionPerformed
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        // searches for vehicles and displays info
+        vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
+        newLogic.searchVehicle(
+                (String)comboBox.getSelectedItem(),
+                input.getText()
+        );
+    }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,7 +172,7 @@ public class vehicleSearch extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBox;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
-    private javax.swing.JTextField inputTextBox;
+    private javax.swing.JTextField input;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
