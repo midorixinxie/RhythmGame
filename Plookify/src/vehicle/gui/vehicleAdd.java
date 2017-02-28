@@ -5,6 +5,8 @@
  */
 package vehicle.gui;
 
+import static vehicle.logic.queries.addVehicle;
+
 /**
  *
  * @author MichelleY
@@ -29,15 +31,15 @@ public class vehicleAdd extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        registrationNo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        warrantyCheck = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        model = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        make = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -45,28 +47,28 @@ public class vehicleAdd extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        engineSize = new javax.swing.JTextField();
+        colour = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        fuelType = new javax.swing.JTextField();
+        MoTRenewalDate = new javax.swing.JTextField();
+        lastServiceDate = new javax.swing.JTextField();
+        currentMileage = new javax.swing.JTextField();
+        companyName = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
+        companyAddress = new javax.swing.JTextField();
+        warrantyDateOfExpiry = new javax.swing.JTextField();
         submit = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboBox = new javax.swing.JComboBox<>();
         quickAddVButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setText("jTextField1");
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
+        registrationNo.setText("jTextField1");
+        getContentPane().add(registrationNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
         jLabel2.setText("Vehicle Type");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 57, -1, -1));
@@ -74,8 +76,8 @@ public class vehicleAdd extends javax.swing.JFrame {
         jLabel3.setText("Warranty Company:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
 
-        jCheckBox1.setText("Warranty");
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 53, -1, -1));
+        warrantyCheck.setText("Warranty");
+        getContentPane().add(warrantyCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 53, -1, -1));
 
         jLabel4.setText("Name");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, -1, -1));
@@ -83,14 +85,14 @@ public class vehicleAdd extends javax.swing.JFrame {
         jLabel5.setText("Address");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, -1, -1));
 
-        jTextField2.setText("jTextField2");
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
+        model.setText("jTextField2");
+        getContentPane().add(model, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
 
         jLabel6.setText("Date of Expiry");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, -1, -1));
 
-        jTextField3.setText("jTextField3");
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
+        make.setText("jTextField3");
+        getContentPane().add(make, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
 
         jLabel7.setText("Registration Number");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
@@ -113,35 +115,35 @@ public class vehicleAdd extends javax.swing.JFrame {
         jLabel13.setText("Engine Size");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
-        jTextField4.setText("jTextField4");
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
+        engineSize.setText("jTextField4");
+        getContentPane().add(engineSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, -1, -1));
 
-        jTextField5.setText("jTextField6");
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
+        colour.setText("jTextField6");
+        getContentPane().add(colour, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Add Vehicle");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jTextField6.setText("jTextField5");
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
+        fuelType.setText("jTextField5");
+        getContentPane().add(fuelType, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
 
-        jTextField7.setText("jTextField7");
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
+        MoTRenewalDate.setText("jTextField7");
+        getContentPane().add(MoTRenewalDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
 
-        jTextField8.setText("jTextField8");
-        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
+        lastServiceDate.setText("jTextField8");
+        getContentPane().add(lastServiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
 
-        jTextField9.setText("jTextField9");
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        currentMileage.setText("jTextField9");
+        currentMileage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                currentMileageActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, -1));
+        getContentPane().add(currentMileage, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, -1));
 
-        jTextField10.setText("jTextField10");
-        getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, -1, -1));
+        companyName.setText("jTextField10");
+        getContentPane().add(companyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, -1, -1));
 
         jLabel14.setText("Last Service Date");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
@@ -149,13 +151,18 @@ public class vehicleAdd extends javax.swing.JFrame {
         jLabel15.setText("Current Mileage");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
-        jTextField11.setText("jTextField11");
-        getContentPane().add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, -1, -1));
+        companyAddress.setText("jTextField11");
+        getContentPane().add(companyAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, -1, -1));
 
-        jTextField12.setText("jTextField12");
-        getContentPane().add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
+        warrantyDateOfExpiry.setText("jTextField12");
+        getContentPane().add(warrantyDateOfExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, -1, -1));
 
         submit.setText("Submit");
+        submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitActionPerformed(evt);
+            }
+        });
         getContentPane().add(submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, -1, -1));
 
         returnButton.setText("Return to Vehicle Index");
@@ -166,8 +173,13 @@ public class vehicleAdd extends javax.swing.JFrame {
         });
         getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Van", "Truck" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
+        comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Van", "Truck" }));
+        comboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
         quickAddVButton.setText("Quick Add Format");
         quickAddVButton.addActionListener(new java.awt.event.ActionListener() {
@@ -180,9 +192,9 @@ public class vehicleAdd extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void currentMileageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentMileageActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_currentMileageActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         // TODO add your handling code here:
@@ -196,6 +208,31 @@ public class vehicleAdd extends javax.swing.JFrame {
         qAddV.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_quickAddVButtonActionPerformed
+
+    private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
+        // TODO add your handling code here:
+        vehicle.logic.queries q = new vehicle.logic.queries();
+        q.addVehicle(
+                (String)comboBox.getSelectedItem(), 
+                registrationNo.getText(),
+                model.getText(),
+                make.getText(),
+                engineSize.getText(),
+                fuelType.getText(),
+                colour.getText(),
+                MoTRenewalDate.getText(),
+                lastServiceDate.getText(),
+                currentMileage.getText(),
+                warrantyCheck.isSelected(),
+                companyName.getText(),
+                companyAddress.getText(),
+                warrantyDateOfExpiry.getText()
+        ); 
+    }//GEN-LAST:event_submitActionPerformed
+
+    private void comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,8 +271,14 @@ public class vehicleAdd extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTextField MoTRenewalDate;
+    private javax.swing.JTextField colour;
+    private javax.swing.JComboBox<String> comboBox;
+    private javax.swing.JTextField companyAddress;
+    private javax.swing.JTextField companyName;
+    private javax.swing.JTextField currentMileage;
+    private javax.swing.JTextField engineSize;
+    private javax.swing.JTextField fuelType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -251,20 +294,14 @@ public class vehicleAdd extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField lastServiceDate;
+    private javax.swing.JTextField make;
+    private javax.swing.JTextField model;
     private javax.swing.JButton quickAddVButton;
+    private javax.swing.JTextField registrationNo;
     private javax.swing.JButton returnButton;
     private javax.swing.JButton submit;
+    private javax.swing.JCheckBox warrantyCheck;
+    private javax.swing.JTextField warrantyDateOfExpiry;
     // End of variables declaration//GEN-END:variables
 }

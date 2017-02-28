@@ -25,7 +25,7 @@
     <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="registrationNo">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
@@ -55,7 +55,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+    <Component class="javax.swing.JCheckBox" name="warrantyCheck">
       <Properties>
         <Property name="text" type="java.lang.String" value="Warranty"/>
       </Properties>
@@ -85,7 +85,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="model">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField2"/>
       </Properties>
@@ -105,7 +105,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="make">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField3"/>
       </Properties>
@@ -185,7 +185,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
+    <Component class="javax.swing.JTextField" name="engineSize">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField4"/>
       </Properties>
@@ -195,7 +195,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
+    <Component class="javax.swing.JTextField" name="colour">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField6"/>
       </Properties>
@@ -218,7 +218,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField6">
+    <Component class="javax.swing.JTextField" name="fuelType">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField5"/>
       </Properties>
@@ -228,7 +228,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField7">
+    <Component class="javax.swing.JTextField" name="MoTRenewalDate">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField7"/>
       </Properties>
@@ -238,7 +238,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField8">
+    <Component class="javax.swing.JTextField" name="lastServiceDate">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField8"/>
       </Properties>
@@ -248,12 +248,12 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField9">
+    <Component class="javax.swing.JTextField" name="currentMileage">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField9"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField9ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="currentMileageActionPerformed"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -261,7 +261,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField10">
+    <Component class="javax.swing.JTextField" name="companyName">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField10"/>
       </Properties>
@@ -291,7 +291,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField11">
+    <Component class="javax.swing.JTextField" name="companyAddress">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField11"/>
       </Properties>
@@ -301,7 +301,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField12">
+    <Component class="javax.swing.JTextField" name="warrantyDateOfExpiry">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField12"/>
       </Properties>
@@ -315,6 +315,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Submit"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="510" y="340" width="-1" height="-1"/>
@@ -334,7 +337,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="comboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
@@ -344,6 +347,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboBoxActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
