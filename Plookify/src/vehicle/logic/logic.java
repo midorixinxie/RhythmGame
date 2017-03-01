@@ -9,14 +9,18 @@ import common.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.*;
 
 /**
  *
  * @author MichelleY
  */
-public class vehicle {
+public class logic {
+    
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
     
     public static void addVehicle(String ID, String vehicle, String regNo, String  model, String make, String engineSize, String fuelType, String colour, String MoTRenewalDate, String lastServiceDate, String currentMileage, Boolean warrantyType, String compName, String compAddress, String warrantyExpiry) {
         Database db = new Database();
@@ -146,7 +150,7 @@ public class vehicle {
     
     }
     
-    public static void searchVehicle(JTable table,String option, String input) {
+    public static void searchVehicle(String option, String input) {
         Database db = new Database();
         db.connect();
         
@@ -165,26 +169,11 @@ public class vehicle {
                 System.out.println("Query :" + q);
                 ResultSet vr = statement.executeQuery(q);
 
-		/**System.out.println("CustomerID Model  Registration Number");
+		System.out.println("CustomerID Model  Registration Number");
 		while(vr.next()){
 			System.out.println(vr.getInt("CustomerID")+"	   "+vr.getString("Model")+"	        "+vr.getString("RegistrationNumber"));
-		}**/
-                while(table.getRowCount()>0)
-                {
-                ((DefaultTableModel)table.getModel()).removeRow(0);
-                }
-                int columns = vr.getMetaData().getColumnCount();
-                while(vr.next())
-                {
-                    Object[] row = new Object[columns];
-                    for (int i=1; i<=columns; i++)
-                    {
-                      row[i-1] = vr.getObject(i);
-                    }
-                    ((DefaultTableModel)table.getModel()).insertRow(vr.getRow()-1,row);
-                    
-                }
-               vr.close();
+		}
+                vr.close();
         }
 	catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -193,3 +182,4 @@ public class vehicle {
     
     }
 }
+
