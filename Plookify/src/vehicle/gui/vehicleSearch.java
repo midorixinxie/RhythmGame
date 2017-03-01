@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
 import javax.swing.table.*;
+import java.awt.Component;
 /**
  *
  * @author MichelleY
@@ -23,6 +24,8 @@ public class vehicleSearch extends javax.swing.JFrame {
         this.setSize(600,400);
         this.setLocationRelativeTo(null);
         tableDisplay.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        //tableDisplay.getTableHeader().setReorderingAllowed(false);
+        //tableDisplay.getTableHeader().setResizingAllowed(false);
     }
 
     /**
@@ -136,10 +139,7 @@ public class vehicleSearch extends javax.swing.JFrame {
                 tableDisplay,
                 (String)comboBox.getSelectedItem(),
                 input.getText()
-        );
-        
-         
-                
+        );                             
     }//GEN-LAST:event_submitButtonActionPerformed
 
     /**

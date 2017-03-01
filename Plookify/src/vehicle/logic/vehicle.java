@@ -9,6 +9,9 @@ import common.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
 
@@ -17,6 +20,60 @@ import javax.swing.*;
  * @author MichelleY
  */
 public class vehicle {
+    
+    private String type, regNo, make, model, engineSize, fuelType, colour;
+    private String compName, compAddress;
+    private Boolean warrantyType, requiresDandR, compPays ;
+    private Calendar warrantyExpiry,MoTRenewalDate, lastServiceDate;
+    private final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+  
+    /**public vehicle(String vehicleType,String regNo,String make,String model,String engineSize,String fuelType,String colour){
+       this.type = vehicleType;
+       this.regNo = regNo;
+       this.make = make;
+       this.model = model;
+       this.engineSize = engineSize;
+       this.fuelType = fuelType;
+       this.colour = colour;
+   }**/
+   
+   public String getType(){
+       return type;
+   }
+   
+   public String getRegNo()
+   {
+       return regNo;   
+   }
+   
+   public String getMake()
+     {
+       return make;   
+   }
+   
+   public String getModel()
+   {
+       return model;   
+   }
+   
+   public String getEngineSize()
+   {
+       return engineSize;   
+   }
+   
+   public String getFuelType()
+   {
+       return fuelType;   
+   }
+   
+   public String getColour()
+   {
+       return colour;   
+   }
+   
+    //compName, compAddress;
+    //warrantyType, requiresDandR, compPays ;
+    //warrantyExpiry,MoTRenewalDate, lastServiceDate;
     
     public static void addVehicle(String ID, String vehicle, String regNo, String  model, String make, String engineSize, String fuelType, String colour, String MoTRenewalDate, String lastServiceDate, String currentMileage, Boolean warrantyType, String compName, String compAddress, String warrantyExpiry) {
         Database db = new Database();
