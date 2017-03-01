@@ -59,7 +59,7 @@ public class vehicleAdd extends javax.swing.JFrame {
         jTextField12 = new javax.swing.JTextField();
         submit = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         quickAddVButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -166,7 +166,7 @@ public class vehicleAdd extends javax.swing.JFrame {
         });
         getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Van", "Truck" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Car", "Van", "Truck" }));
         getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
         quickAddVButton.setText("Quick Add Format");
