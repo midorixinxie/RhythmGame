@@ -2,23 +2,10 @@
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="javax.persistence.EntityManager" name="samplePUEntityManager">
-      <Properties>
-        <Property name="persistenceUnit" type="java.lang.String" value="samplePU"/>
-      </Properties>
-    </Component>
-    <Component class="javax.persistence.Query" name="customerQuery">
-      <Properties>
-        <Property name="query" type="java.lang.String" value="SELECT c FROM Customer c"/>
-        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
-          <ComponentRef name="samplePUEntityManager"/>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="java.util.List" name="customerList">
       <Properties>
         <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
-          <ComponentRef name="customerQuery"/>
+          <ComponentRef name="default"/>
         </Property>
       </Properties>
       <AuxValues>
@@ -73,7 +60,7 @@
                   <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
                   <Component id="jLabel7" alignment="0" max="32767" attributes="0"/>
                   <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jLabel9" alignment="0" pref="95" max="32767" attributes="0"/>
+                  <Component id="jLabel9" alignment="0" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
