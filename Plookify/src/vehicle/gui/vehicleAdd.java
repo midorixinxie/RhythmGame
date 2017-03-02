@@ -61,7 +61,11 @@ public class vehicleAdd extends javax.swing.JFrame {
         warrantyDateOfExpiry = new javax.swing.JTextField();
         submit = new javax.swing.JButton();
         returnButton = new javax.swing.JButton();
+<<<<<<< HEAD
+        jComboBox1 = new javax.swing.JComboBox<String>();
+=======
         comboBox = new javax.swing.JComboBox<>();
+>>>>>>> origin/master
         quickAddVButton = new javax.swing.JButton();
         customerID = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
@@ -152,6 +156,10 @@ public class vehicleAdd extends javax.swing.JFrame {
         });
         getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
+<<<<<<< HEAD
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Car", "Van", "Truck" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
+=======
         comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Van", "Truck" }));
         comboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +167,7 @@ public class vehicleAdd extends javax.swing.JFrame {
             }
         });
         getContentPane().add(comboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 110, -1));
+>>>>>>> origin/master
 
         quickAddVButton.setText("Quick Add Format");
         quickAddVButton.addActionListener(new java.awt.event.ActionListener() {
