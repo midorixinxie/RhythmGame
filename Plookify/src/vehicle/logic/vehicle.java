@@ -188,8 +188,30 @@ public class vehicle {
     
     }
     
-    public static void deleteVehicle(String vehicle, String regNo, String  model, String make, String engineSize, String fuelType, String colour, String MoTRenewalDate, String lastServiceDate, String currentMileage, Boolean warrantyType, String compName, String compAddress, String warrantyExpiry) {
+    public static void deleteVehicle(JTable table) {
         
+        int selectedRowIndex = table.getSelectedRow();
+        String regNo = (String) table.getModel().getValueAt(selectedRowIndex, 8);
+        
+        String q = "DELETE FROM vehicleRecords WHERE registrationNumber = '"+regNo+"';";
+        System.out.println("Query :" + q);
+        
+        Database db = new Database();
+        db.connect();
+        
+        try {                
+                Statement statement;
+                
+                statement = db.getConnection().createStatement();
+                statement.setQueryTimeout(10);
+
+                statement.executeQuery(q);
+               
+        }
+	catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+	}
+        db.closeConn();
     
     }
     

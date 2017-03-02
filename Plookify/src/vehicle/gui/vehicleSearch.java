@@ -126,6 +126,8 @@ public class vehicleSearch extends javax.swing.JFrame {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
+        vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
+        newLogic.deleteVehicle(tableDisplay);
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputActionPerformed
