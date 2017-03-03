@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
+import vehicle.gui.vehicleEdit;
 
 /**
  *
@@ -183,8 +184,50 @@ public class vehicle {
         db.closeConn();
     }
         
-    public static void editVehicle(String vehicle, String regNo, String  model, String make, String engineSize, String fuelType, String colour, String MoTRenewalDate, String lastServiceDate, String currentMileage, Boolean warrantyType, String compName, String compAddress, String warrantyExpiry) {
+    public static void editVehicle(JTable table){
+        int selectedRowIndex = table.getSelectedRow();
         
+       String custId = (String) table.getModel().getValueAt(selectedRowIndex, 0);
+       String warrantyType = (String) table.getModel().getValueAt(selectedRowIndex, 1);
+       Boolean requiresDandR = (Boolean) table.getModel().getValueAt(selectedRowIndex, 2);
+       Boolean compPays = (Boolean) table.getModel().getValueAt(selectedRowIndex, 3);
+       String compName = (String) table.getModel().getValueAt(selectedRowIndex, 4);
+       String compAddress = (String) table.getModel().getValueAt(selectedRowIndex, 5);
+       String warrantyExpiry = (String) table.getModel().getValueAt(selectedRowIndex, 6);
+       String vehicleType = (String) table.getModel().getValueAt(selectedRowIndex, 7);
+       String regNo = (String) table.getModel().getValueAt(selectedRowIndex, 8);
+       String model = (String) table.getModel().getValueAt(selectedRowIndex, 9);
+       String make = (String) table.getModel().getValueAt(selectedRowIndex, 10);
+       String engineSize = (String) table.getModel().getValueAt(selectedRowIndex, 11);
+       String fuelType = (String) table.getModel().getValueAt(selectedRowIndex, 12);
+       String colour = (String) table.getModel().getValueAt(selectedRowIndex, 13);
+       String MoTRenewalDate = (String) table.getModel().getValueAt(selectedRowIndex, 14);
+       String lastService = (String) table.getModel().getValueAt(selectedRowIndex, 15);
+       String currentMileage = (String) table.getModel().getValueAt(selectedRowIndex, 16);
+       String listOfPartsUsed = (String) table.getModel().getValueAt(selectedRowIndex, 17);
+        
+       vehicleEdit edV = new vehicleEdit();
+       edV.setText(
+               custId,
+               warrantyType,
+               requiresDandR,
+               compPays,
+               compName,
+               compAddress,
+               warrantyExpiry,
+               vehicleType,
+               regNo,
+               model,
+               make,
+               engineSize,
+               fuelType,
+               colour,
+               MoTRenewalDate,
+               lastService,
+               currentMileage,
+               listOfPartsUsed
+               ); 
+       //edV.setVisible(true);
     
     }
     

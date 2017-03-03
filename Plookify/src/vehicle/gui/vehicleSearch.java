@@ -112,6 +112,11 @@ public class vehicleSearch extends javax.swing.JFrame {
         getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, -1, -1));
 
         editButton.setText("edit selected vehicle");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         pack();
@@ -127,7 +132,7 @@ public class vehicleSearch extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         // TODO add your handling code here:
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
-        newLogic.deleteVehicle(tableDisplay);
+        newLogic.deleteVehicle( tableDisplay );
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputActionPerformed
@@ -143,6 +148,13 @@ public class vehicleSearch extends javax.swing.JFrame {
                 input.getText()
         );                             
     }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+        vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
+        newLogic.editVehicle(tableDisplay);
+        this.setVisible(false);
+    }//GEN-LAST:event_editButtonActionPerformed
 
     /**
      * @param args the command line arguments
