@@ -11,6 +11,7 @@ package diagRep.logic;
  */
 
 import common.Database;
+import diagRep.gui.BookingEdit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -101,5 +102,34 @@ public class BookingQueries
             System.out.println(e.getMessage());
         }        
     }
+    
+    public static void editBooking(JTable table)
+    {
+        int selectedRowIndex = table.getSelectedRow();
+        
+        Integer BookingID = (Integer) table.getModel().getValueAt(selectedRowIndex, 0);
+        LocalDate NextBooking = (LocalDate) table.getModel().getValueAt(selectedRowIndex, 1);
+        LocalDate PastBooking = (LocalDate) table.getModel().getValueAt(selectedRowIndex, 2);
+        LocalDate FutureBooking = (LocalDate) table.getModel().getValueAt(selectedRowIndex, 3);
+        Boolean DiagnosticAndRepair = (Boolean) table.getModel().getValueAt(selectedRowIndex, 4);
+        Boolean ScheduledMaintenance = (Boolean) table.getModel().getValueAt(selectedRowIndex, 5);
+        Integer TotalCostPerBooking = (Integer) table.getModel().getValueAt(selectedRowIndex, 6);
+        Integer CustomerID = (Integer) table.getModel().getValueAt(selectedRowIndex, 7);
+        
+        BookingEdit booked = new BookingEdit();
+        booked.setText(
+                BookingID,
+                NextBooking,
+                PastBooking,
+                FutureBooking,
+                DiagnosticAndRepair,
+                ScheduledMaintenance,
+                TotalCostPerBooking,
+                CustomerID
+                
+        );
+    }  
+    
+    
     
 }
