@@ -257,17 +257,7 @@ public class vehicle {
         db.closeConn();
     
     }
-    
-    public static void searchVehicleByRegNo(String regNo) {
         
-    
-    }
-    
-    public static void searchVehicleByManu(String manufacturer) {
-        
-    
-    }
-    
     public static void searchVehicle(JTable table,String option, String input) {
         Database db = new Database();
         db.connect();
