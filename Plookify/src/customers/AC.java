@@ -286,7 +286,8 @@ public class AC extends javax.swing.JFrame {
                         String warrantystatus = (String) jComboBox2.getSelectedItem();
                         
                         String query = "UPDATE CustomerAccount SET Forename = Forename + '"+forename +"' WHERE Surname = '"+surname +"' AND Address = '"+address +"' AND Postcode = '"+postcode +"' AND Phone = '"+phone +"' AND Email = '"+email +"' AND ID = '"+id +"' AND NumberOfBookings = '"+numbookings +"' AND NumberOfBills = '"+numbills +"' AND CustomerType = '"+customertype +"' AND WarrantyStatus = '"+warrantystatus +"' ;";
-	                    System.out.println("Query :" + query);
+	                    
+                        System.out.println("Query :" + query);
                              Statement st = db.getConnection().createStatement();
                               
                              int val = st.executeUpdate(query);

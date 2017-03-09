@@ -41,6 +41,7 @@ public class vehicleSearch extends javax.swing.JFrame {
             companyName.setEditable(false);
             companyAddress.setEditable(false);
             warrantyDateOfExpiry.setEditable(false);
+            updateButton.setEnabled(false);
        
         
     }
@@ -92,7 +93,7 @@ public class vehicleSearch extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         companyAddress = new javax.swing.JTextField();
         warrantyDateOfExpiry = new javax.swing.JTextField();
-        submit = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
         comboBox1 = new javax.swing.JComboBox<>();
         customerID = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
@@ -232,13 +233,13 @@ public class vehicleSearch extends javax.swing.JFrame {
         getContentPane().add(companyAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 120, -1));
         getContentPane().add(warrantyDateOfExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 120, -1));
 
-        submit.setText("Submit");
-        submit.addActionListener(new java.awt.event.ActionListener() {
+        updateButton.setText("Update");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitActionPerformed(evt);
+                updateButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, -1, -1));
+        getContentPane().add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, -1, -1));
 
         comboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Van", "Truck" }));
         comboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -290,26 +291,32 @@ public class vehicleSearch extends javax.swing.JFrame {
                 input.getText()
         );   
         
-           customerID.setText(),
-            comboBox.setSelectedItem(),
-            registrationNo.setText(),
-            model.setText(),
-            make.setText(),
-            engineSize.setText(),
-            fuelType.setText(),
-            colour.setText(),
-            MoTRenewalDate.setText(),
-            lastServiceDate.setText(),
-            currentMileage.setText(),
-            warrantyCheck.isSelected(),
-            companyName.setText(),
-            companyAddress.setText(),
-            warrantyDateOfExpiry.setText()
+         
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-                customerID.setEditable(true);
-        comboBox.setEditable(true);
+                     vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
+        newLogic.selectAndDisplay(  
+                tableDisplay,
+                customerID,
+                comboBox,
+                registrationNo,
+            model,
+            make,
+            engineSize,
+            fuelType,
+            colour,
+            MoTRenewalDate,
+            lastServiceDate,
+            currentMileage,
+            warrantyDateOfExpiry,
+            companyAddress,
+            companyName,
+            warrantyCheck );
+        
+        
+             customerID.setEditable(true);
+            comboBox.setEditable(true);
             registrationNo.setEditable(true);
             model.setEditable(true);
             make.setEditable(true);
@@ -323,6 +330,7 @@ public class vehicleSearch extends javax.swing.JFrame {
             companyName.setEditable(true);
             companyAddress.setEditable(true);
             warrantyDateOfExpiry.setEditable(true);
+            updateButton.setEnabled(true);
 
     }//GEN-LAST:event_editButtonActionPerformed
 
@@ -330,10 +338,10 @@ public class vehicleSearch extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_currentMileageActionPerformed
 
-    private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // adds data into database
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
-        newLogic.addVehicle(
+        newLogic.editVehicle(
             customerID.getText(),
             (String)comboBox.getSelectedItem(),
             registrationNo.getText(),
@@ -350,7 +358,25 @@ public class vehicleSearch extends javax.swing.JFrame {
             companyAddress.getText(),
             warrantyDateOfExpiry.getText()
         );
-    }//GEN-LAST:event_submitActionPerformed
+        
+                
+        customerID.setEditable(false);
+        comboBox.setEditable(false);
+            registrationNo.setEditable(false);
+            model.setEditable(false);
+            make.setEditable(false);
+            engineSize.setEditable(false);
+            fuelType.setEditable(false);
+            colour.setEditable(false);
+            MoTRenewalDate.setEditable(false);
+            lastServiceDate.setEditable(false);
+            currentMileage.setEditable(false);
+            warrantyCheck.setEnabled(false);
+            companyName.setEditable(false);
+            companyAddress.setEditable(false);
+            warrantyDateOfExpiry.setEditable(false);
+            updateButton.setEnabled(false);
+    }//GEN-LAST:event_updateButtonActionPerformed
 
     private void comboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBox1ActionPerformed
         // TODO add your handling code here:
@@ -435,8 +461,8 @@ public class vehicleSearch extends javax.swing.JFrame {
     private javax.swing.JTextField registrationNo;
     private javax.swing.JButton returnButton;
     private javax.swing.JButton searchButton;
-    private javax.swing.JButton submit;
     private javax.swing.JTable tableDisplay;
+    private javax.swing.JButton updateButton;
     private javax.swing.JCheckBox warrantyCheck;
     private javax.swing.JTextField warrantyDateOfExpiry;
     // End of variables declaration//GEN-END:variables
