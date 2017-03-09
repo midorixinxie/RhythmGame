@@ -26,21 +26,21 @@ public class vehicleSearch extends javax.swing.JFrame {
         tableDisplay.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         
         
-        customerID.setEditable(false);
-        comboBox.setEditable(false);
-            registrationNo.setEditable(false);
-            model.setEditable(false);
-            make.setEditable(false);
-            engineSize.setEditable(false);
-            fuelType.setEditable(false);
-            colour.setEditable(false);
-            MoTRenewalDate.setEditable(false);
-            lastServiceDate.setEditable(false);
-            currentMileage.setEditable(false);
+        customerID.setEnabled(false);
+        comboBox1.setEnabled(false);
+            registrationNo.setEnabled(false);
+            model.setEnabled(false);
+            make.setEnabled(false);
+            engineSize.setEnabled(false);
+            fuelType.setEnabled(false);
+            colour.setEnabled(false);
+            MoTRenewalDate.setEnabled(false);
+            lastServiceDate.setEnabled(false);
+            currentMileage.setEnabled(false);
             warrantyCheck.setEnabled(false);
-            companyName.setEditable(false);
-            companyAddress.setEditable(false);
-            warrantyDateOfExpiry.setEditable(false);
+            companyName.setEnabled(false);
+            companyAddress.setEnabled(false);
+            warrantyDateOfExpiry.setEnabled(false);
             updateButton.setEnabled(false);
        
         
@@ -299,7 +299,7 @@ public class vehicleSearch extends javax.swing.JFrame {
         newLogic.selectAndDisplay(  
                 tableDisplay,
                 customerID,
-                comboBox,
+                comboBox1,
                 registrationNo,
             model,
             make,
@@ -315,21 +315,21 @@ public class vehicleSearch extends javax.swing.JFrame {
             warrantyCheck );
         
         
-             customerID.setEditable(true);
-            comboBox.setEditable(true);
-            registrationNo.setEditable(true);
-            model.setEditable(true);
-            make.setEditable(true);
-            engineSize.setEditable(true);
-            fuelType.setEditable(true);
-            colour.setEditable(true);
-            MoTRenewalDate.setEditable(true);
-            lastServiceDate.setEditable(true);
-            currentMileage.setEditable(true);
+            customerID.setEnabled(true);
+            comboBox1.setEnabled(true);
+            registrationNo.setEnabled(true);
+            model.setEnabled(true);
+            make.setEnabled(true);
+            engineSize.setEnabled(true);
+            fuelType.setEnabled(true);
+            colour.setEnabled(true);
+            MoTRenewalDate.setEnabled(true);
+            lastServiceDate.setEnabled(true);
+            currentMileage.setEnabled(true);
             warrantyCheck.setEnabled(true);
-            companyName.setEditable(true);
-            companyAddress.setEditable(true);
-            warrantyDateOfExpiry.setEditable(true);
+            companyName.setEnabled(true);
+            companyAddress.setEnabled(true);
+            warrantyDateOfExpiry.setEnabled(true);
             updateButton.setEnabled(true);
 
     }//GEN-LAST:event_editButtonActionPerformed
@@ -343,7 +343,7 @@ public class vehicleSearch extends javax.swing.JFrame {
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
         newLogic.editVehicle(
             customerID.getText(),
-            (String)comboBox.getSelectedItem(),
+            (String)comboBox1.getSelectedItem(),
             registrationNo.getText(),
             model.getText(),
             make.getText(),
@@ -360,21 +360,21 @@ public class vehicleSearch extends javax.swing.JFrame {
         );
         
                 
-        customerID.setEditable(false);
-        comboBox.setEditable(false);
-            registrationNo.setEditable(false);
-            model.setEditable(false);
-            make.setEditable(false);
-            engineSize.setEditable(false);
-            fuelType.setEditable(false);
-            colour.setEditable(false);
-            MoTRenewalDate.setEditable(false);
-            lastServiceDate.setEditable(false);
-            currentMileage.setEditable(false);
+            customerID.setEnabled(false);
+            comboBox1.setEnabled(false);
+            registrationNo.setEnabled(false);
+            model.setEnabled(false);
+            make.setEnabled(false);
+            engineSize.setEnabled(false);
+            fuelType.setEnabled(false);
+            colour.setEnabled(false);
+            MoTRenewalDate.setEnabled(false);
+            lastServiceDate.setEnabled(false);
+            currentMileage.setEnabled(false);
             warrantyCheck.setEnabled(false);
-            companyName.setEditable(false);
-            companyAddress.setEditable(false);
-            warrantyDateOfExpiry.setEditable(false);
+            companyName.setEnabled(false);
+            companyAddress.setEnabled(false);
+            warrantyDateOfExpiry.setEnabled(false);
             updateButton.setEnabled(false);
     }//GEN-LAST:event_updateButtonActionPerformed
 

@@ -27,16 +27,7 @@ public class vehicle {
     private Calendar warrantyExpiry,MoTRenewalDate, lastServiceDate;
     private final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
   
-    /**public vehicle(String vehicleType,String regNo,String make,String model,String engineSize,String fuelType,String colour){
-       this.type = vehicleType;
-       this.regNo = regNo;
-       this.make = make;
-       this.model = model;
-       this.engineSize = engineSize;
-       this.fuelType = fuelType;
-       this.colour = colour;
-   }**/
-   
+
    public String getType(){
        return type;
    }
@@ -213,14 +204,12 @@ public class vehicle {
 
                 statement.executeUpdate(query);
 
-                //ResultSet rs = statement.executeQuery("select * from 'test'");
                 ResultSet vr = statement.executeQuery("select * from 'VehicleRecords'");
 
 		System.out.println("CustomerID Model  Registration Number");
 		while(vr.next()){
 			System.out.println(vr.getInt("CustomerID")+"	   "+vr.getString("Model")+"	        "+vr.getString("RegistrationNumber"));
 		}
-                //rs.close();
                 System.out.println("Successfully edited Vehicle");
 
                 vr.close();
