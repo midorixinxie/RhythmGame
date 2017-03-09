@@ -32,7 +32,6 @@ public class vehicleIndex extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         addVButton = new javax.swing.JButton();
         searchVButton = new javax.swing.JButton();
-        editVButton = new javax.swing.JButton();
         quickAddVButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,15 +55,7 @@ public class vehicleIndex extends javax.swing.JFrame {
                 searchVButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(searchVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
-
-        editVButton.setText("Edit Vehicle");
-        editVButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editVButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(editVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, -1));
+        getContentPane().add(searchVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
 
         quickAddVButton.setText("Quick Add Vehicle");
         quickAddVButton.addActionListener(new java.awt.event.ActionListener() {
@@ -88,12 +79,6 @@ public class vehicleIndex extends javax.swing.JFrame {
         searchV.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_searchVButtonActionPerformed
-
-    private void editVButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editVButtonActionPerformed
-        vehicleEdit edV = new vehicleEdit();
-        edV.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_editVButtonActionPerformed
 
     private void quickAddVButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quickAddVButtonActionPerformed
         vehicleQuickAdd qAddV = new vehicleQuickAdd();
@@ -138,7 +123,6 @@ public class vehicleIndex extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addVButton;
-    private javax.swing.JButton editVButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton quickAddVButton;
     private javax.swing.JButton searchVButton;
