@@ -307,10 +307,10 @@ Connection connection = null;
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
+                                .addGap(18, 18, 18)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE))
+                        .addGap(22, 22, 22)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 472, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,14 +390,19 @@ Connection connection = null;
         
         try {
                  
-           String sql = "SELECT * FROM CustomerAccount WHERE Forename=? OR Surname=? ";
-          
-           pst = connection.prepareStatement(sql);
-            pst.setString(2, jTextField1.getText());
-            pst.setString(3, jTextField1.getText());
+           String search = jTextField1.getText();
+            String sql = "select * from CustomerAccount where Forename=? or Surname=?"  ;
+            //String sql = "SELECT * FROM CustomerAccount, VehicleRecords WHERE CustomerAccount.ID = VehicleRecords.CustomerID AND CustomerAccount.Forename=? OR CustomerAccount.Surname=? OR VehicleRecords.RegistrationNumber=?"; 
+            pst = connection.prepareStatement(sql);
+            pst.setString(1, search);
+            pst.setString(2, search);
+          //  pst.setString(8, search);
             rs = pst.executeQuery();
-          
+        
+             
         if(rs.next()) {
+            int add6 = rs.getInt("ID");
+            jTextField8.setText(String.valueOf(add6));
             String add = rs.getString("Forename");
             jTextField2.setText(add);
             String add1 = rs.getString("Surname");
@@ -410,34 +415,25 @@ Connection connection = null;
             jTextField6.setText(add4);
             String add5 = rs.getString("Email");
             jTextField7.setText(add5);
-            
-            int add6 = rs.getInt("ID");
-            jTextField8.setText(String.valueOf(add6));
-            
+            String add10 = rs.getString("CustomerType");
+           jComboBox2.setSelectedItem(add10);
+           int add9 = rs.getInt("NumberOfBookings");
+             jTextField11.setText(String.valueOf(add9));
+             int add8 = rs.getInt("NumberOfBills");
+           jTextField10.setText(String.valueOf(add8));
+         
             int add7 = rs.getInt("TotalCost");
             jTextField9.setText(String.valueOf(add7));
-            int add8 = rs.getInt("NumberOfBills");
-           jTextField10.setText(String.valueOf(add8));
-         int add9 = rs.getInt("NumberOfBookings");
-             jTextField11.setText(String.valueOf(add9));
-            
-            
-           String add10 = rs.getString("CustomerType");
-           jComboBox2.setSelectedItem(add10);
-            
-            
-              
-            String add11 = rs.getString("WarrantyStatus");
+           String add11 = rs.getString("WarrantyStatus");
             jComboBox3.setSelectedItem(add11);
             
             }
-        
-        
-        
+            
+            
             }
-         catch (SQLException e)
+         catch (Exception e)
         {
-            System.out.println( e.getMessage() );
+           JOptionPane.showMessageDialog(null, e);
         }  
         
   

@@ -10,6 +10,7 @@ import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,31 +23,43 @@ import net.proteanit.sql.DbUtils;
  * @author Sakib
  */
 public class CustomerAccount extends javax.swing.JFrame {
-
-    /**
-     * Creates new form CustomerAccount
-     */
+Connection connection = null;
+   PreparedStatement pst = null;
+   ResultSet rs = null;
+    
+    
+    
+    
     public CustomerAccount() {
         initComponents();
+        
+           try {
+            // db parameters
+            
+            String url = "jdbc:sqlite:Master/Documents/Database.db";
+
+            // create a connection to the Database
+            connection = DriverManager.getConnection(url);
+            
+            System.out.println("Connection to SQLite has been established.");
+            
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        
         Update_table();
     }
     
   private void Update_table () {
-      String url = "jdbc:sqlite:Master/Documents/Database.db";
+    
        
-        String sql = "SELECT * FROM CustomerAccount";
-        
-        
+     
         try {
-            Connection connection = DriverManager.getConnection(url);
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-          
-        
-        
-          jTable1.setModel(DbUtils.resultSetToTableModel(rs));
-        
-        
+           String sql = "SELECT * FROM CustomerAccount";
+            pst = connection.prepareStatement(sql);
+            rs = pst.executeQuery();
+         jTable1.setModel(DbUtils.resultSetToTableModel(rs));
         
         }
          catch (SQLException e)
@@ -342,53 +355,46 @@ public class CustomerAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Database db = new Database();
-        db.connect();
-        
-        Statement statement; 
         try {
-			//statement = db.getConnection().createStatement(); //not needed
-			//statement.setQueryTimeout(10); //not needed
-			//statement.executeUpdate("drop table if exists 'test'");
-			
-                        int id = Integer.parseInt(jTextField6.getText());
+            
+            int id = Integer.parseInt(jTextField6.getText());
                        String forename = jTextField2.getText();
                         String surname = jTextField3.getText();;
                         String address = jTextField4.getText();;
                        String postcode = jTextField5.getText();;
                        String phone = jTextField7.getText();;
                        String email = jTextField8.getText();;
+                        String customertype = (String) jComboBox1.getSelectedItem();
                        int numbookings = 0;
                        int numbills = 0;
-                      // int totalcost;
-                        String customertype = (String) jComboBox1.getSelectedItem();
-                        String warrantystatus = (String) jComboBox2.getSelectedItem();
+                       String warrantystatus = (String) jComboBox2.getSelectedItem();
+                      // must implement cost int totalcost;
+                       
                         
-                        String query = "UPDATE CustomerAccount SET Forename = Forename + '"+forename +"' WHERE Surname = '"+surname +"' AND Address = '"+address +"' AND Postcode = '"+postcode +"' AND Phone = '"+phone +"' AND Email = '"+email +"' AND ID = '"+id +"' AND NumberOfBookings = '"+numbookings +"' AND NumberOfBills = '"+numbills +"' AND CustomerType = '"+customertype +"' AND WarrantyStatus = '"+warrantystatus +"' ;";
-	                    System.out.println("Query :" + query);
-                             Statement st = db.getConnection().createStatement();
-                              
-                             int val = st.executeUpdate(query);
-            //System.out.println(val);
-            if (val > 0)
-                JOptionPane.showMessageDialog(this,"Customer added successfully" );
             
-            else if (val == 0)
-            {
-                query = "INSERT INTO CustomerAccount (`Forename`, `Surname`, `Address`, 'Postcode', 'Phone', 'Email', 'ID', 'NumberOfBookings', 'NumberOfBills', 'CustomerType', 'WarrantyStatus') VALUES ('"+forename +"', '"+surname +"', '"+address +"', '"+postcode +"', '"+phone +"', '"+email +"', '"+id +"', '"+numbookings+1 +"', '"+numbills+1 +"', '"+customertype +"', '"+warrantystatus +"');";
-                System.out.println("Query :" + query);
-                st = db.getConnection().createStatement();
-                val = st.executeUpdate(query);
-                if (val > 0)
-                    JOptionPane.showMessageDialog(this,"Customer added successfully" );
+            
+            
+            String sql = "INSERT INTO CustomerAccount ('ID', `Forename`, `Surname`, `Address`, 'Postcode', 'Phone', 'Email', 'CustomerType', 'NumberOfBookings', 'NumberOfBills', 'WarrantyStatus') VALUES ('"+id +"', '"+forename +"', '"+surname +"', '"+address +"', '"+postcode +"', '"+phone +"', '"+email +"', '"+customertype +"', '"+numbookings+1 +"', '"+numbills+1 +"', '"+warrantystatus +"');";
+           pst = connection.prepareStatement(sql);
+           pst.execute();
+            
+      
+            
+            JOptionPane.showMessageDialog(null, "Customer Added");
+        
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        finally{ 
+            try{ 
+                pst.close(); 
+                rs.close(); 
+            }catch(Exception e){ 
             }
-            db.closeConn();
-                            
-                  
-		}
-		catch (SQLException ex) {
-			System.err.println(ex.getMessage());
-		}
+        }
+        
         
         Update_table();
     }//GEN-LAST:event_jButton2ActionPerformed

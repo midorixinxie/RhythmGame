@@ -163,7 +163,7 @@ Connection connection = null;
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
        
-      String sql = "SELECT * FROM LoginUsers WHERE Username=? AND Password=?";
+      String sql = "SELECT * FROM LoginUsers WHERE ID=? AND Password=?";
         
           if(evt.getKeyCode()==KeyEvent.VK_ENTER) 
        
@@ -189,11 +189,20 @@ Connection connection = null;
               catch (Exception e) {
                   JOptionPane.showMessageDialog(null, e);
               }
+          
+          finally{ 
+            try{ 
+                pst.close(); 
+                rs.close(); 
+            }catch(Exception e){ 
+            }
+        }
+          
               
     }//GEN-LAST:event_jPasswordField1KeyPressed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-      String sql = "SELECT * FROM LoginUsers WHERE Username=? AND Password=?";
+      String sql = "SELECT * FROM LoginUsers WHERE ID=? AND Password=?";
         
       //adjust so regular users cannot delete users
       
@@ -221,6 +230,16 @@ Connection connection = null;
               catch (Exception e) {
                   JOptionPane.showMessageDialog(null, e);
               }
+             
+             finally{ 
+            try{ 
+                pst.close(); 
+                rs.close(); 
+            }catch(Exception e){ 
+            }
+        }
+             
+             
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
