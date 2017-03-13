@@ -123,7 +123,7 @@ public class vehicleSearch extends javax.swing.JFrame {
         jLabel8.setText("Search By:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Registration Number", "Manufacturer" }));
+        comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Registration Number", "Manufacturer", "Vehicle Type" }));
         getContentPane().add(comboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
 
         input.addActionListener(new java.awt.event.ActionListener() {
