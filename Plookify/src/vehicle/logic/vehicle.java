@@ -96,14 +96,12 @@ public class vehicle {
 
                 statement.executeUpdate(query);
 
-                //ResultSet rs = statement.executeQuery("select * from 'test'");
                 ResultSet vr = statement.executeQuery("select * from 'VehicleRecords'");
 
 		System.out.println("CustomerID Model  Registration Number");
 		while(vr.next()){
 			System.out.println(vr.getInt("CustomerID")+"	   "+vr.getString("Model")+"	        "+vr.getString("RegistrationNumber"));
 		}
-                //rs.close();
                 System.out.println("Successfully inserted Vehicle");
 
                 vr.close();
@@ -221,7 +219,9 @@ public class vehicle {
     }
     
     public static void deleteVehicle(JTable table) {
-        
+        int p = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete?", "Delete", JOptionPane.YES_NO_CANCEL_OPTION);
+        if(p==0) {
+            
         int selectedRowIndex = table.getSelectedRow();
         String regNo = (String) table.getModel().getValueAt(selectedRowIndex, 8);
         
@@ -246,6 +246,7 @@ public class vehicle {
         db.closeConn();
     
     }
+    }
         
     public static void searchVehicle(
             JTable table,
@@ -254,7 +255,7 @@ public class vehicle {
     ) {
         Database db = new Database();
         db.connect();
-        
+        System.out.println(option);
         if(option.equals("Registration Number"))
             option = "RegistrationNumber";
         else
@@ -266,14 +267,16 @@ public class vehicle {
                 statement = db.getConnection().createStatement();
                 statement.setQueryTimeout(10);
 
-                String q = "select * from VehicleRecords WHERE "+option+" like '"+ input+ "%';";
+                String q = "";
+                if(option.equals("Make"))
+                    q= "select * from VehicleRecords WHERE "+option+" like '"+ input+ "';";
+                else
+                    q= "select * from VehicleRecords WHERE "+option+" like '"+ input+ "%';";
+
                 System.out.println("Query :" + q);
                 ResultSet vr = statement.executeQuery(q);
 
-		/**System.out.println("CustomerID Model  Registration Number");
-		while(vr.next()){
-			System.out.println(vr.getInt("CustomerID")+"	   "+vr.getString("Model")+"	        "+vr.getString("RegistrationNumber"));
-		}**/
+                //prints out data into the Jtable
                 while(table.getRowCount()>0)
                 {
                 ((DefaultTableModel)table.getModel()).removeRow(0);
@@ -296,67 +299,66 @@ public class vehicle {
 	}
         db.closeConn();  
     }
-     public static void selectAndDisplay(
-              JTable table,
-                JTextField customerID,
-            JComboBox<String> vType,
-            JTextField regNum,
-            JTextField mod,
-            JTextField cMake,
-            JTextField size,
-            JTextField fuel,
-            JTextField cColour,
-            JTextField MoTrenewal,
-            JTextField lastServDate,
-            JTextField mileage,
-            JTextField warExpiry,
-            JTextField comAdd,
-            JTextField comName,
-            JCheckBox warType)
-    {
-                
-       int selectedRowIndex = table.getSelectedRow();
-        
-       int custId = (int) table.getModel().getValueAt(selectedRowIndex, 0);
-       String warrantyType = (String) table.getModel().getValueAt(selectedRowIndex, 1);
-       //Boolean requiresDandR = (Boolean) table.getModel().getValueAt(selectedRowIndex, 2);
-       //Boolean compPays = (Boolean) table.getModel().getValueAt(selectedRowIndex, 3);
-       String compName = (String) table.getModel().getValueAt(selectedRowIndex, 4);
-       String compAddress = (String) table.getModel().getValueAt(selectedRowIndex, 5);
-       String warrantyExpiry = (String) table.getModel().getValueAt(selectedRowIndex, 6);
-       String vehicleType = (String) table.getModel().getValueAt(selectedRowIndex, 7);
-       String regNo = (String) table.getModel().getValueAt(selectedRowIndex, 8);
-       String model = (String) table.getModel().getValueAt(selectedRowIndex, 9);
-       String make = (String) table.getModel().getValueAt(selectedRowIndex, 10);
-       String engineSize = (String) table.getModel().getValueAt(selectedRowIndex, 11);
-       String fuelType = (String) table.getModel().getValueAt(selectedRowIndex, 12);
-       String colour = (String) table.getModel().getValueAt(selectedRowIndex, 13);
-       String MoTRenewalDate = (String) table.getModel().getValueAt(selectedRowIndex, 14);
-       String lastService = (String) table.getModel().getValueAt(selectedRowIndex, 15);
-       int currentMileage = (int) table.getModel().getValueAt(selectedRowIndex, 16);
-       //String listOfPartsUsed = (String) table.getModel().getValueAt(selectedRowIndex, 17);
-       
      
-         customerID.setText("" +custId);
-         
-         if (warrantyType.equals(true))
-            warType.setSelected(true);
-         else
-            warType.setSelected(false);
-         
-         comName.setText(compName);
-         comAdd.setText(compAddress);
-         warExpiry.setText(warrantyExpiry);
-         vType.setSelectedItem(vehicleType);
-         regNum.setText(regNo);
-         mod.setText(model);
-         cMake.setText(make);
-         size.setText(engineSize);
-         fuel.setText(fuelType);
-         cColour.setText(colour);
-         MoTrenewal.setText(MoTRenewalDate);
-         lastServDate.setText(lastService);
-         mileage.setText("" +currentMileage);
-    }
+     public static void mouseClick(
+        JTable table,
+        JTextField customerID,
+        JComboBox<String> vType,
+        JTextField regNum,
+        JTextField mod,
+        JTextField cMake,
+        JTextField size,
+        JTextField fuel,
+        JTextField cColour,
+        JTextField MoTrenewal,
+        JTextField lastServDate,
+        JTextField mileage,
+        JTextField warExpiry,
+        JTextField comAdd,  
+        JTextField comName,
+        JCheckBox warType)
+     {
+        try {
+            int selectedRowIndex = table.getSelectedRow();
+            String click = (table.getModel().getValueAt(selectedRowIndex,0).toString());
+
+            Database db = new Database();
+            db.connect();
+            String q = "SELECT * FROM VehicleRecords WHERE CustomerID='"+click+"' ;";
+            Statement statement;
+
+            statement = db.getConnection().createStatement();
+            statement.setQueryTimeout(10);
+
+            System.out.println("Query :" + q);
+            ResultSet vr = statement.executeQuery(q);
+
+            
+            customerID.setText(click);
+            
+            while(vr.next()){
+                warType.setSelected(vr.getBoolean("WarrantyType"));
+                comName.setText(vr.getString("CompanyName"));
+                comAdd.setText(vr.getString("CompanyAddress"));
+                warExpiry.setText(vr.getString("WarrantyExpiry"));
+                vType.setSelectedItem(vr.getString((String)"VehicleType"));
+                regNum.setText(vr.getString("RegistrationNumber"));
+                mod.setText(vr.getString("Model"));
+                cMake.setText(vr.getString("Make"));
+                size.setText(vr.getString("EngineSize"));
+                fuel.setText(vr.getString("FuelType"));
+                cColour.setText(vr.getString("Colour"));
+                MoTrenewal.setText(vr.getString("MoTRenewalDate"));
+                lastServDate.setText(vr.getString("LastServiceDate"));
+                mileage.setText("" +vr.getInt("CurrentMileage"));
+            }
+            vr.close();
+
+            }
+               catch(Exception e) {
+                  JOptionPane.showMessageDialog(null, "error");
+            }
+        
+     }
     
 }

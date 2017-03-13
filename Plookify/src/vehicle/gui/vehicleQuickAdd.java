@@ -130,7 +130,12 @@ public class vehicleQuickAdd extends javax.swing.JFrame {
         });
         getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
-        quickComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        quickComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Honda Civic 1.6Litre Petrol", "Fiat 500 1.2Litre Petrol", "Mini Cooper 2Litre Petrol", "Ford Fiesta 1.5Litre Petrol" }));
+        quickComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quickComboBoxActionPerformed(evt);
+            }
+        });
         getContentPane().add(quickComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 260, -1));
 
         jLabel16.setText("Customer ID");
@@ -201,6 +206,10 @@ public class vehicleQuickAdd extends javax.swing.JFrame {
                 companyAddress.getText(),
                 warrantyDateOfExpiry.getText()
         );     }//GEN-LAST:event_submitActionPerformed
+
+    private void quickComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quickComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quickComboBoxActionPerformed
 
     /**
      * @param args the command line arguments

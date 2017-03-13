@@ -96,7 +96,7 @@ public class vehicleAdd extends javax.swing.JFrame {
         jLabel9.setText("Make");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
-        jLabel10.setText("Fuel Type");
+        jLabel10.setText("Fuel Type (litres)");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         jLabel11.setText("MoT Renewal Date");

@@ -43,8 +43,11 @@ public class vehicleSearch extends javax.swing.JFrame {
             warrantyDateOfExpiry.setEnabled(false);
             updateButton.setEnabled(false);
        
-        
+          
     }
+    
+
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -141,6 +144,11 @@ public class vehicleSearch extends javax.swing.JFrame {
                 "CustomerID", "WarrantyType", "RequiresDiagnosisAndRepair", "WarrantyCompanyPays", "CompanyName", "CompanyAddress", "WarrantyExpiry", "VehicleType", "RegistrationNumber", "Model", "Make", "EngineSize", "FuelType", "Colour", "MoTRenewalDate", "LastServiceDate", "CurrentMileage", "ListOfPartsUsed"
             }
         ));
+        tableDisplay.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableDisplayMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableDisplay);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 590, 450));
@@ -277,12 +285,15 @@ public class vehicleSearch extends javax.swing.JFrame {
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
         newLogic.deleteVehicle( tableDisplay );
     }//GEN-LAST:event_deleteButtonActionPerformed
-
+ 
     private void inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        //clears all fields
+         
+
         // searches for vehicles and displays info
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
         newLogic.searchVehicle(
@@ -295,42 +306,22 @@ public class vehicleSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-                     vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
-        newLogic.selectAndDisplay(  
-                tableDisplay,
-                customerID,
-                comboBox1,
-                registrationNo,
-            model,
-            make,
-            engineSize,
-            fuelType,
-            colour,
-            MoTRenewalDate,
-            lastServiceDate,
-            currentMileage,
-            warrantyDateOfExpiry,
-            companyAddress,
-            companyName,
-            warrantyCheck );
-        
-        
-            customerID.setEnabled(true);
-            comboBox1.setEnabled(true);
-            registrationNo.setEnabled(true);
-            model.setEnabled(true);
-            make.setEnabled(true);
-            engineSize.setEnabled(true);
-            fuelType.setEnabled(true);
-            colour.setEnabled(true);
-            MoTRenewalDate.setEnabled(true);
-            lastServiceDate.setEnabled(true);
-            currentMileage.setEnabled(true);
-            warrantyCheck.setEnabled(true);
-            companyName.setEnabled(true);
-            companyAddress.setEnabled(true);
-            warrantyDateOfExpiry.setEnabled(true);
-            updateButton.setEnabled(true);
+        //enable textfields
+        comboBox1.setEnabled(true);
+        registrationNo.setEnabled(true);
+        model.setEnabled(true);
+        make.setEnabled(true);
+        engineSize.setEnabled(true);
+        fuelType.setEnabled(true);
+        colour.setEnabled(true);
+        MoTRenewalDate.setEnabled(true);
+        lastServiceDate.setEnabled(true);
+        currentMileage.setEnabled(true);
+        warrantyCheck.setEnabled(true);
+        companyName.setEnabled(true);
+        companyAddress.setEnabled(true);
+        warrantyDateOfExpiry.setEnabled(true);
+        updateButton.setEnabled(true);
 
     }//GEN-LAST:event_editButtonActionPerformed
 
@@ -385,6 +376,30 @@ public class vehicleSearch extends javax.swing.JFrame {
     private void customerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_customerIDActionPerformed
+
+    private void tableDisplayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDisplayMouseClicked
+        // TODO add your handling code here:
+         
+        vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
+        newLogic.mouseClick(
+            tableDisplay,
+            customerID,
+            comboBox1,
+            registrationNo,
+            model,
+            make,
+            engineSize,
+            fuelType,
+            colour,
+            MoTRenewalDate,
+            lastServiceDate,
+            currentMileage,
+            warrantyDateOfExpiry,
+            companyAddress,
+            companyName,
+            warrantyCheck 
+        );
+    }//GEN-LAST:event_tableDisplayMouseClicked
 
     /**
      * @param args the command line arguments
