@@ -16,8 +16,7 @@ public class specialistRepairCenter {
 	private int phone;
 	private String emailAddress;
 	private String expectedDeliveryDate;
-	private float costsOfSPC;
-        private float costsOfDiag;
+	private int costsOfSPC;
 	private String expectedReturnDate;
 
 	public specialistRepairCenter(String e) {
@@ -64,12 +63,12 @@ public class specialistRepairCenter {
 
 	public double getCostOfRegularRepairAndDiagonostics() {
 		//get the cost of regular and diagonostics
-	       return costsofDiag;
+	       return cost
 	}
 
 	public double getTotalCost() {
 		// calculate the total bill(regular and special)
-		return costsOfDiag+costsOfSPC;
+		return costsOf
 	}
 
 
