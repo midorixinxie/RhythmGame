@@ -5,12 +5,19 @@
  */
 package specRep.gui;
 
+import common.Database;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
 /**
  *
  * @author pro
  */
 public class booking extends javax.swing.JFrame {
-
+ Connection con=null;
+  ResultSet rs=null;
+  PreparedStatement pst=null;
     /**
      * Creates new form SPCrecord
      */
@@ -64,7 +71,7 @@ public class booking extends javax.swing.JFrame {
 
         jLabel4.setText("Expected Return Date:");
 
-        jLabel5.setText("Cost of Specialist Repair:");
+        jLabel5.setText("Cost of Regular diagnosis:");
 
         jLabel6.setText("Total Cost:");
 
@@ -199,17 +206,37 @@ public class booking extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void okbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okbuttonActionPerformed
-         float costSR,costDia,totalCost;
+        Database db = new Database();
+        db.connect(); 
+     try{   
+        Connection mycon1=db.getConnection();
+        String query=  "INSERT INTO specialistRepairCenter (expectedDeliveryDate,costsOfSpecialistRepair,expectedReturnDate,TotalCost) VALUES ( ?, ?, ?,?)";
+        pst=mycon1.prepareStatement(query);
+        float costSR,costDia,totalCost;
          //parse text to type float
-         costSR = Float.parseFloat(jTextField8.getText());
-         costDia=Float.parseFloat(jTextField9.getText());
-         totalCost=costSR+costDia;
+         costSR = Float.parseFloat(jTextField9.getText());
+         costDia=Float.parseFloat(jTextField8.getText());
+         totalCost=costSR+costDia;       
          jTextField10.setText(String.valueOf(totalCost));
+         
+         pst.setString(1,jTextField6.getText());
+         pst.setString(2,jTextField7.getText());
+         pst.setLong(3,Long.parseLong(jTextField8.getText()));
+         pst.setString(4,jTextField10.getText());
+         
+         pst.executeUpdate();
+         JOptionPane.showMessageDialog(null,"added");
+         pst.close();
+     }
+     catch(Exception e)
+             {JOptionPane.showMessageDialog(null,e);}
          
     }//GEN-LAST:event_okbuttonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        this.dispose();
+        this.hide();
+        specialistRepairGUI home=new specialistRepairGUI();
+        home.setVisible(true);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
