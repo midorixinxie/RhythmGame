@@ -287,7 +287,7 @@ public class SPCrecord extends javax.swing.JFrame {
     }//GEN-LAST:event_loadActionPerformed
 
     private void jTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyReleased
-        // TODO add your handling code here:
+       //jnjjnj
         String que=jTextField5.getText().toLowerCase();
         search(que);
     }//GEN-LAST:event_jTextField5KeyReleased
