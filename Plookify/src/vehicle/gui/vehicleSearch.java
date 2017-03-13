@@ -274,14 +274,14 @@ public class vehicleSearch extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
-        // TODO add your handling code here:
+        //returns to vehicle index
         vehicleIndex indV = new vehicleIndex();
         indV.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_returnButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        // TODO add your handling code here:
+        //deletes selected vehicle information
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
         newLogic.deleteVehicle( tableDisplay );
     }//GEN-LAST:event_deleteButtonActionPerformed
@@ -297,9 +297,9 @@ public class vehicleSearch extends javax.swing.JFrame {
         // searches for vehicles and displays info
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
         newLogic.searchVehicle(
-                tableDisplay,
-                (String)comboBox.getSelectedItem(),
-                input.getText()
+            tableDisplay,
+            (String)comboBox.getSelectedItem(),
+            input.getText()
         );   
         
          
@@ -350,23 +350,25 @@ public class vehicleSearch extends javax.swing.JFrame {
             warrantyDateOfExpiry.getText()
         );
         
-                
-            customerID.setEnabled(false);
-            comboBox1.setEnabled(false);
-            registrationNo.setEnabled(false);
-            model.setEnabled(false);
-            make.setEnabled(false);
-            engineSize.setEnabled(false);
-            fuelType.setEnabled(false);
-            colour.setEnabled(false);
-            MoTRenewalDate.setEnabled(false);
-            lastServiceDate.setEnabled(false);
-            currentMileage.setEnabled(false);
-            warrantyCheck.setEnabled(false);
-            companyName.setEnabled(false);
-            companyAddress.setEnabled(false);
-            warrantyDateOfExpiry.setEnabled(false);
-            updateButton.setEnabled(false);
+        //disables all textfields with data inside, to prevent change of data
+        customerID.setEnabled(false);
+        comboBox1.setEnabled(false);
+        registrationNo.setEnabled(false);
+        model.setEnabled(false);
+        make.setEnabled(false);
+        engineSize.setEnabled(false);
+        fuelType.setEnabled(false);
+        colour.setEnabled(false);
+        MoTRenewalDate.setEnabled(false);
+        lastServiceDate.setEnabled(false);
+        currentMileage.setEnabled(false);
+        warrantyCheck.setEnabled(false);
+        companyName.setEnabled(false);
+        companyAddress.setEnabled(false);
+        warrantyDateOfExpiry.setEnabled(false);
+        updateButton.setEnabled(false);      
+            
+            
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void comboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBox1ActionPerformed
@@ -378,8 +380,7 @@ public class vehicleSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_customerIDActionPerformed
 
     private void tableDisplayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDisplayMouseClicked
-        // TODO add your handling code here:
-         
+        //displays data into textfield from selected row in JTable
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
         newLogic.mouseClick(
             tableDisplay,
