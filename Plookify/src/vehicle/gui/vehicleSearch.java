@@ -26,7 +26,10 @@ public class vehicleSearch extends javax.swing.JFrame {
         tableDisplay.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         
         
-        customerID.setEnabled(false);
+        custID.setEnabled(false);
+        custID1.setEnabled(false);
+        custID2.setEnabled(false);
+        custName.setEnabled(false);
         comboBox1.setEnabled(false);
             registrationNo.setEnabled(false);
             model.setEnabled(false);
@@ -69,8 +72,9 @@ public class vehicleSearch extends javax.swing.JFrame {
         searchButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
         registrationNo = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         warrantyCheck = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
@@ -93,14 +97,33 @@ public class vehicleSearch extends javax.swing.JFrame {
         currentMileage = new javax.swing.JTextField();
         companyName = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         companyAddress = new javax.swing.JTextField();
         warrantyDateOfExpiry = new javax.swing.JTextField();
         updateButton = new javax.swing.JButton();
         comboBox1 = new javax.swing.JComboBox<>();
-        customerID = new javax.swing.JTextField();
+        custID = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        custName = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        custID1 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        custID2 = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -167,7 +190,7 @@ public class vehicleSearch extends javax.swing.JFrame {
                 deleteButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, -1, -1));
+        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 480, -1, -1));
 
         editButton.setText("edit selected vehicle");
         editButton.addActionListener(new java.awt.event.ActionListener() {
@@ -175,71 +198,66 @@ public class vehicleSearch extends javax.swing.JFrame {
                 editButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 470, -1, -1));
-        getContentPane().add(registrationNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 110, -1));
+        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
-        jLabel2.setText("Information:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(registrationNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 110, -1));
 
         jLabel3.setText("Warranty Company:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, -1, -1));
 
         warrantyCheck.setText("Warranty");
-        getContentPane().add(warrantyCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, -1, -1));
+        jPanel1.add(warrantyCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, -1, -1));
 
         jLabel4.setText("Name");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, -1, -1));
 
         jLabel5.setText("Address");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, -1));
-        getContentPane().add(model, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 110, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
+        jPanel1.add(model, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 110, -1));
 
         jLabel6.setText("Date of Expiry");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, -1, -1));
-        getContentPane().add(make, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 110, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, -1));
+        jPanel1.add(make, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 110, -1));
 
         jLabel9.setText("Registration Number");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         jLabel10.setText("Model");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jLabel11.setText("Make");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         jLabel12.setText("Fuel Type");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         jLabel13.setText("MoT Renewal Date");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         jLabel14.setText("Colour");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
         jLabel15.setText("Engine Size");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
-        getContentPane().add(engineSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 110, -1));
-        getContentPane().add(colour, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 110, -1));
-        getContentPane().add(fuelType, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 110, -1));
-        getContentPane().add(MoTRenewalDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 110, -1));
-        getContentPane().add(lastServiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 110, -1));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+        jPanel1.add(engineSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 110, -1));
+        jPanel1.add(colour, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 110, -1));
+        jPanel1.add(fuelType, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 110, -1));
+        jPanel1.add(MoTRenewalDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 110, -1));
+        jPanel1.add(lastServiceDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 110, -1));
 
         currentMileage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 currentMileageActionPerformed(evt);
             }
         });
-        getContentPane().add(currentMileage, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 110, -1));
-        getContentPane().add(companyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 120, -1));
+        jPanel1.add(currentMileage, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 110, -1));
+        jPanel1.add(companyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 120, -1));
 
         jLabel16.setText("Last Service Date");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
-
-        jLabel17.setText("Current Mileage");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
-        getContentPane().add(companyAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 120, -1));
-        getContentPane().add(warrantyDateOfExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 120, -1));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+        jPanel1.add(companyAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 120, -1));
+        jPanel1.add(warrantyDateOfExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 120, -1));
 
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -247,7 +265,7 @@ public class vehicleSearch extends javax.swing.JFrame {
                 updateButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, -1, -1));
+        jPanel1.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, -1, -1));
 
         comboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Van", "Truck" }));
         comboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -255,20 +273,124 @@ public class vehicleSearch extends javax.swing.JFrame {
                 comboBox1ActionPerformed(evt);
             }
         });
-        getContentPane().add(comboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 110, -1));
+        jPanel1.add(comboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 110, -1));
 
-        customerID.addActionListener(new java.awt.event.ActionListener() {
+        custID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                customerIDActionPerformed(evt);
+                custIDActionPerformed(evt);
             }
         });
-        getContentPane().add(customerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 110, -1));
+        jPanel1.add(custID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 110, -1));
 
         jLabel18.setText("Customer ID");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jLabel19.setText("Vehicle Type");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jLabel17.setText("Current Mileage");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel24.setText("Customer Name");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
+
+        custName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                custNameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(custName, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, 110, -1));
+
+        jTabbedPane1.addTab("Information", jPanel1);
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel20.setText("List of Parts Used for Vehicle");
+        jPanel4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        jLabel23.setText("Customer ID");
+        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        custID1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                custID1ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(custID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 110, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 250));
+
+        jTabbedPane1.addTab("List Of Parts", jPanel4);
+
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel21.setText("Future Booking Dates");
+        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
+
+        jLabel22.setText("Past Booking Dates");
+        jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel25.setText("Customer ID");
+        jPanel6.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        custID2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                custID2ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(custID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 110, -1));
+
+        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable2);
+
+        jPanel5.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 250, 250));
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable3);
+
+        jPanel5.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 250, 250));
+
+        jTabbedPane1.addTab("Booking Dates", jPanel5);
+
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 590, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -325,66 +447,14 @@ public class vehicleSearch extends javax.swing.JFrame {
 
     }//GEN-LAST:event_editButtonActionPerformed
 
-    private void currentMileageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentMileageActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_currentMileageActionPerformed
-
-    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        // adds data into database
-        vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
-        newLogic.editVehicle(
-            customerID.getText(),
-            (String)comboBox1.getSelectedItem(),
-            registrationNo.getText(),
-            model.getText(),
-            make.getText(),
-            engineSize.getText(),
-            fuelType.getText(),
-            colour.getText(),
-            MoTRenewalDate.getText(),
-            lastServiceDate.getText(),
-            currentMileage.getText(),
-            warrantyCheck.isSelected(),
-            companyName.getText(),
-            companyAddress.getText(),
-            warrantyDateOfExpiry.getText()
-        );
-        
-        //disables all textfields with data inside, to prevent change of data
-        customerID.setEnabled(false);
-        comboBox1.setEnabled(false);
-        registrationNo.setEnabled(false);
-        model.setEnabled(false);
-        make.setEnabled(false);
-        engineSize.setEnabled(false);
-        fuelType.setEnabled(false);
-        colour.setEnabled(false);
-        MoTRenewalDate.setEnabled(false);
-        lastServiceDate.setEnabled(false);
-        currentMileage.setEnabled(false);
-        warrantyCheck.setEnabled(false);
-        companyName.setEnabled(false);
-        companyAddress.setEnabled(false);
-        warrantyDateOfExpiry.setEnabled(false);
-        updateButton.setEnabled(false);      
-            
-            
-    }//GEN-LAST:event_updateButtonActionPerformed
-
-    private void comboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboBox1ActionPerformed
-
-    private void customerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_customerIDActionPerformed
-
     private void tableDisplayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDisplayMouseClicked
         //displays data into textfield from selected row in JTable
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
-        newLogic.mouseClick(
-            tableDisplay,
-            customerID,
+        newLogic.mouseClick(tableDisplay,
+            custID,
+            custID1,
+            custID2,
+            custName,
             comboBox1,
             registrationNo,
             model,
@@ -401,6 +471,70 @@ public class vehicleSearch extends javax.swing.JFrame {
             warrantyCheck 
         );
     }//GEN-LAST:event_tableDisplayMouseClicked
+
+    private void custIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_custIDActionPerformed
+
+    private void comboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBox1ActionPerformed
+
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        // adds data into database
+        vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
+        newLogic.editVehicle(
+            custID.getText(),
+            (String)comboBox1.getSelectedItem(),
+            registrationNo.getText(),
+            model.getText(),
+            make.getText(),
+            engineSize.getText(),
+            fuelType.getText(),
+            colour.getText(),
+            MoTRenewalDate.getText(),
+            lastServiceDate.getText(),
+            currentMileage.getText(),
+            warrantyCheck.isSelected(),
+            companyName.getText(),
+            companyAddress.getText(),
+            warrantyDateOfExpiry.getText()
+        );
+
+        //disables all textfields with data inside, to prevent change of data
+        comboBox1.setEnabled(false);
+        registrationNo.setEnabled(false);
+        model.setEnabled(false);
+        make.setEnabled(false);
+        engineSize.setEnabled(false);
+        fuelType.setEnabled(false);
+        colour.setEnabled(false);
+        MoTRenewalDate.setEnabled(false);
+        lastServiceDate.setEnabled(false);
+        currentMileage.setEnabled(false);
+        warrantyCheck.setEnabled(false);
+        companyName.setEnabled(false);
+        companyAddress.setEnabled(false);
+        warrantyDateOfExpiry.setEnabled(false);
+        updateButton.setEnabled(false);
+
+    }//GEN-LAST:event_updateButtonActionPerformed
+
+    private void currentMileageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentMileageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_currentMileageActionPerformed
+
+    private void custID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custID1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_custID1ActionPerformed
+
+    private void custID2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custID2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_custID2ActionPerformed
+
+    private void custNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_custNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -445,7 +579,10 @@ public class vehicleSearch extends javax.swing.JFrame {
     private javax.swing.JTextField companyAddress;
     private javax.swing.JTextField companyName;
     private javax.swing.JTextField currentMileage;
-    private javax.swing.JTextField customerID;
+    private javax.swing.JTextField custID;
+    private javax.swing.JTextField custID1;
+    private javax.swing.JTextField custID2;
+    private javax.swing.JTextField custName;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
     private javax.swing.JTextField engineSize;
@@ -462,7 +599,12 @@ public class vehicleSearch extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -470,7 +612,19 @@ public class vehicleSearch extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField lastServiceDate;
     private javax.swing.JTextField make;
     private javax.swing.JTextField model;

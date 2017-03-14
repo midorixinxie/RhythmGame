@@ -92,9 +92,9 @@ public class vehicle {
                 statement.setQueryTimeout(10);
                 
                 //statement.executeUpdate("drop table if exists 'VehicleRecords'");
-                //String create = "create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'VehicleType' TEXT, 'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,'ListOfPartsUsed' TEXT, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID), FOREIGN KEY(ListOfPartsUsed) REFERENCES PartsRecord(ID));";
-                //System.out.println("Query :" + create);
-                //statement.executeUpdate(create);			
+                String create = "create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'VehicleType' TEXT, 'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,'ListOfPartsUsed' TEXT, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID), FOREIGN KEY(ListOfPartsUsed) REFERENCES PartsRecord(ID));";
+                System.out.println("Query :" + create);
+                statement.executeUpdate(create);			
 
                 statement.executeUpdate(query);
 
@@ -148,12 +148,9 @@ public class vehicle {
                 statement = db.getConnection().createStatement();
                 statement.setQueryTimeout(10);
                 
-                //statement.executeUpdate("drop table if exists 'VehicleRecords'");
-                //statement.executeUpdate("create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,'ListOfPartsUsed'TEXT, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID))");			
                 String create = "create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'VehicleType' TEXT, 'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,'ListOfPartsUsed' TEXT, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID), FOREIGN KEY(ListOfPartsUsed) REFERENCES PartsRecord(ID));";
                 System.out.println("Query :" + create);
                 statement.executeUpdate(create);
-                
                 
                 statement.executeUpdate(query);
 
@@ -292,6 +289,7 @@ public class vehicle {
                 ((DefaultTableModel)table.getModel()).insertRow(vr.getRow()-1,row);
             }
             vr.close();
+            
         }
 	catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -302,7 +300,10 @@ public class vehicle {
     //automatically display vehicle data into textfields if user clicks on a row in the list of vehicles
     public static void mouseClick(
         JTable table,
-        JTextField customerID,
+        JTextField custID,
+        JTextField custID1,
+        JTextField custID2,
+        JTextField custName,
         JComboBox<String> vType,
         JTextField regNum,
         JTextField mod,
@@ -334,7 +335,11 @@ public class vehicle {
             ResultSet vr = statement.executeQuery(q);
 
             
-            customerID.setText(click);
+            custID.setText(click);
+            custID1.setText(click);
+            custID2.setText(click);
+            
+          
             
             while(vr.next()){
                 warType.setSelected(vr.getBoolean("WarrantyType"));
@@ -354,6 +359,10 @@ public class vehicle {
             }
             vr.close();
 
+            q = "SELECT * FROM CustomerAccount WHERE CustomerID='"+click+"' ;";
+            ResultSet ca = statement.executeQuery(q);
+            custName.setText(ca.getString("Forename "+"Surname"));
+            ca.close();
             }
                catch(Exception e) {
                   JOptionPane.showMessageDialog(null, "error");
