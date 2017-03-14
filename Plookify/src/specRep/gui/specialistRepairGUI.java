@@ -30,10 +30,8 @@ public class specialistRepairGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        BookingjButton1 = new javax.swing.JButton();
+        CenterjButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -41,32 +39,26 @@ public class specialistRepairGUI extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Specialist Repair Center"));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Booking Information");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        BookingjButton1.setText("Booking Information");
+        BookingjButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                BookingjButton1MouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BookingjButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BookingjButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 161, -1));
+        jPanel1.add(BookingjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 161, -1));
 
-        jButton2.setText("Center Information");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        CenterjButton2.setText("Center Information");
+        CenterjButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                CenterjButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
-
-        jButton3.setText("search SPC");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
-
-        jTextField1.setText("jTextField1");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+        jPanel1.add(CenterjButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         jButton4.setText("Exit");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -109,22 +101,22 @@ public class specialistRepairGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        searchSPCs sr=new searchSPCs();
-        sr.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void BookingjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookingjButton1ActionPerformed
         // TODO add your handling code here:
         booking s=new booking();
         s.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_BookingjButton1ActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void CenterjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CenterjButton2ActionPerformed
+        // TODO add your handling code here:     
+        SPCrecord sr=new SPCrecord();
+        sr.setVisible(true);
+    }//GEN-LAST:event_CenterjButton2ActionPerformed
+
+    private void BookingjButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BookingjButton1MouseClicked
         // TODO add your handling code here:
       
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_BookingjButton1MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         System.exit(0);
@@ -166,13 +158,11 @@ public class specialistRepairGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton BookingjButton1;
+    private javax.swing.JButton CenterjButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
