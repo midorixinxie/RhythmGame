@@ -153,7 +153,7 @@ public class Parts {
             System.err.println(ex.getMessage());
 	}
         //closes database connection
-        db.closeConn();
+        
    }
    
    public void decStockLevel(){
@@ -174,7 +174,7 @@ public class Parts {
             System.err.println(ex.getMessage());
 	}
         //closes database connection
-        db.closeConn();
+       
    }
 }
 
