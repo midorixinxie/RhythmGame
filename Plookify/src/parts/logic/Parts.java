@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 public class Parts {
    private String name, description;
    private int ID, cost;
-   private int stockLevel = 0;
+   private int stockLevel;
    private Calendar installationDate, warrantyExpiry;
    private final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
    
@@ -82,9 +82,14 @@ public class Parts {
         try {                
                 Statement statement;
                 incStockLevel();
-                String query = "INSERT INTO PartsRecord VALUES ('"+genID()+"', '"+name+"', '"+desc+"','"+stockLevel+"','"+cost+"','"+"','"+"','"+"','"+"');";
-                //System.out.println("Query :" + query);
                 statement = db.getConnection().createStatement();
+                
+                ResultSet num = statement.executeQuery("SELECT FIRST(NumberInStock) FROM PartsRecord WHERE Name='"+name+"' ");
+                int numInStock = num.getInt("NumberInStock");
+                stockLevel = numInStock;
+                String query = "INSERT INTO PartsRecord VALUES ('"+genID()+"', '"+name+"', '"+desc+"','"+numInStock+"','"+cost+"','"+"','"+"','"+"','"+"');";
+                //System.out.println("Query :" + query);
+                
                 statement.setQueryTimeout(10);
                 
                 //statement.executeUpdate("drop table if exists 'VehicleRecords'");
@@ -158,7 +163,7 @@ public class Parts {
        try {                
             Statement statement;
                 
-            String query = "UPDATE   PartsRecord SET NumberInStock =NumberInStock - 1 WHERE Name = '"+name+"' ";
+            String query = "UPDATE PartsRecord SET NumberInStock =NumberInStock - 1 WHERE Name = '"+name+"' ";
 
             System.out.println("Query :" + query);
             statement = db.getConnection().createStatement();
