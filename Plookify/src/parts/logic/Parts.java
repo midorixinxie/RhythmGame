@@ -83,7 +83,7 @@ public class Parts {
                 Statement statement;
                 
                 statement = db.getConnection().createStatement();
-                
+                incStockLevel(db);
                 ResultSet num = statement.executeQuery("SELECT NumberInStock FROM PartsRecord WHERE Name='"+name+"' LIMIT 1");
                 int numInStock = num.getInt("NumberInStock");
                 stockLevel = numInStock;
@@ -91,17 +91,14 @@ public class Parts {
                 //System.out.println("Query :" + query);
                 
                 statement.setQueryTimeout(10);
-                incStockLevel(db);
-                //statement.executeUpdate("drop table if exists 'VehicleRecords'");
-                		
-
+       
                 statement.executeUpdate(query);
-
+                
                 ResultSet vr = statement.executeQuery("select * from 'PartsRecord'");
 
-		System.out.println("PartID	    PartName 	          PartDesc");
+		System.out.println("PartID	    PartName 	          PartDesc                              NumberInStock   ");
 		while(vr.next()){
-			System.out.println(vr.getInt("ID")+"	   "+vr.getString("Name")+"	        "+vr.getString("Description"));
+			System.out.println(vr.getInt("ID")+"	   "+vr.getString("Name")+"	        "+vr.getString("Description")+"            "+vr.getInt("NumberInStock"));
 		}
                 
                 JOptionPane.showMessageDialog(null, "Record successfully added!!");
