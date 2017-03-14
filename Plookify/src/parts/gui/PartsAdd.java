@@ -46,7 +46,7 @@ public class PartsAdd extends javax.swing.JFrame {
 
         jLabel4.setText("Cost");
 
-        name.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Spark Plugs", "Prop shaft", "Handbrake cable", "Timing belt", "Fan belt", "Bumpers ", "Tyre rim", "AC evaporator coil", "Brake disk", "Air filter" }));
+        name.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Spark Plug", "Prop shaft", "Handbrake cable", "Timing belt", "Fan belt", "Bumpers", "Tyre rim", "AC evaporator coil", "Brake disk", "Air filter" }));
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameActionPerformed(evt);
@@ -148,6 +148,9 @@ public class PartsAdd extends javax.swing.JFrame {
             desc.getText(),
             Integer.parseInt(cost.getText())     
         );
+        
+        desc.setText(null);
+        
     }//GEN-LAST:event_addActionPerformed
 
     private void costActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costActionPerformed
