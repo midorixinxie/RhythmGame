@@ -68,7 +68,7 @@ public class Parts {
        return stockLevel;
    }
    public void withdrawPart(){
-       decStockLevel();
+       
    }
    public int genID(){    
       return (int) (Math.random()*5000);
@@ -81,17 +81,17 @@ public class Parts {
 
         try {                
                 Statement statement;
-                incStockLevel();
+                
                 statement = db.getConnection().createStatement();
                 
-                ResultSet num = statement.executeQuery("SELECT FIRST(NumberInStock) FROM PartsRecord WHERE Name='"+name+"' ");
+                ResultSet num = statement.executeQuery("SELECT NumberInStock FROM PartsRecord WHERE Name='"+name+"' LIMIT 1");
                 int numInStock = num.getInt("NumberInStock");
                 stockLevel = numInStock;
                 String query = "INSERT INTO PartsRecord VALUES ('"+genID()+"', '"+name+"', '"+desc+"','"+numInStock+"','"+cost+"','"+"','"+"','"+"','"+"');";
                 //System.out.println("Query :" + query);
                 
                 statement.setQueryTimeout(10);
-                
+                incStockLevel(db);
                 //statement.executeUpdate("drop table if exists 'VehicleRecords'");
                 		
 
@@ -103,6 +103,7 @@ public class Parts {
 		while(vr.next()){
 			System.out.println(vr.getInt("ID")+"	   "+vr.getString("Name")+"	        "+vr.getString("Description"));
 		}
+                
                 JOptionPane.showMessageDialog(null, "Record successfully added!!");
 
                 vr.close();
@@ -135,10 +136,7 @@ public class Parts {
        
    }
    
-   public void incStockLevel(){
-       Database db = new Database();
-       db.connect();
-       
+   public void incStockLevel(Database db){  
        try {                
             Statement statement;
                 
@@ -152,14 +150,10 @@ public class Parts {
             catch (SQLException ex) {
             System.err.println(ex.getMessage());
 	}
-        //closes database connection
-        
+   
    }
    
-   public void decStockLevel(){
-       Database db = new Database();
-       db.connect();
-       
+   public void decStockLevel(Database db){    
        try {                
             Statement statement;
                 
@@ -173,8 +167,7 @@ public class Parts {
             catch (SQLException ex) {
             System.err.println(ex.getMessage());
 	}
-        //closes database connection
-       
+        
    }
 }
 
