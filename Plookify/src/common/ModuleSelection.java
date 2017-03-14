@@ -129,7 +129,7 @@ public class ModuleSelection extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         close();
-        customers.CustomerAccount Info = new customers.CustomerAccount();
+        customers.GUI.CustomerAccount Info = new customers.GUI.CustomerAccount();
         Info.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
