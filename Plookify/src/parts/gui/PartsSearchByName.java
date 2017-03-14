@@ -5,6 +5,8 @@
  */
 package parts.gui;
 
+import javax.swing.JTable;
+
 /**
  *
  * @author Moe-MAC
@@ -16,6 +18,20 @@ public class PartsSearchByName extends javax.swing.JFrame {
      */
     public PartsSearchByName() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        tableDisplay1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        
+        partID.setEnabled(false);
+        name.setEnabled(false);
+        desc.setEnabled(false);
+        stklvl.setEnabled(false);
+        cost.setEnabled(false);       
+        instDate.setEnabled(false);
+        wExpDate.setEnabled(false);
+        regNum.setEnabled(false);
+        custID.setEnabled(false);
+        updateButton.setEnabled(false);
+
     }
 
     /**
