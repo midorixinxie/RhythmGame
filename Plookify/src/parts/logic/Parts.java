@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -63,10 +64,14 @@ public class Parts {
    }
    
    public int getStockLvl(){
+       
        return stockLevel;
    }
    public void withdrawPart(){
        
+   }
+   public int genID(){    
+      return (int) (Math.random()*5000);
    }
    
    public void addPart(String name, String desc, int cost){
@@ -77,7 +82,7 @@ public class Parts {
         try {                
                 Statement statement;
                 incStockLevel();
-                String query = "INSERT INTO PartsRecord VALUES ('"+name+"', '"+desc+"','"+stockLevel+"','"+cost+"');";
+                String query = "INSERT INTO PartsRecord VALUES ('"+genID()+"', '"+name+"', '"+desc+"','"+stockLevel+"','"+cost+"','"+"','"+"','"+"','"+"');";
                 //System.out.println("Query :" + query);
                 statement = db.getConnection().createStatement();
                 statement.setQueryTimeout(10);
@@ -89,11 +94,11 @@ public class Parts {
 
                 ResultSet vr = statement.executeQuery("select * from 'PartsRecord'");
 
-		System.out.println("PartID PartName PartDesc");
+		System.out.println("PartID	    PartName 	          PartDesc");
 		while(vr.next()){
 			System.out.println(vr.getInt("ID")+"	   "+vr.getString("Name")+"	        "+vr.getString("Description"));
 		}
-                System.out.println("Successfully inserted Part");
+                JOptionPane.showMessageDialog(null, "Record successfully added!!");
 
                 vr.close();
         }
