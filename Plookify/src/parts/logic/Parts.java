@@ -13,6 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -74,6 +75,9 @@ public class Parts {
       return (int) (Math.random()*5000);
    }
    
+   public void editPart(int partID, String name, String desc, int stklvl, int cost, String instDate, String expDate, String regNum, int custID){
+       
+   }
    public void addPart(String name, String desc, int cost){
         this.name= name;
         Database db = new Database();
@@ -121,7 +125,7 @@ public class Parts {
        
    }
    
-   public void deletePart(Parts part){
+   public void deletePart(JTable table){
        
    }
    
