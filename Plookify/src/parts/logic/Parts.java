@@ -68,14 +68,14 @@ public class Parts {
        return stockLevel;
    }
    public void withdrawPart(){
-       
+       decStockLevel();
    }
    public int genID(){    
       return (int) (Math.random()*5000);
    }
    
    public void addPart(String name, String desc, int cost){
-        
+        this.name= name;
         Database db = new Database();
         db.connect();
 
@@ -131,11 +131,45 @@ public class Parts {
    }
    
    public void incStockLevel(){
-       stockLevel++;
+       Database db = new Database();
+       db.connect();
+       
+       try {                
+            Statement statement;
+                
+            String query = "UPDATE   PartsRecord SET NumberInStock =NumberInStock + 1 WHERE Name = '"+name+"' ";
+
+            System.out.println("Query :" + query);
+            statement = db.getConnection().createStatement();
+            statement.setQueryTimeout(10);
+            statement.executeUpdate(query);
+       }
+            catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+	}
+        //closes database connection
+        db.closeConn();
    }
    
    public void decStockLevel(){
-       stockLevel--;
+       Database db = new Database();
+       db.connect();
+       
+       try {                
+            Statement statement;
+                
+            String query = "UPDATE   PartsRecord SET NumberInStock =NumberInStock - 1 WHERE Name = '"+name+"' ";
+
+            System.out.println("Query :" + query);
+            statement = db.getConnection().createStatement();
+            statement.setQueryTimeout(10);
+            statement.executeUpdate(query);
+       }
+            catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+	}
+        //closes database connection
+        db.closeConn();
    }
 }
 
