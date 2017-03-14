@@ -12,6 +12,11 @@ import java.util.logging.Logger;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.RowSorter;
+import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author Xin
@@ -20,6 +25,7 @@ public class SPCrecord extends javax.swing.JFrame {
   Connection con=null;
   ResultSet rs=null;
   PreparedStatement pst=null;
+  private String sql;
     /**
      * Creates new form SRbooking
      */
@@ -27,6 +33,12 @@ public class SPCrecord extends javax.swing.JFrame {
         initComponents();
         //Database db = new Database();
         //db.connect();
+    }
+    
+    private void search(String que){
+      TableRowSorter<DefaultTableModel> tr=new TableRowSorter<DefaultTableModel> (model);
+      jTable1.setRowSorter(tr);
+      tr.setRowFilter(RowFilter.regexFilter(que));
     }
 
     /**
@@ -51,9 +63,11 @@ public class SPCrecord extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
+        load = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jTextField5 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,6 +110,13 @@ public class SPCrecord extends javax.swing.JFrame {
             }
         });
 
+        load.setText("Load Data");
+        load.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -122,7 +143,10 @@ public class SPCrecord extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(editButton))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(editButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(load)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -149,7 +173,9 @@ public class SPCrecord extends javax.swing.JFrame {
                     .addComponent(addButton)
                     .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editButton)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editButton)
+                    .addComponent(load))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -166,16 +192,20 @@ public class SPCrecord extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "SPCname", "Address", "Phone", "email Address "
             }
         ));
         jScrollPane1.setViewportView(jTable1);
+
+        jTextField5.setText("jTextField5");
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField5KeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,22 +214,29 @@ public class SPCrecord extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(103, 103, 103)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -236,7 +273,8 @@ public class SPCrecord extends javax.swing.JFrame {
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         Database db = new Database();
         db.connect();
-        
+        DefaultTableModel model=(DefaultTableModel)jTable1.getModel();
+        model.addRow(new Object[]{jTextField1.getText(),jTextField2.getText(),Long.parseLong(jTextField3.getText()),jTextField4.getText()});
         
         try{
             Connection mycon=db.getConnection();
@@ -261,8 +299,47 @@ public class SPCrecord extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        this.hide();
+        specialistRepairGUI home=new specialistRepairGUI();
+        home.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void loadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadActionPerformed
+        Database db = new Database();
+        db.connect();
+        try{
+            Connection mycon=db.getConnection();
+            String query="SELECT Name,Address,Phone,emailAddress FROM specialistRepairCenter WHERE Phone=?";  
+            pst=mycon.prepareStatement(query);
+            pst.setString(1,"Value");
+            rs =pst.executeQuery(query);
+            while (rs.next()){
+
+				String name = rs.getString("Name");
+				String address = rs.getString("Address");
+                                String phone= rs.getString("Phone");
+				String emailaddress = rs.getString("emailAddress");
+
+				System.out.println("userid : " + userid);
+				System.out.println("username : " + username);
+                                System.out.println("userid : " + userid);
+				System.out.println("username : " + username);
+
+	}
+            
+        }
+           
+           
+        catch(SQLException e){
+                 JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_loadActionPerformed
+
+    private void jTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyReleased
+        // TODO add your handling code here:
+        String que=jTextField5.getText().toLowerCase();
+        search(que);
+    }//GEN-LAST:event_jTextField5KeyReleased
 
     /**
      * @param args the command line arguments
@@ -317,5 +394,7 @@ public class SPCrecord extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JButton load;
     // End of variables declaration//GEN-END:variables
 }
