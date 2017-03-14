@@ -28,7 +28,7 @@ public class Database {
             // db parameters
             
             //String url = "jdbc:sqlite:Master/Documents/Database.db";
-            String url = "jdbc:sqlite:../SEProject16/Master/Documents/Database.db";
+            String url = "jdbc:sqlite:../SE16/Master/Documents/Database.db";
 
 
             // create a connection to the Database

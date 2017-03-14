@@ -31,15 +31,16 @@ public class vehicleIndex extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         addVButton = new javax.swing.JButton();
-        searchVButton = new javax.swing.JButton();
+        returnHomeButton = new javax.swing.JButton();
         quickAddVButton = new javax.swing.JButton();
+        searchVButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("Vehicle Home");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
 
         addVButton.setText("Add Vehicle");
         addVButton.addActionListener(new java.awt.event.ActionListener() {
@@ -47,15 +48,15 @@ public class vehicleIndex extends javax.swing.JFrame {
                 addVButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(addVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
+        getContentPane().add(addVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 200, 60));
 
-        searchVButton.setText("Search Vehicle");
-        searchVButton.addActionListener(new java.awt.event.ActionListener() {
+        returnHomeButton.setText("Garage Home Page");
+        returnHomeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchVButtonActionPerformed(evt);
+                returnHomeButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(searchVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+        getContentPane().add(returnHomeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 200, 60));
 
         quickAddVButton.setText("Quick Add Vehicle");
         quickAddVButton.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +64,15 @@ public class vehicleIndex extends javax.swing.JFrame {
                 quickAddVButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(quickAddVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
+        getContentPane().add(quickAddVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 200, 60));
+
+        searchVButton1.setText("Search Vehicle");
+        searchVButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchVButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(searchVButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 200, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -74,17 +83,22 @@ public class vehicleIndex extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_addVButtonActionPerformed
 
-    private void searchVButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchVButtonActionPerformed
-        vehicleSearch searchV = new vehicleSearch();
-        searchV.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_searchVButtonActionPerformed
+    private void returnHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnHomeButtonActionPerformed
+       
+    }//GEN-LAST:event_returnHomeButtonActionPerformed
 
     private void quickAddVButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quickAddVButtonActionPerformed
         vehicleQuickAdd qAddV = new vehicleQuickAdd();
         qAddV.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_quickAddVButtonActionPerformed
+
+    private void searchVButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchVButton1ActionPerformed
+        // TODO add your handling code here:
+                vehicleSearch searchV = new vehicleSearch();
+        searchV.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_searchVButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,6 +139,7 @@ public class vehicleIndex extends javax.swing.JFrame {
     private javax.swing.JButton addVButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton quickAddVButton;
-    private javax.swing.JButton searchVButton;
+    private javax.swing.JButton returnHomeButton;
+    private javax.swing.JButton searchVButton1;
     // End of variables declaration//GEN-END:variables
 }
