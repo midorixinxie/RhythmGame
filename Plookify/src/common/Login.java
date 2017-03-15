@@ -94,6 +94,11 @@ Connection connection = null;
             }
         });
 
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
         jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jPasswordField1KeyPressed(evt);
@@ -111,7 +116,7 @@ Connection connection = null;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,9 +168,14 @@ Connection connection = null;
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
        
-      String sql = "SELECT * FROM LoginUsers WHERE ID=? AND Password=? AND UserType=?" ;
-        
+     
+         String sql = "SELECT * FROM LoginUsers WHERE ID=? AND Password=?";
           if(evt.getKeyCode()==KeyEvent.VK_ENTER) 
+       
+        
+      //adjust so regular users cannot delete users
+      
+     
        
              try {
                 pst=connection.prepareStatement(sql);
@@ -177,7 +187,7 @@ Connection connection = null;
                     JOptionPane.showMessageDialog(null, "Login Successful");
                     close();
                     
-                    String user = rs.getString("UserType");
+                            String user = rs.getString("UserType");
                     
                     if(user.equals("Administrator")) {
                           common.ModuleSelection Info = new common.ModuleSelection();
@@ -189,6 +199,7 @@ Connection connection = null;
         common.ModuleSelection2 Info = new common.ModuleSelection2();
         Info.setVisible(true);
                 }
+                             
                 }
                 
                 else {
@@ -200,15 +211,15 @@ Connection connection = null;
               catch (Exception e) {
                   JOptionPane.showMessageDialog(null, e);
               }
-          
-          finally{ 
+             
+             finally{ 
             try{ 
                 pst.close(); 
                 rs.close(); 
             }catch(Exception e){ 
             }
         }
-          
+             
               
     }//GEN-LAST:event_jPasswordField1KeyPressed
 
@@ -264,6 +275,10 @@ Connection connection = null;
              
              
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**
      * @param args the command line arguments
