@@ -231,7 +231,7 @@ public class Parts {
 
             Database db = new Database();
             db.connect();
-            String query = "SELECT * FROM PartsRecord WHERE PartID='"+click+"' ;";
+            String query = "SELECT * FROM PartsRecord WHERE ID='"+click+"' ;";
             Statement statement;
 
             statement = db.getConnection().createStatement();
