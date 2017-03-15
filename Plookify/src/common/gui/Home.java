@@ -32,65 +32,65 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        customerAccountBtn = new javax.swing.JButton();
-        vehicleRecordsBtn = new javax.swing.JButton();
-        diagnosisAndRepairsBtn = new javax.swing.JButton();
-        partsBtn = new javax.swing.JButton();
-        specialistRepairsBtn = new javax.swing.JButton();
+        userManagementbtn = new javax.swing.JButton();
+        customerAccountbtn = new javax.swing.JButton();
+        vehicleRecordsbtn = new javax.swing.JButton();
+        diagnosisAndRepairsbtn = new javax.swing.JButton();
+        partsbtn = new javax.swing.JButton();
+        specialistRepairsbtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Module Selection");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("User Management");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        userManagementbtn.setText("User Management");
+        userManagementbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                userManagementbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 210, 50));
+        getContentPane().add(userManagementbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 210, 50));
 
-        customerAccountBtn.setText("Customer Account");
-        customerAccountBtn.addActionListener(new java.awt.event.ActionListener() {
+        customerAccountbtn.setText("Customer Account");
+        customerAccountbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                customerAccountBtnActionPerformed(evt);
+                customerAccountbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(customerAccountBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 210, 50));
+        getContentPane().add(customerAccountbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 210, 50));
 
-        vehicleRecordsBtn.setText("Vehicle Records");
-        vehicleRecordsBtn.addActionListener(new java.awt.event.ActionListener() {
+        vehicleRecordsbtn.setText("Vehicle Records");
+        vehicleRecordsbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehicleRecordsBtnActionPerformed(evt);
+                vehicleRecordsbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(vehicleRecordsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 210, 50));
+        getContentPane().add(vehicleRecordsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 210, 50));
 
-        diagnosisAndRepairsBtn.setText("Diagnosis & Repair Bookings");
-        diagnosisAndRepairsBtn.addActionListener(new java.awt.event.ActionListener() {
+        diagnosisAndRepairsbtn.setText("Diagnosis & Repair Bookings");
+        diagnosisAndRepairsbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                diagnosisAndRepairsBtnActionPerformed(evt);
+                diagnosisAndRepairsbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(diagnosisAndRepairsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 210, 50));
+        getContentPane().add(diagnosisAndRepairsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 210, 50));
 
-        partsBtn.setText("Parts");
-        partsBtn.addActionListener(new java.awt.event.ActionListener() {
+        partsbtn.setText("Parts");
+        partsbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                partsBtnActionPerformed(evt);
+                partsbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(partsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 210, 50));
+        getContentPane().add(partsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 210, 50));
 
-        specialistRepairsBtn.setText("Specialist Repairs");
-        specialistRepairsBtn.addActionListener(new java.awt.event.ActionListener() {
+        specialistRepairsbtn.setText("Specialist Repairs");
+        specialistRepairsbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                specialistRepairsBtnActionPerformed(evt);
+                specialistRepairsbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(specialistRepairsBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 210, 50));
+        getContentPane().add(specialistRepairsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 210, 50));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setText("Please Select an Option:");
@@ -99,41 +99,41 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void customerAccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerAccountBtnActionPerformed
+    private void customerAccountbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerAccountbtnActionPerformed
         close();
         customers.GUI.CustomerAccount Info = new customers.GUI.CustomerAccount();
         Info.setVisible(true);
-    }//GEN-LAST:event_customerAccountBtnActionPerformed
+    }//GEN-LAST:event_customerAccountbtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void userManagementbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userManagementbtnActionPerformed
         close();
         vehicle.gui.VehicleQuickAdd Info = new vehicle.gui.VehicleQuickAdd();
        Info.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_userManagementbtnActionPerformed
 
-    private void vehicleRecordsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleRecordsBtnActionPerformed
+    private void vehicleRecordsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleRecordsbtnActionPerformed
         VehicleHome vehicleHome = new VehicleHome();
         vehicleHome.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_vehicleRecordsBtnActionPerformed
+    }//GEN-LAST:event_vehicleRecordsbtnActionPerformed
 
-    private void diagnosisAndRepairsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosisAndRepairsBtnActionPerformed
+    private void diagnosisAndRepairsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diagnosisAndRepairsbtnActionPerformed
         diagRep.gui.BookingHomepage bookingHome = new diagRep.gui.BookingHomepage();
         bookingHome.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_diagnosisAndRepairsBtnActionPerformed
+    }//GEN-LAST:event_diagnosisAndRepairsbtnActionPerformed
 
-    private void partsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partsBtnActionPerformed
+    private void partsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partsbtnActionPerformed
         parts.gui.PartsHome partsHome = new parts.gui.PartsHome();
         partsHome.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_partsBtnActionPerformed
+    }//GEN-LAST:event_partsbtnActionPerformed
 
-    private void specialistRepairsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialistRepairsBtnActionPerformed
+    private void specialistRepairsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialistRepairsbtnActionPerformed
         close();
         specRep.gui.specialistRepairGUI Info = new specRep.gui.specialistRepairGUI();
        Info.setVisible(true);
-    }//GEN-LAST:event_specialistRepairsBtnActionPerformed
+    }//GEN-LAST:event_specialistRepairsbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,13 +172,13 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton customerAccountBtn;
-    private javax.swing.JButton diagnosisAndRepairsBtn;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton customerAccountbtn;
+    private javax.swing.JButton diagnosisAndRepairsbtn;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton partsBtn;
-    private javax.swing.JButton specialistRepairsBtn;
-    private javax.swing.JButton vehicleRecordsBtn;
+    private javax.swing.JButton partsbtn;
+    private javax.swing.JButton specialistRepairsbtn;
+    private javax.swing.JButton userManagementbtn;
+    private javax.swing.JButton vehicleRecordsbtn;
     // End of variables declaration//GEN-END:variables
 
     private void close() {

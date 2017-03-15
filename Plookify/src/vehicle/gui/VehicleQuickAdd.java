@@ -42,10 +42,10 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        submit = new javax.swing.JButton();
-        returnButton = new javax.swing.JButton();
+        submitbtn = new javax.swing.JButton();
+        returnbtn = new javax.swing.JButton();
         comboBox = new javax.swing.JComboBox<>();
-        addButton = new javax.swing.JButton();
+        addbtn = new javax.swing.JButton();
         quickComboBox = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         colour = new javax.swing.JTextField();
@@ -103,32 +103,32 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         jLabel15.setText("Current Mileage");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
-        submit.setText("Submit");
-        submit.addActionListener(new java.awt.event.ActionListener() {
+        submitbtn.setText("Submit");
+        submitbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitActionPerformed(evt);
+                submitbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, -1, -1));
+        getContentPane().add(submitbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, -1, -1));
 
-        returnButton.setText("Return to Vehicle Index");
-        returnButton.addActionListener(new java.awt.event.ActionListener() {
+        returnbtn.setText("Return to Vehicle Index");
+        returnbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                returnButtonActionPerformed(evt);
+                returnbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
+        getContentPane().add(returnbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
         comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Van", "Truck" }));
         getContentPane().add(comboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 110, -1));
 
-        addButton.setText("Standard Format");
-        addButton.addActionListener(new java.awt.event.ActionListener() {
+        addbtn.setText("Standard Format");
+        addbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButtonActionPerformed(evt);
+                addbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
+        getContentPane().add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         quickComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Honda Civic 1.6Litre Petrol", "Fiat 500 1.2Litre Petrol", "Mini Cooper 2Litre Petrol", "Ford Fiesta 1.5Litre Petrol" }));
         quickComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -168,18 +168,18 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+    private void returnbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbtnActionPerformed
         // TODO add your handling code here:
         VehicleHome indV = new VehicleHome();
         indV.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_returnButtonActionPerformed
+    }//GEN-LAST:event_returnbtnActionPerformed
 
-    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+    private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
         VehicleAdd addV = new VehicleAdd();
         addV.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_addButtonActionPerformed
+    }//GEN-LAST:event_addbtnActionPerformed
 
     private void currentMileageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentMileageActionPerformed
         // TODO add your handling code here:
@@ -189,7 +189,7 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_customerIDActionPerformed
 
-    private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
+    private void submitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitbtnActionPerformed
         // adds data into database
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
         newLogic.quickAddVehicle(
@@ -205,7 +205,7 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
                 companyName.getText(),
                 companyAddress.getText(),
                 warrantyDateOfExpiry.getText()
-        );     }//GEN-LAST:event_submitActionPerformed
+        );     }//GEN-LAST:event_submitbtnActionPerformed
 
     private void quickComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quickComboBoxActionPerformed
         // TODO add your handling code here:
@@ -255,7 +255,7 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField MoTRenewalDate;
-    private javax.swing.JButton addButton;
+    private javax.swing.JButton addbtn;
     private javax.swing.JTextField colour;
     private javax.swing.JComboBox<String> comboBox;
     private javax.swing.JTextField companyAddress;
@@ -279,8 +279,8 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
     private javax.swing.JTextField lastServiceDate;
     private javax.swing.JComboBox<String> quickComboBox;
     private javax.swing.JTextField registrationNo;
-    private javax.swing.JButton returnButton;
-    private javax.swing.JButton submit;
+    private javax.swing.JButton returnbtn;
+    private javax.swing.JButton submitbtn;
     private javax.swing.JCheckBox warrantyCheck;
     private javax.swing.JTextField warrantyDateOfExpiry;
     // End of variables declaration//GEN-END:variables
