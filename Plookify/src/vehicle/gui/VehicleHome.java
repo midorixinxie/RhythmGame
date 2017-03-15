@@ -44,7 +44,7 @@ public class VehicleHome extends javax.swing.JFrame {
                 HomebtnActionPerformed(evt);
             }
         });
-        getContentPane().add(Homebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 210, 50));
+        getContentPane().add(Homebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 210, 50));
 
         addVbtn.setText("Add Vehicle");
         addVbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -52,7 +52,7 @@ public class VehicleHome extends javax.swing.JFrame {
                 addVbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(addVbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 210, 50));
+        getContentPane().add(addVbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 210, 50));
 
         quickAddVbtn.setText("Quick Add Vehicle");
         quickAddVbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +60,7 @@ public class VehicleHome extends javax.swing.JFrame {
                 quickAddVbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(quickAddVbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 210, 50));
+        getContentPane().add(quickAddVbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 210, 50));
 
         searchVbtn.setText("SearchVehicle");
         searchVbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -68,11 +68,11 @@ public class VehicleHome extends javax.swing.JFrame {
                 searchVbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(searchVbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 210, 50));
+        getContentPane().add(searchVbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 210, 50));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setText("Vehicles Home");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
