@@ -49,9 +49,6 @@ public class vehicleSearch extends javax.swing.JFrame {
           
     }
     
-
- 
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -407,10 +404,6 @@ public class vehicleSearch extends javax.swing.JFrame {
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
         newLogic.deleteVehicle( tableDisplay );
     }//GEN-LAST:event_deleteButtonActionPerformed
- 
-    private void inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_inputActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         //clears all fields
@@ -423,8 +416,6 @@ public class vehicleSearch extends javax.swing.JFrame {
             (String)comboBox.getSelectedItem(),
             input.getText()
         );   
-        
-         
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
@@ -472,14 +463,6 @@ public class vehicleSearch extends javax.swing.JFrame {
         );
     }//GEN-LAST:event_tableDisplayMouseClicked
 
-    private void custIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_custIDActionPerformed
-
-    private void comboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboBox1ActionPerformed
-
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // adds data into database
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
@@ -519,46 +502,6 @@ public class vehicleSearch extends javax.swing.JFrame {
         updateButton.setEnabled(false);
 
     }//GEN-LAST:event_updateButtonActionPerformed
-
-    private void currentMileageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentMileageActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_currentMileageActionPerformed
-
-    private void custID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custID1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_custID1ActionPerformed
-
-    private void custID2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custID2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_custID2ActionPerformed
-
-    private void custNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_custNameActionPerformed
-
-    private void input1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_input1ActionPerformed
-
-    private void searchButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchButton1ActionPerformed
-
-    private void returnButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_returnButton1ActionPerformed
-
-    private void tableDisplay1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDisplay1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tableDisplay1MouseClicked
-
-    private void comboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboBox3ActionPerformed
-
-    private void customerID1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerID1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_customerID1ActionPerformed
 
     /**
      * @param args the command line arguments
