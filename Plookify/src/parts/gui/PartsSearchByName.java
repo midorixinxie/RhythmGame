@@ -135,7 +135,7 @@ public class PartsSearchByName extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tableDisplay1);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 590, 450));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 590, 450));
 
         jLabel25.setText("PartID");
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 164, 60, -1));
@@ -198,15 +198,15 @@ public class PartsSearchByName extends javax.swing.JFrame {
         jLabel21.setText("Search By:");
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        deleteButton.setText("delete selected vehicle");
+        deleteButton.setText("Delete Part");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, -1, -1));
+        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, -1, -1));
 
-        editButton.setText("edit selected vehicle");
+        editButton.setText("Edit Part");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editButtonActionPerformed(evt);
@@ -220,7 +220,7 @@ public class PartsSearchByName extends javax.swing.JFrame {
                 updateButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, -1, -1));
+        getContentPane().add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
 
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
