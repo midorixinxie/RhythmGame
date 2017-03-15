@@ -250,6 +250,8 @@ public class PartsSearchByName extends javax.swing.JFrame {
 
     private void searchButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton1ActionPerformed
         // TODO add your handling code here:
+        parts.logic.Parts newSearch = new parts.logic.Parts();
+        newSearch.searchParts(tableDisplay1, (String)comboBox2.getSelectedItem(), input1.getText() );   
     }//GEN-LAST:event_searchButton1ActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
