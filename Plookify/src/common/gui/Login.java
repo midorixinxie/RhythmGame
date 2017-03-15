@@ -126,46 +126,10 @@ Connection connection = null;
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
        
-      String sql = "SELECT * FROM LoginUsers WHERE ID=? AND Password=?";
-        
+      
+         String sql = "SELECT * FROM LoginUsers WHERE ID=? AND Password=?";
           if(evt.getKeyCode()==KeyEvent.VK_ENTER) 
        
-             try {
-                pst=connection.prepareStatement(sql);
-                pst.setString(1, jTextField1.getText());
-                pst.setString(2, jPasswordField1.getText());
-                
-                rs=pst.executeQuery();
-                if(rs.next()) {
-                    JOptionPane.showMessageDialog(null, "Login Successful");
-                    close();
-        common.gui.Home Info = new common.gui.Home();
-        Info.setVisible(true);
-                }
-                
-                else {
-                    JOptionPane.showMessageDialog(null, "Login failed, please try again");
-                }
-                
-                
-             } 
-              catch (Exception e) {
-                  JOptionPane.showMessageDialog(null, e);
-              }
-          
-          finally{ 
-            try{ 
-                pst.close(); 
-                rs.close(); 
-            }catch(Exception e){ 
-            }
-        }
-          
-              
-    }//GEN-LAST:event_jPasswordField1KeyPressed
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-      String sql = "SELECT * FROM LoginUsers WHERE ID=? AND Password=?";
         
       //adjust so regular users cannot delete users
       
@@ -180,8 +144,20 @@ Connection connection = null;
                 if(rs.next()) {
                     JOptionPane.showMessageDialog(null, "Login Successful");
                     close();
-        common.gui.Home Info = new common.gui.Home();
+                    
+                            String user = rs.getString("UserType");
+                    
+                    if(user.equals("Administrator")) {
+                        Home Info = new Home();
+                        Info.setVisible(true);
+                    }
+                    
+                    else {
+                    
+        Home Info = new Home();
         Info.setVisible(true);
+                }
+                             
                 }
                 
                 else {
@@ -201,6 +177,61 @@ Connection connection = null;
             }catch(Exception e){ 
             }
         }
+             
+               
+            
+    }//GEN-LAST:event_jPasswordField1KeyPressed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+           String sql = "SELECT * FROM LoginUsers WHERE ID=? AND Password=?";
+        
+      //adjust so regular users cannot delete users
+      
+     
+       
+             try {
+                pst=connection.prepareStatement(sql);
+                pst.setString(1, jTextField1.getText());
+                pst.setString(2, jPasswordField1.getText());
+                
+                rs=pst.executeQuery();
+                if(rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Login Successful");
+                    close();
+                    
+                            String user = rs.getString("UserType");
+                    
+                    if(user.equals("Administrator")) {
+                          Home Info = new Home();
+        Info.setVisible(true);
+                    }
+                    
+                    else {
+                    
+       Home Info = new Home();
+        Info.setVisible(true);
+                }
+                             
+                }
+                
+                else {
+                    JOptionPane.showMessageDialog(null, "Login failed, please try again");
+                }
+                
+                
+             } 
+              catch (Exception e) {
+                  JOptionPane.showMessageDialog(null, e);
+              }
+             
+             finally{ 
+            try{ 
+                pst.close(); 
+                rs.close(); 
+            }catch(Exception e){ 
+            }
+        }
+             
              
              
     }//GEN-LAST:event_jButton1MouseClicked
