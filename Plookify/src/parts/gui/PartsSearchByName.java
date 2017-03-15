@@ -140,7 +140,7 @@ public class PartsSearchByName extends javax.swing.JFrame {
         jLabel25.setText("PartID");
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 164, 60, -1));
 
-        returnButton1.setText("Return to Vehicle Index");
+        returnButton1.setText("Back");
         returnButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 returnButton1ActionPerformed(evt);
@@ -241,6 +241,8 @@ public class PartsSearchByName extends javax.swing.JFrame {
 
     private void returnButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButton1ActionPerformed
         // TODO add your handling code here:
+        new PartsHome().setVisible(true);
+        dispose();
     }//GEN-LAST:event_returnButton1ActionPerformed
 
     private void input1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input1ActionPerformed

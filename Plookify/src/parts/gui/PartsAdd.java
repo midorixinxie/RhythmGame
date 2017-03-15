@@ -16,6 +16,8 @@ public class PartsAdd extends javax.swing.JFrame {
      */
     public PartsAdd() {
         initComponents();
+        this.setLocationRelativeTo(null);
+
         cost.setText("20");
     }
 

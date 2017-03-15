@@ -16,6 +16,8 @@ public class PartsHome extends javax.swing.JFrame {
      */
     public PartsHome() {
         initComponents();
+        this.setLocationRelativeTo(null);
+
     }
 
     /**
