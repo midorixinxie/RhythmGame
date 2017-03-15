@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -129,13 +130,50 @@ public class Parts {
        
    }
    
-   public void searchByName(String name){
-       
-   }
-   
-   public void searchByRegNum(String regNumber){
-       
-   }
+   public static void searchParts(JTable table, String option, String input) 
+    {
+        Database db = new Database();
+        db.connect();
+        System.out.println(option);
+                
+        try {                
+            Statement statement;    
+            statement = db.getConnection().createStatement();
+            statement.setQueryTimeout(10);
+            
+            String q = "";
+            if(option.equals("Registration Number")){
+                q= "SELECT * from PartsRecord WHERE RegistrationNumber like '"+ input+ "%';";
+            }
+            else{
+                q= "SELECT PartsRecord.* from PartsRecord INNER JOIN CustomerAccount ON PartsRecord.CustomerID=CustomerAccount.ID WHERE Forename like '"+ input+ "%' OR Surname like '"+ input+ "%';";
+            }
+            System.out.println("Query :" + q);
+            ResultSet vr = statement.executeQuery(q);
+
+            //prints out data into the Jtable
+            while(table.getRowCount()>0)
+            {
+                ((DefaultTableModel)table.getModel()).removeRow(0);
+            }
+            int columns = vr.getMetaData().getColumnCount();
+            while(vr.next())
+            {
+                Object[] row = new Object[columns];
+                for (int i=1; i<=columns; i++)
+                {
+                   row[i-1] = vr.getObject(i);
+                }
+                ((DefaultTableModel)table.getModel()).insertRow(vr.getRow()-1,row);
+            }
+            vr.close();
+            
+        }
+	catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+	}
+        db.closeConn();  
+    }
    
    public void incStockLevel(Database db){  
        try {                
