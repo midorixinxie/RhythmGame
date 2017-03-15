@@ -12,8 +12,11 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -208,6 +211,54 @@ public class Parts {
 	}
         
    }
+   
+   public static void mouseClick(
+        JTable table,
+        JTextField partID,
+        JTextField name,
+        JTextField desc,
+        JTextField stklvl,
+        JTextField cost,
+        JTextField instDate,
+        JTextField wExpDate,
+        JTextField regNum,
+        JTextField custID
+        )
+     {
+        try {
+            int selectedRowIndex = table.getSelectedRow();
+            String click = (table.getModel().getValueAt(selectedRowIndex,0).toString());
+
+            Database db = new Database();
+            db.connect();
+            String query = "SELECT * FROM PartsRecord WHERE PartID='"+click+"' ;";
+            Statement statement;
+
+            statement = db.getConnection().createStatement();
+            statement.setQueryTimeout(10);
+
+            System.out.println("Query :" + query);
+            ResultSet vr = statement.executeQuery(query);
+
+            partID.setText(click);  
+            
+            while(vr.next()){
+                name.setText(vr.getString("Name"));
+                desc.setText(vr.getString("Description"));
+                stklvl.setText(Integer.toString(vr.getInt("NumberInStock")));
+                cost.setText(Integer.toString(vr.getInt("Cost")));
+                instDate.setText(vr.getString("DateOfInstallation"));
+                wExpDate.setText(vr.getString("WarrantyExpiryDate"));
+                regNum.setText(vr.getString("RegistrationNumber"));
+                custID.setText(vr.getString("CustomerID"));
+            }
+            vr.close();
+            }
+               catch(Exception e) {
+                  JOptionPane.showMessageDialog(null, "error");
+            }
+        
+     }
 }
 
 

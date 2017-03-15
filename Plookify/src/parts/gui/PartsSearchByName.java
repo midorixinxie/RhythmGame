@@ -234,6 +234,9 @@ public class PartsSearchByName extends javax.swing.JFrame {
 
     private void tableDisplay1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDisplay1MouseClicked
         // TODO add your handling code here:
+        //displays data into textfield from selected row in JTable
+        parts.logic.Parts newClick = new parts.logic.Parts();
+        newClick.mouseClick(tableDisplay1,partID, name, desc, stklvl,cost,instDate,wExpDate,regNum,custID );
     }//GEN-LAST:event_tableDisplay1MouseClicked
 
     private void returnButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButton1ActionPerformed
