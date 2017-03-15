@@ -397,7 +397,7 @@ public class vehicleSearch extends javax.swing.JFrame {
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
         //returns to vehicle index
-        vehicleIndex indV = new vehicleIndex();
+        VehicleHome indV = new VehicleHome();
         indV.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_returnButtonActionPerformed

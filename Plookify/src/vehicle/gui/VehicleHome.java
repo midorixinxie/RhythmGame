@@ -9,12 +9,12 @@ package vehicle.gui;
  *
  * @author MichelleY
  */
-public class vehicleIndex extends javax.swing.JFrame {
+public class VehicleHome extends javax.swing.JFrame {
 
     /**
      * Creates new form vehicleIndex
      */
-    public vehicleIndex() {
+    public VehicleHome() {
         initComponents();
         this.setSize(600,400);
         this.setLocationRelativeTo(null);
@@ -78,24 +78,26 @@ public class vehicleIndex extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addVButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addVButtonActionPerformed
-        vehicleAdd addV = new vehicleAdd();
+        VehicleAdd addV = new VehicleAdd();
         addV.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_addVButtonActionPerformed
 
     private void returnHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnHomeButtonActionPerformed
-       
+        common.gui.Home homepage = new common.gui.Home();
+        homepage.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_returnHomeButtonActionPerformed
 
     private void quickAddVButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quickAddVButtonActionPerformed
-        vehicleQuickAdd qAddV = new vehicleQuickAdd();
+        VehicleQuickAdd qAddV = new VehicleQuickAdd();
         qAddV.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_quickAddVButtonActionPerformed
 
     private void searchVButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchVButton1ActionPerformed
         // TODO add your handling code here:
-                vehicleSearch searchV = new vehicleSearch();
+        vehicleSearch searchV = new vehicleSearch();
         searchV.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_searchVButton1ActionPerformed
@@ -117,20 +119,23 @@ public class vehicleIndex extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vehicleIndex.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VehicleHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vehicleIndex.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VehicleHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vehicleIndex.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VehicleHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vehicleIndex.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VehicleHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new vehicleIndex().setVisible(true);
+                new VehicleHome().setVisible(true);
             }
         });
     }
