@@ -10,10 +10,10 @@ package vehicle.gui;
  *
  * @author MichelleY
  */
-public class vehicleAdd extends javax.swing.JFrame {
+public class VehicleAdd extends javax.swing.JFrame {
 
     /** Creates new form add */
-    public vehicleAdd() {
+    public VehicleAdd() {
         initComponents();
         this.setSize(600,400);
         this.setLocationRelativeTo(null);
@@ -56,10 +56,10 @@ public class vehicleAdd extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         companyAddress = new javax.swing.JTextField();
         warrantyDateOfExpiry = new javax.swing.JTextField();
-        submit = new javax.swing.JButton();
-        returnButton = new javax.swing.JButton();
+        submitbtn = new javax.swing.JButton();
+        returnbtn = new javax.swing.JButton();
         comboBox = new javax.swing.JComboBox<>();
-        quickAddVButton = new javax.swing.JButton();
+        quickAddVbtn = new javax.swing.JButton();
         customerID = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
 
@@ -133,21 +133,21 @@ public class vehicleAdd extends javax.swing.JFrame {
         getContentPane().add(companyAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 120, -1));
         getContentPane().add(warrantyDateOfExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 120, -1));
 
-        submit.setText("Submit");
-        submit.addActionListener(new java.awt.event.ActionListener() {
+        submitbtn.setText("Submit");
+        submitbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitActionPerformed(evt);
+                submitbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(submit, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, -1, -1));
+        getContentPane().add(submitbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, -1, -1));
 
-        returnButton.setText("Return to Vehicle Index");
-        returnButton.addActionListener(new java.awt.event.ActionListener() {
+        returnbtn.setText("Return to Vehicle Index");
+        returnbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                returnButtonActionPerformed(evt);
+                returnbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(returnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
+        getContentPane().add(returnbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
         comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Van", "Truck" }));
         comboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -157,13 +157,13 @@ public class vehicleAdd extends javax.swing.JFrame {
         });
         getContentPane().add(comboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 110, -1));
 
-        quickAddVButton.setText("Quick Add Format");
-        quickAddVButton.addActionListener(new java.awt.event.ActionListener() {
+        quickAddVbtn.setText("Quick Add Format");
+        quickAddVbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quickAddVButtonActionPerformed(evt);
+                quickAddVbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(quickAddVButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
+        getContentPane().add(quickAddVbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         customerID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,7 +182,7 @@ public class vehicleAdd extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_currentMileageActionPerformed
 
-    private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed
+    private void submitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitbtnActionPerformed
         // adds data into database
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
         newLogic.addVehicle(
@@ -202,24 +202,24 @@ public class vehicleAdd extends javax.swing.JFrame {
             companyAddress.getText(),
             warrantyDateOfExpiry.getText()
         );
-    }//GEN-LAST:event_submitActionPerformed
+    }//GEN-LAST:event_submitbtnActionPerformed
 
-    private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
+    private void returnbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbtnActionPerformed
         // TODO add your handling code here:
-        vehicleIndex indV = new vehicleIndex();
+        VehicleHome indV = new VehicleHome();
         indV.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_returnButtonActionPerformed
+    }//GEN-LAST:event_returnbtnActionPerformed
 
     private void comboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboBoxActionPerformed
 
-    private void quickAddVButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quickAddVButtonActionPerformed
-        vehicleQuickAdd qAddV = new vehicleQuickAdd();
+    private void quickAddVbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quickAddVbtnActionPerformed
+        VehicleQuickAdd qAddV = new VehicleQuickAdd();
         qAddV.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_quickAddVButtonActionPerformed
+    }//GEN-LAST:event_quickAddVbtnActionPerformed
 
     private void customerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerIDActionPerformed
         // TODO add your handling code here:
@@ -242,21 +242,23 @@ public class vehicleAdd extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vehicleAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VehicleAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vehicleAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VehicleAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vehicleAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VehicleAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vehicleAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VehicleAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new vehicleAdd().setVisible(true);
+                new VehicleAdd().setVisible(true);
             }
         });
     }
@@ -290,10 +292,10 @@ public class vehicleAdd extends javax.swing.JFrame {
     private javax.swing.JTextField lastServiceDate;
     private javax.swing.JTextField make;
     private javax.swing.JTextField model;
-    private javax.swing.JButton quickAddVButton;
+    private javax.swing.JButton quickAddVbtn;
     private javax.swing.JTextField registrationNo;
-    private javax.swing.JButton returnButton;
-    private javax.swing.JButton submit;
+    private javax.swing.JButton returnbtn;
+    private javax.swing.JButton submitbtn;
     private javax.swing.JCheckBox warrantyCheck;
     private javax.swing.JTextField warrantyDateOfExpiry;
     // End of variables declaration//GEN-END:variables

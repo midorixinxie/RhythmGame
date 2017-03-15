@@ -7,8 +7,8 @@ package common;
 
 /**
  *
- * @author pro
+ * @author MichelleY
  */
-public class Authentication {
+public class ApplicationLauncher {
     
 }

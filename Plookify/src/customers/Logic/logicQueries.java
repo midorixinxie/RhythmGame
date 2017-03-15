@@ -1,5 +1,5 @@
 
-package customers;
+package customers.Logic;
 
 import common.Database;
 import java.sql.ResultSet;

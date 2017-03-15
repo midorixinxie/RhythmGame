@@ -84,16 +84,22 @@ public class vehicle {
             warrantyExpiry = null;
         }
         try {                
-                Statement statement;
-                
-                String query = "INSERT INTO VehicleRecords VALUES ('"+customerID+"', '"+warrantyType+"','"+requireDandR+"','"+compPays+"','"+compName+"','"+compAddress+"','"+warrantyExpiry+"','"+vehicle+"','"+regNo+"','"+model+"','"+make+"','"+engineSize+"','"+fuelType+"','"+colour+"','"+MoTRenewalDate+"','"+lastServiceDate+"','"+currentMileage+"',1);";
+            Statement statement;
+            statement = db.getConnection().createStatement();
+            statement.setQueryTimeout(10);
+
+            ResultSet ca = statement.executeQuery("SELECT EXISTS(SELECT * FROM CustomerAccount WHERE ID='"+ID+"' );");
+            if (ca.next()) {
+              boolean found = ca.getBoolean(1);
+            if(found){
+                String query = "INSERT INTO VehicleRecords VALUES ('"+customerID+"', '"+warrantyType+"','"+requireDandR+"','"+compPays+"','"+compName+"','"+compAddress+"','"+warrantyExpiry+"','"+vehicle+"','"+regNo+"','"+model+"','"+make+"','"+engineSize+"','"+fuelType+"','"+colour+"','"+MoTRenewalDate+"','"+lastServiceDate+"','"+currentMileage+"',null);";
                 //System.out.println("Query :" + query);
                 statement = db.getConnection().createStatement();
                 statement.setQueryTimeout(10);
                 
                 //statement.executeUpdate("drop table if exists 'VehicleRecords'");
                 String create = "create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'VehicleType' TEXT, 'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,'ListOfPartsUsed' TEXT, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID), FOREIGN KEY(ListOfPartsUsed) REFERENCES PartsRecord(ID));";
-                System.out.println("Query :" + create);
+                //System.out.println("Query :" + create);
                 statement.executeUpdate(create);			
 
                 statement.executeUpdate(query);
@@ -104,14 +110,22 @@ public class vehicle {
 		while(vr.next()){
 			System.out.println(vr.getInt("CustomerID")+"	   "+vr.getString("Model")+"	        "+vr.getString("RegistrationNumber"));
 		}
-                System.out.println("Successfully inserted Vehicle");
-
+                JOptionPane.showMessageDialog(null, "Successfully inserted Vehicle with Registration Number " + regNo + " and Customer ID " + customerID);
+                ca.close();
                 vr.close();
+                    
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Customer ID " + customerID +" does not exist");
+
+            }
+        }
         }
 	catch (SQLException ex) {
             System.err.println(ex.getMessage());
 	}
         db.closeConn();
+        
     }
     
     public static void quickAddVehicle(String ID, String vehicle, String regNo, String  quickFormat, String colour, String MoTRenewalDate, String lastServiceDate, String currentMileage, Boolean warrantyType, String compName, String compAddress, String warrantyExpiry) {
@@ -140,18 +154,25 @@ public class vehicle {
             compAddress = null;
             warrantyExpiry = null;
         }
-        try {                
-                Statement statement;
-                
-                String query = "INSERT INTO VehicleRecords VALUES ('"+customerID+"', '"+warrantyType+"','"+requireDandR+"','"+compPays+"','"+compName+"','"+compAddress+"','"+warrantyExpiry+"','"+vehicle+"','"+regNo+"','"+model+"','"+make+"','"+engineSize+"','"+fuelType+"','"+colour+"','"+MoTRenewalDate+"','"+lastServiceDate+"','"+currentMileage+"',1);";
+       try {                
+            Statement statement;
+            statement = db.getConnection().createStatement();
+            statement.setQueryTimeout(10);
+
+            ResultSet ca = statement.executeQuery("SELECT * FROM CustomerAccount WHERE ID='"+ID+"' ;");
+            if (ca.next()) {
+              boolean found = ca.getBoolean(1);
+            if(found){
+                String query = "INSERT INTO VehicleRecords VALUES ('"+customerID+"', '"+warrantyType+"','"+requireDandR+"','"+compPays+"','"+compName+"','"+compAddress+"','"+warrantyExpiry+"','"+vehicle+"','"+regNo+"','"+model+"','"+make+"','"+engineSize+"','"+fuelType+"','"+colour+"','"+MoTRenewalDate+"','"+lastServiceDate+"','"+currentMileage+"',null);";
                 //System.out.println("Query :" + query);
                 statement = db.getConnection().createStatement();
                 statement.setQueryTimeout(10);
                 
+                //statement.executeUpdate("drop table if exists 'VehicleRecords'");
                 String create = "create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'VehicleType' TEXT, 'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,'ListOfPartsUsed' TEXT, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID), FOREIGN KEY(ListOfPartsUsed) REFERENCES PartsRecord(ID));";
-                System.out.println("Query :" + create);
-                statement.executeUpdate(create);
-                
+                //System.out.println("Query :" + create);
+                statement.executeUpdate(create);			
+
                 statement.executeUpdate(query);
 
                 ResultSet vr = statement.executeQuery("select * from 'VehicleRecords'");
@@ -160,9 +181,16 @@ public class vehicle {
 		while(vr.next()){
 			System.out.println(vr.getInt("CustomerID")+"	   "+vr.getString("Model")+"	        "+vr.getString("RegistrationNumber"));
 		}
-                System.out.println("Successfully inserted Vehicle");
-
+                JOptionPane.showMessageDialog(null, "Successfully inserted Vehicle with Registration Number " + regNo + " and Customer ID " + customerID);
+                ca.close();
                 vr.close();
+                    
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Customer ID " + customerID +" does not exist");
+
+            }
+        }
         }
 	catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -205,7 +233,7 @@ public class vehicle {
             
             ResultSet vr = statement.executeQuery("select * from 'VehicleRecords'");
             JOptionPane.showMessageDialog(null,"Successfully edited Vehicle");
-            //closes resut set
+            //closes result set
             vr.close();
         }
 	catch (SQLException ex) {
@@ -251,7 +279,7 @@ public class vehicle {
     {
         Database db = new Database();
         db.connect();
-        System.out.println(option);
+        
         if(option.equals("Registration Number"))
             option = "RegistrationNumber";
         else if(option.equals("Make"))
@@ -338,8 +366,6 @@ public class vehicle {
             custID.setText(click);
             custID1.setText(click);
             custID2.setText(click);
-            
-          
             
             while(vr.next()){
                 warType.setSelected(vr.getBoolean("WarrantyType"));
