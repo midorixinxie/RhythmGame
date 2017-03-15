@@ -104,7 +104,6 @@ Connection connection = null;
         jTable1 = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu7 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -192,9 +191,6 @@ Connection connection = null;
                 jButton3ActionPerformed(evt);
             }
         });
-
-        jMenu7.setText("User Management");
-        jMenuBar2.add(jMenu7);
 
         jMenu8.setText("Customer Account");
         jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -308,8 +304,7 @@ Connection connection = null;
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(62, 62, 62)))
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(90, 90, 90)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
         );
@@ -460,7 +455,6 @@ Connection connection = null;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;

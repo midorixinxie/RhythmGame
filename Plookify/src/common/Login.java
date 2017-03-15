@@ -163,7 +163,7 @@ Connection connection = null;
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
        
-      String sql = "SELECT * FROM LoginUsers WHERE ID=? AND Password=?";
+      String sql = "SELECT * FROM LoginUsers WHERE ID=? AND Password=? AND UserType=?" ;
         
           if(evt.getKeyCode()==KeyEvent.VK_ENTER) 
        
@@ -176,8 +176,19 @@ Connection connection = null;
                 if(rs.next()) {
                     JOptionPane.showMessageDialog(null, "Login Successful");
                     close();
-        common.ModuleSelection Info = new common.ModuleSelection();
+                    
+                    String user = rs.getString("UserType");
+                    
+                    if(user.equals("Administrator")) {
+                          common.ModuleSelection Info = new common.ModuleSelection();
         Info.setVisible(true);
+                    }
+                    
+                    else {
+                    
+        common.ModuleSelection2 Info = new common.ModuleSelection2();
+        Info.setVisible(true);
+                }
                 }
                 
                 else {
@@ -217,8 +228,20 @@ Connection connection = null;
                 if(rs.next()) {
                     JOptionPane.showMessageDialog(null, "Login Successful");
                     close();
-        common.ModuleSelection Info = new common.ModuleSelection();
+                    
+                            String user = rs.getString("UserType");
+                    
+                    if(user.equals("Administrator")) {
+                          common.ModuleSelection Info = new common.ModuleSelection();
         Info.setVisible(true);
+                    }
+                    
+                    else {
+                    
+        common.ModuleSelection2 Info = new common.ModuleSelection2();
+        Info.setVisible(true);
+                }
+                             
                 }
                 
                 else {
