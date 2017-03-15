@@ -34,7 +34,7 @@ Connection connection = null;
            try {
             // db parameters
             
-            String url = "jdbc:sqlite:Master/Documents/Database.db";
+            String url = "jdbc:sqlite:../SE16/Master/Documents/Database.db";
 
             // create a connection to the Database
             connection = DriverManager.getConnection(url);
@@ -62,7 +62,7 @@ Connection connection = null;
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        signinbtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
 
@@ -81,18 +81,18 @@ Connection connection = null;
         jLabel3.setText("Password:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 71, -1));
 
-        jButton1.setText("Sign In");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        signinbtn.setText("Sign In");
+        signinbtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                signinbtnMouseClicked(evt);
             }
         });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        signinbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                signinbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 141, 41));
+        getContentPane().add(signinbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 141, 41));
 
         jButton2.setText("Clear Fields");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -117,12 +117,53 @@ Connection connection = null;
         jPasswordField1.setText(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-      
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void signinbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signinbtnActionPerformed
+      String sql = "SELECT * FROM LoginUsers WHERE ID=? AND Password=?";
+      //adjust so regular users cannot delete users
+       try {
+                pst=connection.prepareStatement(sql);
+                pst.setString(1, jTextField1.getText());
+                pst.setString(2, jPasswordField1.getText());
+                
+                rs=pst.executeQuery();
+                if(rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Login Successful");
+                    close();
+                    
+                            String user = rs.getString("UserType");
+                    
+                    if(user.equals("Administrator")) {
+                          Home Info = new Home();
+        Info.setVisible(true);
+                    }
+                    
+                    else {
+                    
+       Home Info = new Home();
+        Info.setVisible(true);
+                }
+                             
+                }
+                
+                else {
+                    JOptionPane.showMessageDialog(null, "Login failed, please try again");
+                }
+                
+                
+             } 
+              catch (Exception e) {
+                  JOptionPane.showMessageDialog(null, e);
+              }
+             
+             finally{ 
+            try{ 
+                pst.close(); 
+                rs.close(); 
+            }catch(Exception e){ 
+            }
+        }
+             
+    }//GEN-LAST:event_signinbtnActionPerformed
 
     private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
        
@@ -132,9 +173,7 @@ Connection connection = null;
        
         
       //adjust so regular users cannot delete users
-      
      
-       
              try {
                 pst=connection.prepareStatement(sql);
                 pst.setString(1, jTextField1.getText());
@@ -182,59 +221,9 @@ Connection connection = null;
             
     }//GEN-LAST:event_jPasswordField1KeyPressed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-           String sql = "SELECT * FROM LoginUsers WHERE ID=? AND Password=?";
-        
-      //adjust so regular users cannot delete users
-      
-     
-       
-             try {
-                pst=connection.prepareStatement(sql);
-                pst.setString(1, jTextField1.getText());
-                pst.setString(2, jPasswordField1.getText());
-                
-                rs=pst.executeQuery();
-                if(rs.next()) {
-                    JOptionPane.showMessageDialog(null, "Login Successful");
-                    close();
-                    
-                            String user = rs.getString("UserType");
-                    
-                    if(user.equals("Administrator")) {
-                          Home Info = new Home();
-        Info.setVisible(true);
-                    }
-                    
-                    else {
-                    
-       Home Info = new Home();
-        Info.setVisible(true);
-                }
-                             
-                }
-                
-                else {
-                    JOptionPane.showMessageDialog(null, "Login failed, please try again");
-                }
-                
-                
-             } 
-              catch (Exception e) {
-                  JOptionPane.showMessageDialog(null, e);
-              }
-             
-             finally{ 
-            try{ 
-                pst.close(); 
-                rs.close(); 
-            }catch(Exception e){ 
-            }
-        }
-             
-             
-             
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void signinbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinbtnMouseClicked
+           
+    }//GEN-LAST:event_signinbtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -272,13 +261,13 @@ Connection connection = null;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton signinbtn;
     // End of variables declaration//GEN-END:variables
 
     private void close() {
