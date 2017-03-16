@@ -131,7 +131,7 @@ public class Parts {
    
    public void deletePart(JTable table){
         int selectedRowIndex = table.getSelectedRow();
-        String partID = (String) table.getModel().getValueAt(selectedRowIndex, 0);
+        int partID =   (int) table.getModel().getValueAt(selectedRowIndex, 0);
         String name = (String) table.getModel().getValueAt(selectedRowIndex, 1);
         this.name=name;
         //confirmation that user wants to delete the part
