@@ -18,7 +18,7 @@ public class CustomerHome extends javax.swing.JFrame {
      */
     public CustomerHome() {
         initComponents();
-        this.setSize(600,400);
+        this.setSize(600,560);
         this.setLocationRelativeTo(null);
     }
 

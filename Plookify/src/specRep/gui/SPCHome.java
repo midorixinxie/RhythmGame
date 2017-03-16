@@ -16,7 +16,7 @@ public class SPCHome extends javax.swing.JFrame {
      */
     public SPCHome() {
         initComponents();
-        this.setSize(600,400);
+        this.setSize(600,560);
         this.setLocationRelativeTo(null);
     }
 
