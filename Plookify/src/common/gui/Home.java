@@ -57,7 +57,7 @@ public class Home extends javax.swing.JFrame {
                 userManagementbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(userManagementbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 210, 50));
+        getContentPane().add(userManagementbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 210, 50));
 
         customerAccountbtn.setText("Customer Account");
         customerAccountbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -65,7 +65,7 @@ public class Home extends javax.swing.JFrame {
                 customerAccountbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(customerAccountbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 210, 50));
+        getContentPane().add(customerAccountbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 210, 50));
 
         vehicleRecordsbtn.setText("Vehicle Records");
         vehicleRecordsbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +73,7 @@ public class Home extends javax.swing.JFrame {
                 vehicleRecordsbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(vehicleRecordsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 210, 50));
+        getContentPane().add(vehicleRecordsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 210, 50));
 
         diagnosisAndRepairsbtn.setText("Diagnosis & Repair Bookings");
         diagnosisAndRepairsbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -81,7 +81,7 @@ public class Home extends javax.swing.JFrame {
                 diagnosisAndRepairsbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(diagnosisAndRepairsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 210, 50));
+        getContentPane().add(diagnosisAndRepairsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 210, 50));
 
         partsbtn.setText("Parts");
         partsbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +89,7 @@ public class Home extends javax.swing.JFrame {
                 partsbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(partsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 210, 50));
+        getContentPane().add(partsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 210, 50));
 
         specialistRepairsbtn.setText("Specialist Repairs");
         specialistRepairsbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -97,11 +97,11 @@ public class Home extends javax.swing.JFrame {
                 specialistRepairsbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(specialistRepairsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 210, 50));
+        getContentPane().add(specialistRepairsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 210, 50));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setText("Please Select an Option:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, -1));
 
         homeMenu.setText("Homepage");
         homeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
