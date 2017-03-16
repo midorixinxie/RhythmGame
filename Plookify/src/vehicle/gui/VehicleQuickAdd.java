@@ -58,6 +58,13 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         companyName = new javax.swing.JTextField();
         companyAddress = new javax.swing.JTextField();
         warrantyDateOfExpiry = new javax.swing.JTextField();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        homemenu = new javax.swing.JMenu();
+        custMenu = new javax.swing.JMenu();
+        vehicleMenu = new javax.swing.JMenu();
+        bookingMenu = new javax.swing.JMenu();
+        partsMenu = new javax.swing.JMenu();
+        spcMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -165,6 +172,51 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         getContentPane().add(companyAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 120, -1));
         getContentPane().add(warrantyDateOfExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 120, -1));
 
+        homemenu.setText("HomePage");
+        homemenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homemenuActionPerformed(evt);
+            }
+        });
+        jMenuBar2.add(homemenu);
+
+        custMenu.setText("Customer Account");
+        custMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                custMenuMouseClicked(evt);
+            }
+        });
+        custMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                custMenuActionPerformed(evt);
+            }
+        });
+        jMenuBar2.add(custMenu);
+
+        vehicleMenu.setText("Vehicle Records");
+        jMenuBar2.add(vehicleMenu);
+
+        bookingMenu.setText("Diagnosis & Repair Bookings");
+        bookingMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bookingMenuActionPerformed(evt);
+            }
+        });
+        jMenuBar2.add(bookingMenu);
+
+        partsMenu.setText("Parts");
+        partsMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                partsMenuActionPerformed(evt);
+            }
+        });
+        jMenuBar2.add(partsMenu);
+
+        spcMenu.setText("Specialist Repairs");
+        jMenuBar2.add(spcMenu);
+
+        setJMenuBar(jMenuBar2);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -211,6 +263,34 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_quickComboBoxActionPerformed
 
+    private void custMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_custMenuMouseClicked
+        customers.GUI.CustomerAccount cust = new customers.GUI.CustomerAccount();
+        cust.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_custMenuMouseClicked
+
+    private void custMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custMenuActionPerformed
+        
+    }//GEN-LAST:event_custMenuActionPerformed
+
+    private void homemenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homemenuActionPerformed
+        common.gui.Home homepage = new common.gui.Home();
+        homepage.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_homemenuActionPerformed
+
+    private void partsMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_partsMenuActionPerformed
+        parts.gui.PartsHome partsHome = new parts.gui.PartsHome();
+        partsHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_partsMenuActionPerformed
+
+    private void bookingMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingMenuActionPerformed
+        diagRep.gui.BookingHomepage bookingHome = new diagRep.gui.BookingHomepage();
+        bookingHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bookingMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -256,12 +336,15 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField MoTRenewalDate;
     private javax.swing.JButton addbtn;
+    private javax.swing.JMenu bookingMenu;
     private javax.swing.JTextField colour;
     private javax.swing.JComboBox<String> comboBox;
     private javax.swing.JTextField companyAddress;
     private javax.swing.JTextField companyName;
     private javax.swing.JTextField currentMileage;
+    private javax.swing.JMenu custMenu;
     private javax.swing.JTextField customerID;
+    private javax.swing.JMenu homemenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -276,11 +359,15 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JTextField lastServiceDate;
+    private javax.swing.JMenu partsMenu;
     private javax.swing.JComboBox<String> quickComboBox;
     private javax.swing.JTextField registrationNo;
     private javax.swing.JButton returnbtn;
+    private javax.swing.JMenu spcMenu;
     private javax.swing.JButton submitbtn;
+    private javax.swing.JMenu vehicleMenu;
     private javax.swing.JCheckBox warrantyCheck;
     private javax.swing.JTextField warrantyDateOfExpiry;
     // End of variables declaration//GEN-END:variables
