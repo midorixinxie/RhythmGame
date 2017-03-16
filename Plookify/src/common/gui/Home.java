@@ -168,9 +168,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_customerAccountbtnActionPerformed
 
     private void userManagementbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userManagementbtnActionPerformed
-        close();
-        vehicle.gui.VehicleQuickAdd Info = new vehicle.gui.VehicleQuickAdd();
-       Info.setVisible(true);
+        Users userPage = new Users();
+        userPage.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_userManagementbtnActionPerformed
 
     private void vehicleRecordsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleRecordsbtnActionPerformed

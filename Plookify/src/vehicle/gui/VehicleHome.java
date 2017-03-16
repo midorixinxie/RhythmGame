@@ -51,7 +51,7 @@ public class VehicleHome extends javax.swing.JFrame {
                 HomebtnActionPerformed(evt);
             }
         });
-        getContentPane().add(Homebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 210, 50));
+        getContentPane().add(Homebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 210, 50));
 
         addVbtn.setText("Add Vehicle");
         addVbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +59,7 @@ public class VehicleHome extends javax.swing.JFrame {
                 addVbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(addVbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 210, 50));
+        getContentPane().add(addVbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 210, 50));
 
         quickAddVbtn.setText("Quick Add Vehicle");
         quickAddVbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +67,7 @@ public class VehicleHome extends javax.swing.JFrame {
                 quickAddVbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(quickAddVbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 210, 50));
+        getContentPane().add(quickAddVbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 210, 50));
 
         searchVbtn.setText("Search Vehicle");
         searchVbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -75,11 +75,11 @@ public class VehicleHome extends javax.swing.JFrame {
                 searchVbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(searchVbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 210, 50));
+        getContentPane().add(searchVbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 210, 50));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setText("Vehicles Home");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, -1));
 
         homeMenu.setText("Homepage");
         homeMenu.addMouseListener(new java.awt.event.MouseAdapter() {

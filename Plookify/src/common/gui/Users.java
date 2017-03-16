@@ -85,12 +85,13 @@ Connection connection = null;
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        jMenuBar = new javax.swing.JMenuBar();
+        homeMenu = new javax.swing.JMenu();
+        custMenu = new javax.swing.JMenu();
+        vehicleMenu = new javax.swing.JMenu();
+        bookingMenu = new javax.swing.JMenu();
+        partsMenu = new javax.swing.JMenu();
+        SPCMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -181,45 +182,63 @@ Connection connection = null;
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(447, 332, 110, -1));
 
-        jMenu8.setText("Customer Account");
-        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+        homeMenu.setText("Homepage");
+        homeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu8MouseClicked(evt);
+                homeMenuMouseClicked(evt);
             }
         });
-        jMenu8.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBar.add(homeMenu);
+
+        custMenu.setText("Customer Account");
+        custMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                custMenuMouseClicked(evt);
+            }
+        });
+        custMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu8ActionPerformed(evt);
+                custMenuActionPerformed(evt);
             }
         });
-        jMenuBar2.add(jMenu8);
+        jMenuBar.add(custMenu);
 
-        jMenu1.setText("Vehicle Records");
-        jMenuBar2.add(jMenu1);
+        vehicleMenu.setText("Vehicle Records");
+        vehicleMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vehicleMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(vehicleMenu);
 
-        jMenu2.setText("Diagnosis & Repair Bookings");
-        jMenuBar2.add(jMenu2);
+        bookingMenu.setText("Diagnosis & Repair Bookings");
+        bookingMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bookingMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(bookingMenu);
 
-        jMenu3.setText("Parts");
-        jMenuBar2.add(jMenu3);
+        partsMenu.setText("Parts");
+        partsMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                partsMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(partsMenu);
 
-        jMenu4.setText("Specialist Repairs");
-        jMenuBar2.add(jMenu4);
+        SPCMenu.setText("Specialist Repairs");
+        SPCMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SPCMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(SPCMenu);
 
-        setJMenuBar(jMenuBar2);
+        setJMenuBar(jMenuBar);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
-        close();
-        customers.GUI.CustomerAccount Info = new customers.GUI.CustomerAccount();
-        Info.setVisible(true);
-    }//GEN-LAST:event_jMenu8MouseClicked
-
-    private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
-
-    }//GEN-LAST:event_jMenu8ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
@@ -386,6 +405,46 @@ catch (Exception e) {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private void homeMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMenuMouseClicked
+        common.gui.Home homepage = new common.gui.Home();
+        homepage.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_homeMenuMouseClicked
+
+    private void custMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_custMenuMouseClicked
+        customers.GUI.CustomerHome custHome = new customers.GUI.CustomerHome();
+        custHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_custMenuMouseClicked
+
+    private void custMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custMenuActionPerformed
+
+    }//GEN-LAST:event_custMenuActionPerformed
+
+    private void vehicleMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vehicleMenuMouseClicked
+        vehicle.gui.VehicleHome indV = new vehicle.gui.VehicleHome();
+        indV.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_vehicleMenuMouseClicked
+
+    private void bookingMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookingMenuMouseClicked
+        diagRep.gui.BookingHomepage bookingHome = new diagRep.gui.BookingHomepage();
+        bookingHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bookingMenuMouseClicked
+
+    private void partsMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partsMenuMouseClicked
+        parts.gui.PartsHome partsHome = new parts.gui.PartsHome();
+        partsHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_partsMenuMouseClicked
+
+    private void SPCMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SPCMenuMouseClicked
+        specRep.gui.SPCHome SPCHome = new specRep.gui.SPCHome();
+        SPCHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_SPCMenuMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -422,6 +481,10 @@ catch (Exception e) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu SPCMenu;
+    private javax.swing.JMenu bookingMenu;
+    private javax.swing.JMenu custMenu;
+    private javax.swing.JMenu homeMenu;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -433,12 +496,7 @@ catch (Exception e) {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
@@ -446,6 +504,8 @@ catch (Exception e) {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JMenu partsMenu;
+    private javax.swing.JMenu vehicleMenu;
     // End of variables declaration//GEN-END:variables
   private void close() {
        WindowEvent exit = new WindowEvent(this,WindowEvent.WINDOW_CLOSING); //To change body of generated methods, choose Tools | Templates.
