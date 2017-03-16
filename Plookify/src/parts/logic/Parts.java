@@ -130,7 +130,33 @@ public class Parts {
    }
    
    public void deletePart(JTable table){
-       
+        int selectedRowIndex = table.getSelectedRow();
+        String partID = (String) table.getModel().getValueAt(selectedRowIndex, 0);
+        String name = (String) table.getModel().getValueAt(selectedRowIndex, 1);
+        this.name=name;
+        //confirmation that user wants to delete the part
+        int p = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this part ?", "Delete", JOptionPane.YES_NO_CANCEL_OPTION);
+        if(p==0) {
+            String q = "DELETE FROM PartsRecord WHERE ID = '"+partID+"';";
+            System.out.println("Query :" + q);
+
+            Database db = new Database();
+            db.connect();
+
+            try {                
+                    Statement statement;
+                    statement = db.getConnection().createStatement();
+                    decStockLevel(db);
+                    statement.setQueryTimeout(10);
+
+                    statement.executeQuery(q);
+                    JOptionPane.showMessageDialog(null, "Part with ID " + partID + " has been deleted from the system");
+            }
+            catch (SQLException ex) {
+                System.err.println(ex.getMessage());
+            }
+            db.closeConn();
+        }
    }
    
    public static void searchParts(JTable table, String option, String input) 
