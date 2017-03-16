@@ -12,10 +12,11 @@ package vehicle.gui;
 public class VehicleQuickAdd extends javax.swing.JFrame {
 
     /**
-     * Creates new form vehicleGUI
+     * Creates new form NewJFrame
      */
     public VehicleQuickAdd() {
         initComponents();
+         initComponents();
         this.setSize(600,400);
         this.setLocationRelativeTo(null);
     }
@@ -230,6 +231,24 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void submitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitbtnActionPerformed
+        // adds data into database
+        vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
+        newLogic.quickAddVehicle(
+            customerID.getText(),
+            (String)comboBox.getSelectedItem(),
+            registrationNo.getText(),
+            (String)quickComboBox.getSelectedItem(),
+            colour.getText(),
+            MoTRenewalDate.getText(),
+            lastServiceDate.getText(),
+            currentMileage.getText(),
+            warrantyCheck.isSelected(),
+            companyName.getText(),
+            companyAddress.getText(),
+            warrantyDateOfExpiry.getText());
+    }//GEN-LAST:event_submitbtnActionPerformed
+
     private void returnbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbtnActionPerformed
         // TODO add your handling code here:
         VehicleHome indV = new VehicleHome();
@@ -243,6 +262,10 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_addbtnActionPerformed
 
+    private void quickComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quickComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quickComboBoxActionPerformed
+
     private void currentMileageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentMileageActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_currentMileageActionPerformed
@@ -250,28 +273,6 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
     private void customerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_customerIDActionPerformed
-
-    private void submitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitbtnActionPerformed
-        // adds data into database
-        vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
-        newLogic.quickAddVehicle(
-                customerID.getText(),
-                (String)comboBox.getSelectedItem(), 
-                registrationNo.getText(),
-                (String)quickComboBox.getSelectedItem(),
-                colour.getText(),
-                MoTRenewalDate.getText(),
-                lastServiceDate.getText(),
-                currentMileage.getText(),
-                warrantyCheck.isSelected(),
-                companyName.getText(),
-                companyAddress.getText(),
-                warrantyDateOfExpiry.getText()
-        );     }//GEN-LAST:event_submitbtnActionPerformed
-
-    private void quickComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quickComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_quickComboBoxActionPerformed
 
     private void homeMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMenuMouseClicked
         common.gui.Home homepage = new common.gui.Home();
@@ -338,10 +339,6 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VehicleQuickAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
