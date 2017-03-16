@@ -62,12 +62,12 @@ public class VehicleAdd extends javax.swing.JFrame {
         quickAddVbtn = new javax.swing.JButton();
         customerID = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenuBar = new javax.swing.JMenuBar();
         homeMenu = new javax.swing.JMenu();
         custMenu = new javax.swing.JMenu();
         vehicleMenu = new javax.swing.JMenu();
         bookingMenu = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        partsMenu = new javax.swing.JMenu();
         SPCMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -183,7 +183,12 @@ public class VehicleAdd extends javax.swing.JFrame {
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         homeMenu.setText("Homepage");
-        jMenuBar2.add(homeMenu);
+        homeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homeMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(homeMenu);
 
         custMenu.setText("Customer Account");
         custMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -196,21 +201,41 @@ public class VehicleAdd extends javax.swing.JFrame {
                 custMenuActionPerformed(evt);
             }
         });
-        jMenuBar2.add(custMenu);
+        jMenuBar.add(custMenu);
 
         vehicleMenu.setText("Vehicle Records");
-        jMenuBar2.add(vehicleMenu);
+        vehicleMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vehicleMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(vehicleMenu);
 
         bookingMenu.setText("Diagnosis & Repair Bookings");
-        jMenuBar2.add(bookingMenu);
+        bookingMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bookingMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(bookingMenu);
 
-        jMenu3.setText("Parts");
-        jMenuBar2.add(jMenu3);
+        partsMenu.setText("Parts");
+        partsMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                partsMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(partsMenu);
 
         SPCMenu.setText("Specialist Repairs");
-        jMenuBar2.add(SPCMenu);
+        SPCMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SPCMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(SPCMenu);
 
-        setJMenuBar(jMenuBar2);
+        setJMenuBar(jMenuBar);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -263,14 +288,44 @@ public class VehicleAdd extends javax.swing.JFrame {
     }//GEN-LAST:event_customerIDActionPerformed
 
     private void custMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_custMenuMouseClicked
-        customers.GUI.CustomerAccount cust = new customers.GUI.CustomerAccount();
-        cust.setVisible(true);
+        customers.GUI.CustomerHome custHome = new customers.GUI.CustomerHome();
+        custHome.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_custMenuMouseClicked
 
     private void custMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custMenuActionPerformed
 
     }//GEN-LAST:event_custMenuActionPerformed
+
+    private void homeMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMenuMouseClicked
+        common.gui.Home homepage = new common.gui.Home();
+        homepage.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_homeMenuMouseClicked
+
+    private void vehicleMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vehicleMenuMouseClicked
+        vehicle.gui.VehicleHome indV = new vehicle.gui.VehicleHome();
+        indV.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_vehicleMenuMouseClicked
+
+    private void bookingMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookingMenuMouseClicked
+        diagRep.gui.BookingHomepage bookingHome = new diagRep.gui.BookingHomepage();
+        bookingHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bookingMenuMouseClicked
+
+    private void partsMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partsMenuMouseClicked
+        parts.gui.PartsHome partsHome = new parts.gui.PartsHome();
+        partsHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_partsMenuMouseClicked
+
+    private void SPCMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SPCMenuMouseClicked
+        specRep.gui.SPCHome SPCHome = new specRep.gui.SPCHome();
+        SPCHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_SPCMenuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -340,11 +395,11 @@ public class VehicleAdd extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JTextField lastServiceDate;
     private javax.swing.JTextField make;
     private javax.swing.JTextField model;
+    private javax.swing.JMenu partsMenu;
     private javax.swing.JButton quickAddVbtn;
     private javax.swing.JTextField registrationNo;
     private javax.swing.JButton returnbtn;
