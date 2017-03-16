@@ -263,6 +263,15 @@ public class PartsSearchByName extends javax.swing.JFrame {
         //deletes selected vehicle information
         parts.logic.Parts newLogic = new parts.logic.Parts();
         newLogic.deletePart( tableDisplay1 );
+        partID.setText(null);
+        name.setText(null);
+        desc.setText(null);
+        stklvl.setText(null);
+        cost.setText(null);       
+        instDate.setText(null);
+        wExpDate.setText(null);
+        regNum.setText(null);
+        custID.setText(null);
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
