@@ -158,7 +158,7 @@ public class VehicleHome extends javax.swing.JFrame {
     }//GEN-LAST:event_quickAddVbtnActionPerformed
 
     private void searchVbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchVbtnActionPerformed
-        vehicleSearch searchV = new vehicleSearch();
+        VehicleSearch searchV = new VehicleSearch();
         searchV.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_searchVbtnActionPerformed
