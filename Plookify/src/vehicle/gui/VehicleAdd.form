@@ -1,10 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar2">
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="homeMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Homepage"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="custMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Customer Account"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="custMenuMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="custMenuActionPerformed"/>
+          </Events>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="vehicleMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Vehicle Records"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="bookingMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Diagnosis &amp; Repair Bookings"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Parts"/>
+          </Properties>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="SPCMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Specialist Repairs"/>
+          </Properties>
+        </Menu>
+      </SubComponents>
+    </Menu>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
   <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar2"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
