@@ -43,6 +43,9 @@ public class VehicleSearch extends javax.swing.JFrame {
             companyAddress.setEnabled(false);
             warrantyDateOfExpiry.setEnabled(false);
             updateButton.setEnabled(false);
+            comboType.setVisible(false);
+            comboCar.setVisible(false);
+                
     }
 
     /**
@@ -58,10 +61,10 @@ public class VehicleSearch extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        comboBox = new javax.swing.JComboBox<>();
         input = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableDisplay = new javax.swing.JTable();
+        comboOption = new javax.swing.JComboBox<>();
         searchButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
@@ -117,6 +120,8 @@ public class VehicleSearch extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        comboType = new javax.swing.JComboBox<>();
+        comboCar = new javax.swing.JComboBox<>();
         jMenuBar = new javax.swing.JMenuBar();
         homeMenu = new javax.swing.JMenu();
         custMenu = new javax.swing.JMenu();
@@ -146,15 +151,12 @@ public class VehicleSearch extends javax.swing.JFrame {
         jLabel8.setText("Search By:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Registration Number", "Manufacturer", "Vehicle Type" }));
-        getContentPane().add(comboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
-
         input.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputActionPerformed(evt);
             }
         });
-        getContentPane().add(input, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 120, -1));
+        getContentPane().add(input, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 170, -1));
 
         tableDisplay.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -176,13 +178,21 @@ public class VehicleSearch extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 60, 590, 450));
 
+        comboOption.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Registration Number", "Manufacturer", "Vehicle Type", "Vehicle Template" }));
+        comboOption.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboOptionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboOption, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 160, -1));
+
         searchButton.setText("search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, -1, -1));
+        getContentPane().add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, -1, -1));
 
         deleteButton.setText("delete selected vehicle");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -392,6 +402,22 @@ public class VehicleSearch extends javax.swing.JFrame {
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 590, 390));
 
+        comboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Truck", "Van" }));
+        comboType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTypeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboType, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 80, -1));
+
+        comboCar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Registration Number", "Manufacturer", "Vehicle Type", "Vehicle Template" }));
+        comboCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboCar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 180, -1));
+
         homeMenu.setText("Homepage");
         homeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -493,7 +519,7 @@ public class VehicleSearch extends javax.swing.JFrame {
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
         newLogic.searchVehicle(
             tableDisplay,
-            (String)comboBox.getSelectedItem(),
+            (String)comboOption.getSelectedItem(),
             input.getText()
         );
 
@@ -627,6 +653,31 @@ public class VehicleSearch extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_SPCMenuMouseClicked
 
+    private void comboOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboOptionActionPerformed
+      String selected = (String)comboOption.getSelectedItem();
+        if(selected.equals("Vehicle Template"))
+        {
+            comboType.setVisible(true);
+            comboCar.setVisible(true);
+            input.setVisible(false);
+        }
+        else 
+        {
+            input.setVisible(true);
+            comboType.setVisible(false);
+            comboCar.setVisible(false);
+        }
+                
+    }//GEN-LAST:event_comboOptionActionPerformed
+
+    private void comboTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboTypeActionPerformed
+
+    private void comboCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboCarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -668,8 +719,10 @@ public class VehicleSearch extends javax.swing.JFrame {
     private javax.swing.JMenu SPCMenu;
     private javax.swing.JMenu bookingMenu;
     private javax.swing.JTextField colour;
-    private javax.swing.JComboBox<String> comboBox;
     private javax.swing.JComboBox<String> comboBox1;
+    private javax.swing.JComboBox<String> comboCar;
+    private javax.swing.JComboBox<String> comboOption;
+    private javax.swing.JComboBox<String> comboType;
     private javax.swing.JTextField companyAddress;
     private javax.swing.JTextField companyName;
     private javax.swing.JTextField currentMileage;
