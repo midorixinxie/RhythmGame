@@ -19,7 +19,7 @@ public class VehicleSearch extends javax.swing.JFrame {
     public VehicleSearch() {
         initComponents();
         
-        this.setSize(1200,550);
+        this.setSize(1200,560);
         this.setLocationRelativeTo(null);
         tableDisplay.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         

@@ -69,7 +69,7 @@ public class VehicleHome extends javax.swing.JFrame {
         });
         getContentPane().add(quickAddVbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 210, 50));
 
-        searchVbtn.setText("SearchVehicle");
+        searchVbtn.setText("Search Vehicle");
         searchVbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchVbtnActionPerformed(evt);

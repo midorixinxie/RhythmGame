@@ -294,7 +294,7 @@ public class vehicle {
             
             String q = "";
             if(option.equals("RegistrationNumber"))
-                q= "select * from VehicleRecords WHERE "+option+" like '"+ input+ "%';";
+                q= "select * from VehicleRecords WHERE "+option+" like '%"+ input+ "%';";
             else
                 q= "select * from VehicleRecords WHERE "+option+" like '"+ input+ "';";
 
