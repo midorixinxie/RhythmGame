@@ -28,7 +28,7 @@ Connection connection = null;
     
     public Login() {
         initComponents();
-        this.setSize(600,400);
+        this.setSize(600,560);
         this.setLocationRelativeTo(null);
         
            try {

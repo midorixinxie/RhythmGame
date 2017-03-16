@@ -19,7 +19,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
-        this.setSize(600,400);
+        this.setSize(600,560);
         this.setLocationRelativeTo(null);
     }
 

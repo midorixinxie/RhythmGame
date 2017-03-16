@@ -15,7 +15,7 @@ public class VehicleAdd extends javax.swing.JFrame {
     /** Creates new form add */
     public VehicleAdd() {
         initComponents();
-        this.setSize(600,400);
+        this.setSize(600,560);
         this.setLocationRelativeTo(null);
     }
 

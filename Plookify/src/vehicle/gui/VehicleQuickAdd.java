@@ -16,8 +16,7 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
      */
     public VehicleQuickAdd() {
         initComponents();
-         initComponents();
-        this.setSize(600,400);
+        this.setSize(600,560);
         this.setLocationRelativeTo(null);
         
         comboCar.setVisible(true);
