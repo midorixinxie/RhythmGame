@@ -12,12 +12,16 @@ package vehicle.gui;
 public class VehicleQuickAdd extends javax.swing.JFrame {
 
     /**
-     * Creates new form vehicleGUI
+     * Creates new form NewJFrame
      */
     public VehicleQuickAdd() {
         initComponents();
-        this.setSize(600,400);
+        this.setSize(600,560);
         this.setLocationRelativeTo(null);
+        
+        comboCar.setVisible(true);
+        comboVan.setVisible(false);
+        comboTruck.setVisible(false);
     }
 
     /**
@@ -44,9 +48,9 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         submitbtn = new javax.swing.JButton();
         returnbtn = new javax.swing.JButton();
-        comboBox = new javax.swing.JComboBox<>();
+        comboType = new javax.swing.JComboBox<>();
         addbtn = new javax.swing.JButton();
-        quickComboBox = new javax.swing.JComboBox<>();
+        comboTruck = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         colour = new javax.swing.JTextField();
         MoTRenewalDate = new javax.swing.JTextField();
@@ -58,6 +62,16 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         companyName = new javax.swing.JTextField();
         companyAddress = new javax.swing.JTextField();
         warrantyDateOfExpiry = new javax.swing.JTextField();
+        comboCar = new javax.swing.JComboBox<>();
+        comboVan = new javax.swing.JComboBox<>();
+        comboTruck2 = new javax.swing.JComboBox<>();
+        jMenuBar = new javax.swing.JMenuBar();
+        homeMenu = new javax.swing.JMenu();
+        custMenu = new javax.swing.JMenu();
+        vehicleMenu = new javax.swing.JMenu();
+        bookingMenu = new javax.swing.JMenu();
+        partsMenu = new javax.swing.JMenu();
+        SPCMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -80,7 +94,7 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         jLabel7.setText("Registration Number");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
-        jLabel8.setText("Popular");
+        jLabel8.setText("Templates");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
@@ -119,8 +133,13 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         });
         getContentPane().add(returnbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
 
-        comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Van", "Truck" }));
-        getContentPane().add(comboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 110, -1));
+        comboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Car", "Van", "Truck" }));
+        comboType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTypeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboType, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 110, -1));
 
         addbtn.setText("Standard Format");
         addbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -130,13 +149,13 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         });
         getContentPane().add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
-        quickComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Honda Civic 1.6Litre Petrol", "Fiat 500 1.2Litre Petrol", "Mini Cooper 2Litre Petrol", "Ford Fiesta 1.5Litre Petrol" }));
-        quickComboBox.addActionListener(new java.awt.event.ActionListener() {
+        comboTruck.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Honda Civic 1.6Litre Petrol", "Fiat 500 1.2Litre Petrol", "Mini Cooper 2Litre Petrol", "Ford Fiesta 1.5Litre Petrol" }));
+        comboTruck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quickComboBoxActionPerformed(evt);
+                comboTruckActionPerformed(evt);
             }
         });
-        getContentPane().add(quickComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 260, -1));
+        getContentPane().add(comboTruck, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 260, -1));
 
         jLabel16.setText("Customer ID");
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
@@ -165,8 +184,105 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         getContentPane().add(companyAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 120, -1));
         getContentPane().add(warrantyDateOfExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 120, -1));
 
+        comboCar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Honda Civic 1.6Litre Petrol", "Fiat 500 1.2Litre Petrol", "Mini Cooper 2Litre Petrol", "Ford Fiesta 1.5Litre Petrol" }));
+        comboCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboCar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 260, -1));
+
+        comboVan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Honda Civic 1.6Litre Petrol", "Fiat 500 1.2Litre Petrol", "Mini Cooper 2Litre Petrol", "Ford Fiesta 1.5Litre Petrol" }));
+        comboVan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboVanActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboVan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 260, -1));
+
+        comboTruck2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Honda Civic 1.6Litre Petrol", "Fiat 500 1.2Litre Petrol", "Mini Cooper 2Litre Petrol", "Ford Fiesta 1.5Litre Petrol" }));
+        comboTruck2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTruck2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboTruck2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 260, -1));
+
+        homeMenu.setText("Homepage");
+        homeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homeMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(homeMenu);
+
+        custMenu.setText("Customer Account");
+        custMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                custMenuMouseClicked(evt);
+            }
+        });
+        custMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                custMenuActionPerformed(evt);
+            }
+        });
+        jMenuBar.add(custMenu);
+
+        vehicleMenu.setText("Vehicle Records");
+        vehicleMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vehicleMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(vehicleMenu);
+
+        bookingMenu.setText("Diagnosis & Repair Bookings");
+        bookingMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bookingMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(bookingMenu);
+
+        partsMenu.setText("Parts");
+        partsMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                partsMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(partsMenu);
+
+        SPCMenu.setText("Specialist Repairs");
+        SPCMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SPCMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(SPCMenu);
+
+        setJMenuBar(jMenuBar);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void submitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitbtnActionPerformed
+        // adds data into database
+        vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
+        newLogic.quickAddVehicle(
+            customerID.getText(),
+            (String)comboType.getSelectedItem(),
+            registrationNo.getText(),
+            (String)comboTruck.getSelectedItem(),
+            colour.getText(),
+            MoTRenewalDate.getText(),
+            lastServiceDate.getText(),
+            currentMileage.getText(),
+            warrantyCheck.isSelected(),
+            companyName.getText(),
+            companyAddress.getText(),
+            warrantyDateOfExpiry.getText());
+    }//GEN-LAST:event_submitbtnActionPerformed
 
     private void returnbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbtnActionPerformed
         // TODO add your handling code here:
@@ -181,6 +297,10 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_addbtnActionPerformed
 
+    private void comboTruckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTruckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboTruckActionPerformed
+
     private void currentMileageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_currentMileageActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_currentMileageActionPerformed
@@ -189,27 +309,80 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_customerIDActionPerformed
 
-    private void submitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitbtnActionPerformed
-        // adds data into database
-        vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
-        newLogic.quickAddVehicle(
-                customerID.getText(),
-                (String)comboBox.getSelectedItem(), 
-                registrationNo.getText(),
-                (String)quickComboBox.getSelectedItem(),
-                colour.getText(),
-                MoTRenewalDate.getText(),
-                lastServiceDate.getText(),
-                currentMileage.getText(),
-                warrantyCheck.isSelected(),
-                companyName.getText(),
-                companyAddress.getText(),
-                warrantyDateOfExpiry.getText()
-        );     }//GEN-LAST:event_submitbtnActionPerformed
+    private void homeMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMenuMouseClicked
+        common.gui.Home homepage = new common.gui.Home();
+        homepage.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_homeMenuMouseClicked
 
-    private void quickComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quickComboBoxActionPerformed
+    private void custMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_custMenuMouseClicked
+        customers.GUI.CustomerHome custHome = new customers.GUI.CustomerHome();
+        custHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_custMenuMouseClicked
+
+    private void custMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custMenuActionPerformed
+
+    }//GEN-LAST:event_custMenuActionPerformed
+
+    private void vehicleMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vehicleMenuMouseClicked
+        vehicle.gui.VehicleHome indV = new vehicle.gui.VehicleHome();
+        indV.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_vehicleMenuMouseClicked
+
+    private void bookingMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookingMenuMouseClicked
+        diagRep.gui.BookingHomepage bookingHome = new diagRep.gui.BookingHomepage();
+        bookingHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bookingMenuMouseClicked
+
+    private void partsMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partsMenuMouseClicked
+        parts.gui.PartsHome partsHome = new parts.gui.PartsHome();
+        partsHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_partsMenuMouseClicked
+
+    private void SPCMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SPCMenuMouseClicked
+        specRep.gui.SPCHome SPCHome = new specRep.gui.SPCHome();
+        SPCHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_SPCMenuMouseClicked
+
+    private void comboCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_quickComboBoxActionPerformed
+    }//GEN-LAST:event_comboCarActionPerformed
+
+    private void comboVanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboVanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboVanActionPerformed
+
+    private void comboTruck2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTruck2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboTruck2ActionPerformed
+
+    private void comboTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTypeActionPerformed
+         String selected = (String)comboType.getSelectedItem();
+        if(selected.equals("Car"))
+        {
+            comboCar.setVisible(true);
+            comboVan.setVisible(false);
+            comboTruck.setVisible(false);
+        }
+        else if(selected.equals("Van"))
+        {
+            comboCar.setVisible(false);
+            comboVan.setVisible(true);
+            comboTruck.setVisible(false);
+        }
+        else if(selected.equals("Truck"))
+        {
+            comboCar.setVisible(false);
+            comboVan.setVisible(false);
+            comboTruck.setVisible(true);
+        }
+                
+    }//GEN-LAST:event_comboTypeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,10 +413,6 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -255,13 +424,21 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField MoTRenewalDate;
+    private javax.swing.JMenu SPCMenu;
     private javax.swing.JButton addbtn;
+    private javax.swing.JMenu bookingMenu;
     private javax.swing.JTextField colour;
-    private javax.swing.JComboBox<String> comboBox;
+    private javax.swing.JComboBox<String> comboCar;
+    private javax.swing.JComboBox<String> comboTruck;
+    private javax.swing.JComboBox<String> comboTruck2;
+    private javax.swing.JComboBox<String> comboType;
+    private javax.swing.JComboBox<String> comboVan;
     private javax.swing.JTextField companyAddress;
     private javax.swing.JTextField companyName;
     private javax.swing.JTextField currentMileage;
+    private javax.swing.JMenu custMenu;
     private javax.swing.JTextField customerID;
+    private javax.swing.JMenu homeMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -276,11 +453,13 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JTextField lastServiceDate;
-    private javax.swing.JComboBox<String> quickComboBox;
+    private javax.swing.JMenu partsMenu;
     private javax.swing.JTextField registrationNo;
     private javax.swing.JButton returnbtn;
     private javax.swing.JButton submitbtn;
+    private javax.swing.JMenu vehicleMenu;
     private javax.swing.JCheckBox warrantyCheck;
     private javax.swing.JTextField warrantyDateOfExpiry;
     // End of variables declaration//GEN-END:variables

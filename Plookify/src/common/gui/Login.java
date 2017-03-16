@@ -28,7 +28,7 @@ Connection connection = null;
     
     public Login() {
         initComponents();
-        this.setSize(600,400);
+        this.setSize(600,560);
         this.setLocationRelativeTo(null);
         
            try {
@@ -60,11 +60,11 @@ Connection connection = null;
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        id = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         signinbtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        password = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GMSIS Authentication");
@@ -72,14 +72,14 @@ Connection connection = null;
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
         jLabel1.setText("Login");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, -1, -1));
 
-        jLabel2.setText("Username:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 256, -1));
+        jLabel2.setText("ID:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, -1, -1));
+        getContentPane().add(id, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 256, -1));
 
         jLabel3.setText("Password:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 71, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 71, -1));
 
         signinbtn.setText("Sign In");
         signinbtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -92,7 +92,7 @@ Connection connection = null;
                 signinbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(signinbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 141, 41));
+        getContentPane().add(signinbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 141, 41));
 
         jButton2.setText("Clear Fields");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -100,21 +100,21 @@ Connection connection = null;
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 141, 41));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 141, 41));
 
-        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jPasswordField1KeyPressed(evt);
+                passwordKeyPressed(evt);
             }
         });
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 256, -1));
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 256, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       jTextField1.setText(null);
-        jPasswordField1.setText(null);
+       id.setText(null);
+        password.setText(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void signinbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signinbtnActionPerformed
@@ -122,8 +122,8 @@ Connection connection = null;
       //adjust so regular users cannot delete users
        try {
                 pst=connection.prepareStatement(sql);
-                pst.setString(1, jTextField1.getText());
-                pst.setString(2, jPasswordField1.getText());
+                pst.setString(1, id.getText());
+                pst.setString(2, password.getText());
                 
                 rs=pst.executeQuery();
                 if(rs.next()) {
@@ -165,7 +165,7 @@ Connection connection = null;
              
     }//GEN-LAST:event_signinbtnActionPerformed
 
-    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
        
       
          String sql = "SELECT * FROM LoginUsers WHERE ID=? AND Password=?";
@@ -176,8 +176,8 @@ Connection connection = null;
      
              try {
                 pst=connection.prepareStatement(sql);
-                pst.setString(1, jTextField1.getText());
-                pst.setString(2, jPasswordField1.getText());
+                pst.setString(1, id.getText());
+                pst.setString(2, password.getText());
                 
                 rs=pst.executeQuery();
                 if(rs.next()) {
@@ -187,14 +187,15 @@ Connection connection = null;
                             String user = rs.getString("UserType");
                     
                     if(user.equals("Administrator")) {
-                        Home Info = new Home();
-                        Info.setVisible(true);
+                        Home homepage = new Home();
+                        homepage.setVisible(true);
+                        this.setVisible(false);
                     }
                     
                     else {
-                    
-        Home Info = new Home();
-        Info.setVisible(true);
+                        Home homepage = new Home();
+                        homepage.setVisible(true);
+                        this.setVisible(false);
                 }
                              
                 }
@@ -219,7 +220,7 @@ Connection connection = null;
              
                
             
-    }//GEN-LAST:event_jPasswordField1KeyPressed
+    }//GEN-LAST:event_passwordKeyPressed
 
     private void signinbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signinbtnMouseClicked
            
@@ -261,12 +262,12 @@ Connection connection = null;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField id;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField password;
     private javax.swing.JButton signinbtn;
     // End of variables declaration//GEN-END:variables
 

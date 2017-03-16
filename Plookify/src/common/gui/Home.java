@@ -19,7 +19,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
-        this.setSize(600,400);
+        this.setSize(600,560);
         this.setLocationRelativeTo(null);
     }
 
@@ -39,6 +39,13 @@ public class Home extends javax.swing.JFrame {
         partsbtn = new javax.swing.JButton();
         specialistRepairsbtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jMenuBar = new javax.swing.JMenuBar();
+        homeMenu = new javax.swing.JMenu();
+        custMenu = new javax.swing.JMenu();
+        vehicleMenu = new javax.swing.JMenu();
+        bookingMenu = new javax.swing.JMenu();
+        partsMenu = new javax.swing.JMenu();
+        SPCMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Module Selection");
@@ -50,7 +57,7 @@ public class Home extends javax.swing.JFrame {
                 userManagementbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(userManagementbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 210, 50));
+        getContentPane().add(userManagementbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 210, 50));
 
         customerAccountbtn.setText("Customer Account");
         customerAccountbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +65,7 @@ public class Home extends javax.swing.JFrame {
                 customerAccountbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(customerAccountbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 210, 50));
+        getContentPane().add(customerAccountbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 210, 50));
 
         vehicleRecordsbtn.setText("Vehicle Records");
         vehicleRecordsbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +73,7 @@ public class Home extends javax.swing.JFrame {
                 vehicleRecordsbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(vehicleRecordsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 210, 50));
+        getContentPane().add(vehicleRecordsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 210, 50));
 
         diagnosisAndRepairsbtn.setText("Diagnosis & Repair Bookings");
         diagnosisAndRepairsbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +81,7 @@ public class Home extends javax.swing.JFrame {
                 diagnosisAndRepairsbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(diagnosisAndRepairsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 210, 50));
+        getContentPane().add(diagnosisAndRepairsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 210, 50));
 
         partsbtn.setText("Parts");
         partsbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -82,7 +89,7 @@ public class Home extends javax.swing.JFrame {
                 partsbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(partsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 210, 50));
+        getContentPane().add(partsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 210, 50));
 
         specialistRepairsbtn.setText("Specialist Repairs");
         specialistRepairsbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -90,11 +97,66 @@ public class Home extends javax.swing.JFrame {
                 specialistRepairsbtnActionPerformed(evt);
             }
         });
-        getContentPane().add(specialistRepairsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 210, 50));
+        getContentPane().add(specialistRepairsbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 210, 50));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setText("Please Select an Option:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, -1));
+
+        homeMenu.setText("Homepage");
+        homeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homeMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(homeMenu);
+
+        custMenu.setText("Customer Account");
+        custMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                custMenuMouseClicked(evt);
+            }
+        });
+        custMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                custMenuActionPerformed(evt);
+            }
+        });
+        jMenuBar.add(custMenu);
+
+        vehicleMenu.setText("Vehicle Records");
+        vehicleMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vehicleMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(vehicleMenu);
+
+        bookingMenu.setText("Diagnosis & Repair Bookings");
+        bookingMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bookingMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(bookingMenu);
+
+        partsMenu.setText("Parts");
+        partsMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                partsMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(partsMenu);
+
+        SPCMenu.setText("Specialist Repairs");
+        SPCMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SPCMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(SPCMenu);
+
+        setJMenuBar(jMenuBar);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,9 +168,9 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_customerAccountbtnActionPerformed
 
     private void userManagementbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userManagementbtnActionPerformed
-        close();
-        vehicle.gui.VehicleQuickAdd Info = new vehicle.gui.VehicleQuickAdd();
-       Info.setVisible(true);
+        Users userPage = new Users();
+        userPage.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_userManagementbtnActionPerformed
 
     private void vehicleRecordsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleRecordsbtnActionPerformed
@@ -134,6 +196,46 @@ public class Home extends javax.swing.JFrame {
         specRep.gui.specialistRepairGUI Info = new specRep.gui.specialistRepairGUI();
        Info.setVisible(true);
     }//GEN-LAST:event_specialistRepairsbtnActionPerformed
+
+    private void homeMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMenuMouseClicked
+        common.gui.Home homepage = new common.gui.Home();
+        homepage.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_homeMenuMouseClicked
+
+    private void custMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_custMenuMouseClicked
+        customers.GUI.CustomerHome custHome = new customers.GUI.CustomerHome();
+        custHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_custMenuMouseClicked
+
+    private void custMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custMenuActionPerformed
+
+    }//GEN-LAST:event_custMenuActionPerformed
+
+    private void vehicleMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vehicleMenuMouseClicked
+        vehicle.gui.VehicleHome indV = new vehicle.gui.VehicleHome();
+        indV.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_vehicleMenuMouseClicked
+
+    private void bookingMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookingMenuMouseClicked
+        diagRep.gui.BookingHomepage bookingHome = new diagRep.gui.BookingHomepage();
+        bookingHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bookingMenuMouseClicked
+
+    private void partsMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partsMenuMouseClicked
+        parts.gui.PartsHome partsHome = new parts.gui.PartsHome();
+        partsHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_partsMenuMouseClicked
+
+    private void SPCMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SPCMenuMouseClicked
+        specRep.gui.SPCHome SPCHome = new specRep.gui.SPCHome();
+        SPCHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_SPCMenuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -172,12 +274,19 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu SPCMenu;
+    private javax.swing.JMenu bookingMenu;
+    private javax.swing.JMenu custMenu;
     private javax.swing.JButton customerAccountbtn;
     private javax.swing.JButton diagnosisAndRepairsbtn;
+    private javax.swing.JMenu homeMenu;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuBar jMenuBar;
+    private javax.swing.JMenu partsMenu;
     private javax.swing.JButton partsbtn;
     private javax.swing.JButton specialistRepairsbtn;
     private javax.swing.JButton userManagementbtn;
+    private javax.swing.JMenu vehicleMenu;
     private javax.swing.JButton vehicleRecordsbtn;
     // End of variables declaration//GEN-END:variables
 
