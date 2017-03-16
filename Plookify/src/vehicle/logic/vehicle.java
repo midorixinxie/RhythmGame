@@ -5,6 +5,7 @@
  */
 package vehicle.logic;
 
+import com.sun.istack.internal.logging.Logger;
 import common.Database;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.logging.Level;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
 
@@ -384,16 +386,38 @@ public class vehicle {
                 mileage.setText("" +vr.getInt("CurrentMileage"));
             }
             vr.close();
-
-            q = "SELECT * FROM CustomerAccount WHERE CustomerID='"+click+"' ;";
-            ResultSet ca = statement.executeQuery(q);
-            custName.setText(ca.getString("Forename "+"Surname"));
-            ca.close();
+            statement.close();
+            db.closeConn();
+             
             }
                catch(Exception e) {
                   JOptionPane.showMessageDialog(null, "error");
             }
+
         
+         try {
+              int selectedRowIndex = table.getSelectedRow();
+            String click = (table.getModel().getValueAt(selectedRowIndex,0).toString());
+
+            Database db = new Database();
+            db.connect();
+            Statement statement;
+
+            statement = db.getConnection().createStatement();
+            statement.setQueryTimeout(10);
+
+            
+        String q1 = "SELECT * FROM CustomerAccount WHERE ID='"+click+"' ;";
+            ResultSet ca = statement.executeQuery(q1);
+            System.out.println("Query :" + q1);
+            custName.setText(ca.getString("Forename") +" "+ ca.getString("Surname"));
+            ca.close();
+            statement.close();
+            db.closeConn();
+         } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(vehicle.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          
      }
     
 }
