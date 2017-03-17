@@ -100,7 +100,7 @@ public class vehicle {
                 statement.setQueryTimeout(10);
                 
                 //statement.executeUpdate("drop table if exists 'VehicleRecords'");
-                String create = "create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'VehicleType' TEXT, 'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,'ListOfPartsUsed' TEXT, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID), FOREIGN KEY(ListOfPartsUsed) REFERENCES PartsRecord(ID));";
+                String create = "create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'VehicleType' TEXT, 'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID);";
                 //System.out.println("Query :" + create);
                 statement.executeUpdate(create);			
 
@@ -171,7 +171,7 @@ public class vehicle {
                 statement.setQueryTimeout(10);
                 
                 //statement.executeUpdate("drop table if exists 'VehicleRecords'");
-                String create = "create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'VehicleType' TEXT, 'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,'ListOfPartsUsed' TEXT, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID), FOREIGN KEY(ListOfPartsUsed) REFERENCES PartsRecord(ID));";
+                String create = "create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'VehicleType' TEXT, 'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID);";
                 //System.out.println("Query :" + create);
                 statement.executeUpdate(create);			
 
@@ -224,13 +224,13 @@ public class vehicle {
         try {                
             Statement statement;
                 
-            String query = "UPDATE   VehicleRecords SET WarrantyType ='"+warrantyType+"',RequiresDiagnosisAndRepair = '"+requireDandR+"',WarrantyCompanyPays = '"+compPays+"',CompanyName = '"+compName+"',CompanyAddress= '"+compAddress+"',WarrantyExpiry ='"+warrantyExpiry+"',WarrantyType = '"+vehicle+"',RegistrationNumber ='"+regNo+"',Model ='"+model+"',Make ='"+make+"',EngineSize ='"+engineSize+"',FuelType='"+fuelType+"',Colour = '"+colour+"',MoTRenewalDate ='"+MoTRenewalDate+"',LastServiceDate = '"+lastServiceDate+"',CurrentMileage ='"+currentMileage+"',ListOfPartsUsed = 1 WHERE CustomerID = '"+customerID+"' ";
+            String query = "UPDATE   VehicleRecords SET WarrantyType ='"+warrantyType+"',RequiresDiagnosisAndRepair = '"+requireDandR+"',WarrantyCompanyPays = '"+compPays+"',CompanyName = '"+compName+"',CompanyAddress= '"+compAddress+"',WarrantyExpiry ='"+warrantyExpiry+"',WarrantyType = '"+vehicle+"',RegistrationNumber ='"+regNo+"',Model ='"+model+"',Make ='"+make+"',EngineSize ='"+engineSize+"',FuelType='"+fuelType+"',Colour = '"+colour+"',MoTRenewalDate ='"+MoTRenewalDate+"',LastServiceDate = '"+lastServiceDate+"',CurrentMileage ='"+currentMileage+"' WHERE CustomerID = '"+customerID+"' ";
 
             System.out.println("Query :" + query);
             statement = db.getConnection().createStatement();
             statement.setQueryTimeout(10);
                 
-            statement.executeUpdate("create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,'ListOfPartsUsed'TEXT, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID))");			
+            statement.executeUpdate("create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER, FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID))");			
             statement.executeUpdate(query);
             
             ResultSet vr = statement.executeQuery("select * from 'VehicleRecords'");

@@ -160,13 +160,13 @@ public class VehicleSearch extends javax.swing.JFrame {
 
         tableDisplay.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "CustomerID", "WarrantyType", "RequiresDiagnosisAndRepair", "WarrantyCompanyPays", "CompanyName", "CompanyAddress", "WarrantyExpiry", "VehicleType", "RegistrationNumber", "Model", "Make", "EngineSize", "FuelType", "Colour", "MoTRenewalDate", "LastServiceDate", "CurrentMileage", "ListOfPartsUsed"
+                "CustomerID", "WarrantyType", "RequiresDiagnosisAndRepair", "WarrantyCompanyPays", "CompanyName", "CompanyAddress", "WarrantyExpiry", "VehicleType", "RegistrationNumber", "Model", "Make", "EngineSize", "FuelType", "Colour", "MoTRenewalDate"
             }
         ));
         tableDisplay.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -490,7 +490,8 @@ public class VehicleSearch extends javax.swing.JFrame {
     private void tableDisplayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDisplayMouseClicked
         //displays data into textfield from selected row in JTable
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
-        newLogic.mouseClick(tableDisplay,
+        newLogic.mouseClick(
+            tableDisplay,
             custID,
             custID1,
             custID2,
@@ -541,8 +542,8 @@ public class VehicleSearch extends javax.swing.JFrame {
         fuelType.setEnabled(true);
         colour.setEnabled(true);
         MoTRenewalDate.setEnabled(true);
-        lastServiceDate.setEnabled(true);
-        currentMileage.setEnabled(true);
+        //lastServiceDate.setEnabled(true);
+        //currentMileage.setEnabled(true);
         warrantyCheck.setEnabled(true);
         companyName.setEnabled(true);
         companyAddress.setEnabled(true);
