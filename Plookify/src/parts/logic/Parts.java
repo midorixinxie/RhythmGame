@@ -72,15 +72,61 @@ public class Parts {
        
        return stockLevel;
    }
-   public void withdrawPart(){
-       
+   public void withdrawPart(int partID, String instDate, String wExpDate, String regNum, int custID){
+       Database db = new Database();
+        db.connect();
+        
+        try {                
+            Statement statement;
+                
+            String query = "UPDATE   PartsRecord SET DateOfInstallation ='"+instDate+"',WarrantyExpiryDate = '"+wExpDate+"',RegistrationNumber = '"+regNum+"',CustomerID = '"+custID+"' WHERE ID = '"+partID+"' ";
+
+            System.out.println("Query :" + query);
+            statement = db.getConnection().createStatement();
+            decStockLevel(db);
+            statement.setQueryTimeout(10);
+                
+            statement.executeUpdate(query);
+            
+            ResultSet vr = statement.executeQuery("select * from 'PartsRecord'");
+            JOptionPane.showMessageDialog(null,"Successfully withdrew Part for repair");
+            //closes result set
+            vr.close();
+        }
+	catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+	}
+        //closes database connection
+        db.closeConn();
    }
    public int genID(){    
       return (int) (Math.random()*5000);
    }
    
-   public void editPart(int partID, String name, String desc, int stklvl, int cost, String instDate, String expDate, String regNum, int custID){
-       
+   public void editPart(int partID, String name, String desc,  int cost, String instDate, String wExpDate){
+       Database db = new Database();
+        db.connect();
+        try {                
+            Statement statement;
+                
+            String query = "UPDATE   PartsRecord SET Name ='"+name+"',Description = '"+desc+"',Cost ='"+cost+"',DateOfInstallation = '"+instDate+"' ,WarrantyExpiryDate = '"+wExpDate+"' WHERE ID = '"+partID+"' ";
+
+            System.out.println("Query :" + query);
+            statement = db.getConnection().createStatement();
+            statement.setQueryTimeout(10);
+                
+            statement.executeUpdate(query);
+            
+            ResultSet vr = statement.executeQuery("select * from 'PartsRecord'");
+            JOptionPane.showMessageDialog(null,"Successfully edited Part");
+            //closes result set
+            vr.close();
+        }
+	catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+	}
+        //closes database connection
+        db.closeConn();
    }
    public void addPart(String name, String desc, int cost){
         this.name= name;
@@ -125,9 +171,6 @@ public class Parts {
        return null;       
    }
    
-   public void editPart(Parts part){
-       
-   }
    
    public void deletePart(JTable table){
         int selectedRowIndex = table.getSelectedRow();
@@ -208,7 +251,7 @@ public class Parts {
        try {                
             Statement statement;
                 
-            String query = "UPDATE   PartsRecord SET NumberInStock =NumberInStock + 1 WHERE Name = '"+name+"' AND RegistrationNumber = '"+"'";
+            String query = "UPDATE PartsRecord SET NumberInStock =NumberInStock + 1 WHERE Name = '"+name+"'";
 
             System.out.println("Query :" + query);
             statement = db.getConnection().createStatement();
@@ -285,6 +328,33 @@ public class Parts {
             }
         
      }
+
+    public int getCustID(String regNum) {
+        int custID=0;
+         try {
+            
+            Database db = new Database();
+            db.connect();
+            String query = "SELECT CustomerID FROM VehicleRecords WHERE RegistrationNumber='"+regNum+"' LIMIT 1;";
+            Statement statement;
+
+            statement = db.getConnection().createStatement();
+            statement.setQueryTimeout(10);
+
+            System.out.println("Query :" + query);
+            ResultSet vr = statement.executeQuery(query);
+         
+            while(vr.next()){
+                custID= vr.getInt("CustomerID");
+            }
+            vr.close();
+            }
+               catch(Exception e) {
+                  JOptionPane.showMessageDialog(null, "error");
+            }
+            return custID;
+
+    }
 }
 
 
