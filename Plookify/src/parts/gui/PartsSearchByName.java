@@ -5,6 +5,7 @@
  */
 package parts.gui;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 /**
@@ -30,7 +31,8 @@ public class PartsSearchByName extends javax.swing.JFrame {
         wExpDate.setEnabled(false);
         regNum.setEnabled(false);
         custID.setEnabled(false);
-        updateButton.setEnabled(false);
+        updateButton2.setEnabled(false);
+        updateButton1.setEnabled(false);
 
     }
 
@@ -72,8 +74,10 @@ public class PartsSearchByName extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         deleteButton = new javax.swing.JButton();
         editButton = new javax.swing.JButton();
-        updateButton = new javax.swing.JButton();
+        withdrawButton = new javax.swing.JButton();
         name = new javax.swing.JTextField();
+        updateButton1 = new javax.swing.JButton();
+        updateButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -189,6 +193,12 @@ public class PartsSearchByName extends javax.swing.JFrame {
 
         jLabel29.setText("InstallationDate");
         getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 314, 120, -1));
+
+        regNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regNumActionPerformed(evt);
+            }
+        });
         getContentPane().add(regNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 110, -1));
 
         jLabel28.setText("Cost");
@@ -204,7 +214,7 @@ public class PartsSearchByName extends javax.swing.JFrame {
                 deleteButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, -1, -1));
+        getContentPane().add(deleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 470, -1, -1));
 
         editButton.setText("Edit Part");
         editButton.addActionListener(new java.awt.event.ActionListener() {
@@ -212,15 +222,15 @@ public class PartsSearchByName extends javax.swing.JFrame {
                 editButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 470, -1, -1));
+        getContentPane().add(editButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, -1, -1));
 
-        updateButton.setText("Update");
-        updateButton.addActionListener(new java.awt.event.ActionListener() {
+        withdrawButton.setText("Withdraw Part for Repair");
+        withdrawButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateButtonActionPerformed(evt);
+                withdrawButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, -1));
+        getContentPane().add(withdrawButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, -1, -1));
 
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,11 +239,36 @@ public class PartsSearchByName extends javax.swing.JFrame {
         });
         getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 110, -1));
 
+        updateButton1.setText("Update Edit");
+        updateButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(updateButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, -1));
+
+        updateButton2.setText("Update Withdrawal");
+        updateButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(updateButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void tableDisplay1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDisplay1MouseClicked
         // TODO add your handling code here:
+        partID.setEnabled(false);
+        name.setEnabled(false);
+        desc.setEnabled(false);
+        stklvl.setEnabled(false);
+        cost.setEnabled(false);       
+        instDate.setEnabled(false);
+        wExpDate.setEnabled(false);
+        regNum.setEnabled(false);
+        custID.setEnabled(false);
         //displays data into textfield from selected row in JTable
         parts.logic.Parts newClick = new parts.logic.Parts();
         newClick.mouseClick(tableDisplay1,partID, name, desc, stklvl,cost,instDate,wExpDate,regNum,custID );
@@ -276,7 +311,32 @@ public class PartsSearchByName extends javax.swing.JFrame {
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         //enable textfields
-          partID.setEnabled(true);
+        partID.setEditable(false);
+        partID.setEnabled(true);
+        name.setEnabled(true);
+        desc.setEnabled(true);
+        stklvl.setEditable(false);
+        stklvl.setEnabled(true);
+        cost.setEnabled(true);   
+        instDate.setEnabled(true);
+        wExpDate.setEnabled(true);
+        regNum.setEditable(false);
+        regNum.setEnabled(true);
+        custID.setEditable(false);
+        custID.setEnabled(true);
+        updateButton2.setEnabled(false);
+        updateButton1.setEnabled(true);
+        withdrawButton.setEnabled(true);
+    }//GEN-LAST:event_editButtonActionPerformed
+
+    private void withdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawButtonActionPerformed
+        // adds data into database
+        
+        if(!regNum.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Part already used");
+        }
+        else{
+         partID.setEnabled(true);
         name.setEnabled(true);
         desc.setEnabled(true);
         stklvl.setEnabled(true);
@@ -285,38 +345,21 @@ public class PartsSearchByName extends javax.swing.JFrame {
         wExpDate.setEnabled(true);
         regNum.setEnabled(true);
         custID.setEnabled(true);
-       
-        updateButton.setEnabled(true);
-    }//GEN-LAST:event_editButtonActionPerformed
-
-    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        // adds data into database
-        parts.logic.Parts newPart = new parts.logic.Parts();
-        newPart.editPart(
-            Integer.parseInt(partID.getText()),
-            name.getText(),
-            desc.getText(),
-            Integer.parseInt(stklvl.getText()),
-            Integer.parseInt(cost.getText()),
-            instDate.getText(),
-            wExpDate.getText(),
-            regNum.getText(),
-            Integer.parseInt(custID.getText())
-        );
-
-        //disables all textfields with data inside, to prevent change of data
-        partID.setEnabled(false);
-        name.setEnabled(false);
-        desc.setEnabled(false);
-        stklvl.setEnabled(false);
-        cost.setEnabled(false);       
-        instDate.setEnabled(false);
-        wExpDate.setEnabled(false);
-        regNum.setEnabled(false);
-        custID.setEnabled(false);
-        updateButton.setEnabled(false);
-
-    }//GEN-LAST:event_updateButtonActionPerformed
+        
+         partID.setEditable(false);
+        name.setEditable(false);
+        desc.setEditable(false);
+        stklvl.setEditable(false);
+        cost.setEditable(false);
+        instDate.setEditable(true);
+        wExpDate.setEditable(true);
+        regNum.setEditable(true);
+        custID.setEditable(false);
+        updateButton1.setEnabled(false);
+        updateButton2.setEnabled(true);
+        }
+        
+    }//GEN-LAST:event_withdrawButtonActionPerformed
 
     private void comboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBox2ActionPerformed
         // TODO add your handling code here:
@@ -329,6 +372,88 @@ public class PartsSearchByName extends javax.swing.JFrame {
     private void instDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_instDateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_instDateActionPerformed
+
+    private void updateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton1ActionPerformed
+        // TODO add your handling code here:
+        parts.logic.Parts newPart = new parts.logic.Parts();
+        newPart.editPart(
+            Integer.parseInt(partID.getText()),
+            name.getText(),
+            desc.getText(),
+            Integer.parseInt(cost.getText()),
+            instDate.getText(),
+            wExpDate.getText()
+        );
+
+        //disables all textfields with data inside, to prevent change of data
+          partID.setText(null);
+        name.setText(null);
+        desc.setText(null);
+        stklvl.setText(null);
+        cost.setText(null);       
+        instDate.setText(null);
+        wExpDate.setText(null);
+        regNum.setText(null);
+        custID.setText(null);
+        partID.setEnabled(false);
+        name.setEnabled(false);
+        desc.setEnabled(false);
+        stklvl.setEnabled(false);
+        cost.setEnabled(false);       
+        instDate.setEnabled(false);
+        wExpDate.setEnabled(false);
+        regNum.setEnabled(false);
+        custID.setEnabled(false);
+        updateButton1.setEnabled(false);
+
+    }//GEN-LAST:event_updateButton1ActionPerformed
+
+    private void updateButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton2ActionPerformed
+        // TODO add your handling code here:
+        parts.logic.Parts newPart = new parts.logic.Parts();
+        newPart.withdrawPart(
+            Integer.parseInt(partID.getText()),
+            instDate.getText(),
+            wExpDate.getText(),
+            regNum.getText(),
+            Integer.parseInt(custID.getText())
+        );
+        //disables all textfields with data inside, to prevent change of data
+          partID.setText(null);
+        name.setText(null);
+        desc.setText(null);
+        stklvl.setText(null);
+        cost.setText(null);       
+        instDate.setText(null);
+        wExpDate.setText(null);
+        regNum.setText(null);
+        custID.setText(null);
+        partID.setEnabled(false);
+        name.setEnabled(false);
+        desc.setEnabled(false);
+        stklvl.setEnabled(false);
+        cost.setEnabled(false);       
+        instDate.setEnabled(false);
+        wExpDate.setEnabled(false);
+        regNum.setEnabled(false);
+        custID.setEnabled(false);
+        updateButton1.setEnabled(false);
+        updateButton2.setEnabled(false);
+        withdrawButton.setEnabled(false);
+
+    }//GEN-LAST:event_updateButton2ActionPerformed
+
+    private void regNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regNumActionPerformed
+        // TODO add your handling code here:
+        parts.logic.Parts cID = new parts.logic.Parts();
+        custID.setText(Integer.toString(cID.getCustID(regNum.getText())));
+        
+        if(Integer.parseInt(custID.getText())==0){
+            JOptionPane.showMessageDialog(null,"Vehicle not in system");
+            regNum.setText(null);
+            custID.setText(null);
+        }
+    }//GEN-LAST:event_regNumActionPerformed
 
     /**
      * @param args the command line arguments
@@ -395,7 +520,9 @@ public class PartsSearchByName extends javax.swing.JFrame {
     private javax.swing.JButton searchButton1;
     private javax.swing.JTextField stklvl;
     private javax.swing.JTable tableDisplay1;
-    private javax.swing.JButton updateButton;
+    private javax.swing.JButton updateButton1;
+    private javax.swing.JButton updateButton2;
     private javax.swing.JTextField wExpDate;
+    private javax.swing.JButton withdrawButton;
     // End of variables declaration//GEN-END:variables
 }
