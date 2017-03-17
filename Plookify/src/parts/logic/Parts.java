@@ -155,7 +155,6 @@ public class Parts {
 			System.out.println(vr.getInt("ID")+"	   "+vr.getString("Name")+"	        "+vr.getString("Description")+"            "+vr.getInt("NumberInStock"));
 		}
                 
-                JOptionPane.showMessageDialog(null, "Record successfully added!!");
 
                 vr.close();
         }
