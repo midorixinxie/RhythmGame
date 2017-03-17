@@ -208,7 +208,7 @@ public class Parts {
        try {                
             Statement statement;
                 
-            String query = "UPDATE   PartsRecord SET NumberInStock =NumberInStock + 1 WHERE Name = '"+name+"' ";
+            String query = "UPDATE   PartsRecord SET NumberInStock =NumberInStock + 1 WHERE Name = '"+name+"' AND RegistrationNumber = '"+"'";
 
             System.out.println("Query :" + query);
             statement = db.getConnection().createStatement();
