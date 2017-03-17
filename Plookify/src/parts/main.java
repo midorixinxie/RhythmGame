@@ -5,10 +5,15 @@
  */
 package parts;
 
+import parts.gui.PartsHome;
+
 /**
  *
  * @author pro
  */
 public class main {
-    
+    public static void main(String[] args){
+        new PartsHome().setVisible(true);
+       
+    }
 }
