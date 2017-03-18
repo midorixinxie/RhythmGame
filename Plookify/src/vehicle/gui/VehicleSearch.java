@@ -542,7 +542,7 @@ public class VehicleSearch extends javax.swing.JFrame {
         if(selected.equals("Vehicle Template")){
             String option = (String)comboType.getSelectedItem();
         
-             if(option.equals("Car"))
+            if(option.equals("Car"))
             {
                 newLogic.searchVehicleTemplate(
                 tableDisplay,

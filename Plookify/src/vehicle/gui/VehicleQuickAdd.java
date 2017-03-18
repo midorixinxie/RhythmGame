@@ -260,19 +260,60 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
     private void submitbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitbtnActionPerformed
         // adds data into database
         vehicle.logic.vehicle newLogic = new vehicle.logic.vehicle();
-        newLogic.quickAddVehicle(
-            customerID.getText(),
-            (String)comboType.getSelectedItem(),
-            registrationNo.getText(),
-            (String)comboTruck.getSelectedItem(),
-            colour.getText(),
-            MoTRenewalDate.getText(),
-            lastServiceDate.getText(),
-            currentMileage.getText(),
-            warrantyCheck.isSelected(),
-            companyName.getText(),
-            companyAddress.getText(),
-            warrantyDateOfExpiry.getText());
+         String option = (String)comboType.getSelectedItem();
+        
+            if(option.equals("Car"))
+            {
+                newLogic.quickAddVehicle(
+                    customerID.getText(),
+                    (String)comboType.getSelectedItem(),
+                    registrationNo.getText(),
+                    (String)comboCar.getSelectedItem(),
+                    colour.getText(),
+                    MoTRenewalDate.getText(),
+                    lastServiceDate.getText(),
+                    currentMileage.getText(),
+                    warrantyCheck.isSelected(),
+                    companyName.getText(),
+                    companyAddress.getText(),
+                    warrantyDateOfExpiry.getText()
+                 );
+            }
+            else if(option.equals("Van"))
+            {
+                newLogic.quickAddVehicle(
+                    customerID.getText(),
+                    (String)comboType.getSelectedItem(),
+                    registrationNo.getText(),
+                    (String)comboVan.getSelectedItem(),
+                    colour.getText(),
+                    MoTRenewalDate.getText(),
+                    lastServiceDate.getText(),
+                    currentMileage.getText(),
+                    warrantyCheck.isSelected(),
+                    companyName.getText(),
+                    companyAddress.getText(),
+                    warrantyDateOfExpiry.getText()
+                 );
+            }
+            else if(option.equals("Truck"))
+            {
+                newLogic.quickAddVehicle(
+                    customerID.getText(),
+                    (String)comboType.getSelectedItem(),
+                    registrationNo.getText(),
+                    (String)comboTruck.getSelectedItem(),
+                    colour.getText(),
+                    MoTRenewalDate.getText(),
+                    lastServiceDate.getText(),
+                    currentMileage.getText(),
+                    warrantyCheck.isSelected(),
+                    companyName.getText(),
+                    companyAddress.getText(),
+                    warrantyDateOfExpiry.getText()
+                 );
+            }
+       
     }//GEN-LAST:event_submitbtnActionPerformed
 
     private void returnbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnbtnActionPerformed
