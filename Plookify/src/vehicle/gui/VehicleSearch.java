@@ -29,22 +29,22 @@ public class VehicleSearch extends javax.swing.JFrame {
         custID2.setEnabled(false);
         custName.setEnabled(false);
         comboBox1.setEnabled(false);
-            registrationNo.setEnabled(false);
-            model.setEnabled(false);
-            make.setEnabled(false);
-            engineSize.setEnabled(false);
-            fuelType.setEnabled(false);
-            colour.setEnabled(false);
-            MoTRenewalDate.setEnabled(false);
-            lastServiceDate.setEnabled(false);
-            currentMileage.setEnabled(false);
-            warrantyCheck.setEnabled(false);
-            companyName.setEnabled(false);
-            companyAddress.setEnabled(false);
-            warrantyDateOfExpiry.setEnabled(false);
-            updateButton.setEnabled(false);
-            comboType.setVisible(false);
-            comboCar.setVisible(false);
+        registrationNo.setEnabled(false);
+        model.setEnabled(false);
+        make.setEnabled(false);
+        engineSize.setEnabled(false);
+        fuelType.setEnabled(false);
+        colour.setEnabled(false);
+        MoTRenewalDate.setEnabled(false);
+        lastServiceDate.setEnabled(false);
+        currentMileage.setEnabled(false);         
+        warrantyCheck.setEnabled(false);
+        companyName.setEnabled(false);
+        companyAddress.setEnabled(false);
+        warrantyDateOfExpiry.setEnabled(false);
+        updateButton.setEnabled(false);
+        comboType.setVisible(false);
+        comboCar.setVisible(false);
                 
     }
 
@@ -542,8 +542,8 @@ public class VehicleSearch extends javax.swing.JFrame {
         fuelType.setEnabled(true);
         colour.setEnabled(true);
         MoTRenewalDate.setEnabled(true);
-        //lastServiceDate.setEnabled(true);
-        //currentMileage.setEnabled(true);
+        lastServiceDate.setEnabled(true);
+        currentMileage.setEnabled(true);
         warrantyCheck.setEnabled(true);
         companyName.setEnabled(true);
         companyAddress.setEnabled(true);
