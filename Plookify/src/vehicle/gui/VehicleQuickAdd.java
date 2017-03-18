@@ -50,7 +50,6 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         returnbtn = new javax.swing.JButton();
         comboType = new javax.swing.JComboBox<>();
         addbtn = new javax.swing.JButton();
-        comboTruck = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         colour = new javax.swing.JTextField();
         MoTRenewalDate = new javax.swing.JTextField();
@@ -63,8 +62,8 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         companyAddress = new javax.swing.JTextField();
         warrantyDateOfExpiry = new javax.swing.JTextField();
         comboCar = new javax.swing.JComboBox<>();
+        comboTruck = new javax.swing.JComboBox<>();
         comboVan = new javax.swing.JComboBox<>();
-        comboTruck2 = new javax.swing.JComboBox<>();
         jMenuBar = new javax.swing.JMenuBar();
         homeMenu = new javax.swing.JMenu();
         custMenu = new javax.swing.JMenu();
@@ -149,14 +148,6 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         });
         getContentPane().add(addbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
 
-        comboTruck.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Honda Civic 1.6Litre Petrol", "Fiat 500 1.2Litre Petrol", "Mini Cooper 2Litre Petrol", "Ford Fiesta 1.5Litre Petrol" }));
-        comboTruck.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboTruckActionPerformed(evt);
-            }
-        });
-        getContentPane().add(comboTruck, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 260, -1));
-
         jLabel16.setText("Customer ID");
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
         getContentPane().add(colour, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 110, -1));
@@ -184,7 +175,7 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         getContentPane().add(companyAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 120, -1));
         getContentPane().add(warrantyDateOfExpiry, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 120, -1));
 
-        comboCar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Honda Civic 1.6Litre Petrol", "Fiat 500 1.2Litre Petrol", "Mini Cooper 2Litre Petrol", "Ford Fiesta 1.5Litre Petrol" }));
+        comboCar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Honda Civic 1.6Litre Petrol", "Fiat 500 1.2Litre Petrol", "Mini Cooper 2Litre Petrol", "Ford Fiesta 1.5Litre Petrol", "BMW 640i 3Litres Petrol", "Toyota Yaris 2Litres Petrol", "Lamborghini Aventador 6.5Litres Petrol" }));
         comboCar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboCarActionPerformed(evt);
@@ -192,21 +183,21 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         });
         getContentPane().add(comboCar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 260, -1));
 
-        comboVan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Honda Civic 1.6Litre Petrol", "Fiat 500 1.2Litre Petrol", "Mini Cooper 2Litre Petrol", "Ford Fiesta 1.5Litre Petrol" }));
+        comboTruck.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nissan Titan 5.6Litres Diesel", "Honda Ridgeline 3.5Litres Diesel", "Jeep Gladiator 3.8Litres Diesel", "Ford F-150 3.5Litres Diesel", "Mitsubishi L200 3.5Litres Diesel", "Mercedes-Benz Unimog 5.1Litres Diesel", "Ram 4500 5.9Litres Diesel" }));
+        comboTruck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTruckActionPerformed(evt);
+            }
+        });
+        getContentPane().add(comboTruck, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 260, -1));
+
+        comboVan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Chevrolet Astro 2.5Litres Diesel", "Vauxhall Corsavan 1.2Litres Diesel", "Mercedes-Bens Sprinter 3Litres Diesel", "Volkswagen Crafter 2Litres Diesel", "Renault Master 2Litres Diesel", "Ford Transit 2.2Litres Diesel", "Volkswagen Caddy 2Litres Diesel" }));
         comboVan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboVanActionPerformed(evt);
             }
         });
         getContentPane().add(comboVan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 260, -1));
-
-        comboTruck2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Honda Civic 1.6Litre Petrol", "Fiat 500 1.2Litre Petrol", "Mini Cooper 2Litre Petrol", "Ford Fiesta 1.5Litre Petrol" }));
-        comboTruck2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboTruck2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(comboTruck2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 260, -1));
 
         homeMenu.setText("Homepage");
         homeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -357,10 +348,6 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboVanActionPerformed
 
-    private void comboTruck2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTruck2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboTruck2ActionPerformed
-
     private void comboTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTypeActionPerformed
          String selected = (String)comboType.getSelectedItem();
         if(selected.equals("Car"))
@@ -430,7 +417,6 @@ public class VehicleQuickAdd extends javax.swing.JFrame {
     private javax.swing.JTextField colour;
     private javax.swing.JComboBox<String> comboCar;
     private javax.swing.JComboBox<String> comboTruck;
-    private javax.swing.JComboBox<String> comboTruck2;
     private javax.swing.JComboBox<String> comboType;
     private javax.swing.JComboBox<String> comboVan;
     private javax.swing.JTextField companyAddress;

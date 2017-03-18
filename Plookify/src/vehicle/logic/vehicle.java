@@ -90,12 +90,12 @@ public class vehicle {
             statement = db.getConnection().createStatement();
             statement.setQueryTimeout(10);
 
-            ResultSet ca = statement.executeQuery("SELECT EXISTS(SELECT * FROM CustomerAccount WHERE ID='"+ID+"' );");
+            ResultSet ca = statement.executeQuery("SELECT EXISTS(SELECT * FROM CustomerAccount WHERE ID="+customerID+");");
             if (ca.next()) {
               boolean found = ca.getBoolean(1);
             if(found){
-                String query = "INSERT INTO VehicleRecords VALUES ('"+customerID+"', '"+warrantyType+"','"+requireDandR+"','"+compPays+"','"+compName+"','"+compAddress+"','"+warrantyExpiry+"','"+vehicle+"','"+regNo+"','"+model+"','"+make+"','"+engineSize+"','"+fuelType+"','"+colour+"','"+MoTRenewalDate+"','"+lastServiceDate+"','"+currentMileage+"',null);";
-                //System.out.println("Query :" + query);
+                String query = "INSERT INTO VehicleRecords VALUES ('"+customerID+"', '"+warrantyType+"','"+requireDandR+"','"+compPays+"','"+compName+"','"+compAddress+"','"+warrantyExpiry+"','"+vehicle+"','"+regNo+"','"+model+"','"+make+"','"+engineSize+"','"+fuelType+"','"+colour+"','"+MoTRenewalDate+"','"+lastServiceDate+"','"+currentMileage+"');";
+                System.out.println("Query :" + query);
                 statement = db.getConnection().createStatement();
                 statement.setQueryTimeout(10);
                 
@@ -161,36 +161,28 @@ public class vehicle {
             statement = db.getConnection().createStatement();
             statement.setQueryTimeout(10);
 
-            ResultSet ca = statement.executeQuery("SELECT * FROM CustomerAccount WHERE ID='"+ID+"' ;");
-            if (ca.next()) {
+            ResultSet ca = statement.executeQuery("SELECT * FROM CustomerAccount WHERE ID="+customerID+";");
+            while (ca.next()) {
               boolean found = ca.getBoolean(1);
-            if(found){
-                String query = "INSERT INTO VehicleRecords VALUES ('"+customerID+"', '"+warrantyType+"','"+requireDandR+"','"+compPays+"','"+compName+"','"+compAddress+"','"+warrantyExpiry+"','"+vehicle+"','"+regNo+"','"+model+"','"+make+"','"+engineSize+"','"+fuelType+"','"+colour+"','"+MoTRenewalDate+"','"+lastServiceDate+"','"+currentMileage+"',null);";
-                //System.out.println("Query :" + query);
-                statement = db.getConnection().createStatement();
-                statement.setQueryTimeout(10);
+            
+                if(!found){
+                    String query = "INSERT INTO VehicleRecords VALUES ('"+customerID+"', '"+warrantyType+"','"+requireDandR+"','"+compPays+"','"+compName+"','"+compAddress+"','"+warrantyExpiry+"','"+vehicle+"','"+regNo+"','"+model+"','"+make+"','"+engineSize+"','"+fuelType+"','"+colour+"','"+MoTRenewalDate+"','"+lastServiceDate+"','"+currentMileage+"');";
+                    System.out.println("Query :" + query);
+                    statement = db.getConnection().createStatement();
+                    statement.setQueryTimeout(10);
                 
-                //statement.executeUpdate("drop table if exists 'VehicleRecords'");
-                String create = "create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'VehicleType' TEXT, 'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID);";
-                //System.out.println("Query :" + create);
-                statement.executeUpdate(create);			
+                    //statement.executeUpdate("drop table if exists 'VehicleRecords'");
+                    String create = "create table if not exists 'VehicleRecords' ('CustomerID' INTEGER NOT NULL,'WarrantyType' BOOLEAN,'RequiresDiagnosisAndRepair' BOOLEAN, 'WarrantyCompanyPays' BOOLEAN,'CompanyName' TEXT,'CompanyAddress' TEXT,'WarrantyExpiry' DATE,'VehicleType' TEXT, 'RegistrationNumber' TEXT PRIMARY KEY,'Model' TEXT,'Make' TEXT,'EngineSize' TEXT,'FuelType' TEXT,'Colour' TEXT,'MoTRenewalDate' DATE,'LastServiceDate'DATE,'CurrentMileage'INTEGER,FOREIGN KEY(customerID) REFERENCES CustomerAccount(ID);";
+                    //System.out.println("Query :" + create);
+                    statement.executeUpdate(create);			
 
-                statement.executeUpdate(query);
+                     statement.executeUpdate(query);
 
-                ResultSet vr = statement.executeQuery("select * from 'VehicleRecords'");
-
-		System.out.println("CustomerID Model  Registration Number");
-		while(vr.next()){
-			System.out.println(vr.getInt("CustomerID")+"	   "+vr.getString("Model")+"	        "+vr.getString("RegistrationNumber"));
-		}
-                JOptionPane.showMessageDialog(null, "Successfully inserted Vehicle with Registration Number " + regNo + " and Customer ID " + customerID);
-                ca.close();
-                vr.close();
-                    
-            }
-            else{
+                    JOptionPane.showMessageDialog(null, "Successfully inserted Vehicle with Registration Number " + regNo + " and Customer ID " + customerID);
+                    ca.close();
+                }
+                else{
                 JOptionPane.showMessageDialog(null, "Customer ID " + customerID +" does not exist");
-
             }
         }
         }
@@ -326,6 +318,51 @@ public class vehicle {
 	}
         db.closeConn();  
     }
+     public static void searchVehicleTemplate( 
+            JTable table,
+            String template)
+     {
+         String[] vInfo = template.split(" ");
+        String vMake = vInfo[0];
+        String vModel = vInfo[1];
+        String vEngineSize = vInfo[2];    
+        String vFuelType = vInfo[3];
+        
+        Database db = new Database();
+        db.connect();
+        
+         try {                
+            Statement statement;    
+            statement = db.getConnection().createStatement();
+            statement.setQueryTimeout(10);
+            
+            String q = "select * from VehicleRecords WHERE make='"+vMake+"' AND model='"+vModel+"' AND engineSize='"+vEngineSize+"' AND fuelType='"+vFuelType+"';";
+
+            System.out.println("Query :" + q);
+            ResultSet vr = statement.executeQuery(q);
+
+            //prints out data into the Jtable
+            while(table.getRowCount()>0)
+            {
+                ((DefaultTableModel)table.getModel()).removeRow(0);
+            }
+            int columns = vr.getMetaData().getColumnCount();
+            while(vr.next())
+            {
+                Object[] row = new Object[columns];
+                for (int i=1; i<=columns; i++)
+                {
+                   row[i-1] = vr.getObject(i);
+                }
+                ((DefaultTableModel)table.getModel()).insertRow(vr.getRow()-1,row);
+            }
+            vr.close();
+         }
+         catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+	}
+        db.closeConn();  
+     }
      
     //automatically display vehicle data into textfields if user clicks on a row in the list of vehicles
     public static void mouseClick(
