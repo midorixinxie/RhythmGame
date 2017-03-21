@@ -67,8 +67,9 @@ public class SPCrecord extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jTextField5 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jTextField5 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -206,15 +207,7 @@ public class SPCrecord extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 93, 500, 210));
-
-        jTextField5.setText("jTextField5");
-        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextField5KeyReleased(evt);
-            }
-        });
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 49, 184, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 73, 500, 230));
 
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -223,6 +216,12 @@ public class SPCrecord extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, -1, -1));
+
+        jTextField5.setText("jTextField5");
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
+
+        jButton3.setText("jButton3");
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -240,7 +239,7 @@ public class SPCrecord extends javax.swing.JFrame {
              pst=mycon.prepareStatement(query);
              pst.setString(1,jTextField1.getText());
              pst.setString(2,jTextField2.getText());
-            // pst.setLong(3,Long.parseLong(jTextField3.getText()));
+            //pst.setLong(3,Long.parseLong(jTextField3.getText()));
              pst.setString(3,jTextField4.getText());
              
              pst.executeUpdate();
@@ -295,7 +294,7 @@ public class SPCrecord extends javax.swing.JFrame {
         DefaultTableModel model=(DefaultTableModel)jTable1.getModel();
         try{
             Connection mycon=db.getConnection();
-           // String query="SELECT Name,Address,Phone,emailAddress FROM specialistRepairCenter WHERE Phone=?";  
+           //String query="SELECT Name,Address,Phone,emailAddress FROM specialistRepairCenter WHERE Phone=?";  
            String query="SELECT * FROM 'specialistRepairCenter'" ;
            pst=mycon.prepareStatement(query);
             //pst.setString(1,"Value");
@@ -307,11 +306,6 @@ public class SPCrecord extends javax.swing.JFrame {
 				String address = rs.getString("Address");
                                 long phone= (long)rs.getObject("Phone");
 				String emailaddress = rs.getString("emailAddress");
-
-				//System.out.println("userid : " + name);
-				//System.out.println("username : " + address);
-                                //System.out.println("userid : " + phone);
-				//System.out.println("username : " + emailaddress);
               model.addRow(new Object[]{name, address, phone, emailaddress});
               i++;
      
@@ -334,12 +328,6 @@ public class SPCrecord extends javax.swing.JFrame {
                  JOptionPane.showMessageDialog(null,e);
         }
     }//GEN-LAST:event_loadActionPerformed
-
-    private void jTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyReleased
-        // TODO add your handling code here:
-        //String que=jTextField5.getText().toLowerCase();
-        //search(que);
-    }//GEN-LAST:event_jTextField5KeyReleased
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
         Database db = new Database();
@@ -415,6 +403,7 @@ public class SPCrecord extends javax.swing.JFrame {
     private javax.swing.JButton delete;
     private javax.swing.JButton editButton;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

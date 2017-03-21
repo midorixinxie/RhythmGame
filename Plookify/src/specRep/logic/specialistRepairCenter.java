@@ -77,15 +77,6 @@ public class specialistRepairCenter {
 		return costsOfSPC;
 	}
 
-	//public double getCostOfRegularRepairAndDiagonostics() {
-		//get the cost of regular and diagonostics
-	       return cost
-	}
-
-	//public double getTotalCost() {
-		// calculate the total bill(regular and special)
-		return costsOf
-	}
-
+	
 
 }

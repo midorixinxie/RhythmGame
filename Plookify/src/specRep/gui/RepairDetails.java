@@ -46,9 +46,9 @@ public class RepairDetails extends javax.swing.JFrame {
         selectSPCs = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        view = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        regisNumber = new javax.swing.JTextField();
         searchVehicle = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -56,6 +56,7 @@ public class RepairDetails extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Specialist Repair Details"));
 
@@ -70,11 +71,16 @@ public class RepairDetails extends javax.swing.JFrame {
 
         jLabel2.setText(" Vehicle Registration Number:");
 
-        jButton1.setText("view");
+        view.setText("view");
+        view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("view the parts list");
 
-        jTextField1.setText("jTextField1");
+        regisNumber.setText("jTextField1");
 
         searchVehicle.setText("search");
         searchVehicle.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +108,7 @@ public class RepairDetails extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(selectSPCs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(regisNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchVehicle))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -112,7 +118,7 @@ public class RepairDetails extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton4)
-                            .addComponent(jButton1))))
+                            .addComponent(view))))
                 .addContainerGap(94, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -126,18 +132,20 @@ public class RepairDetails extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(regisNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchVehicle))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jButton1))
+                    .addComponent(view))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 79, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -150,28 +158,7 @@ public class RepairDetails extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 82, 569, 251));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -187,7 +174,8 @@ public class RepairDetails extends javax.swing.JFrame {
         DefaultTableModel model=(DefaultTableModel)jTable1.getModel();
         try{
             Connection mycon=db.getConnection();  
-            String query="SELECT Name,RegistrationNumber,expectedDeliveryDate,costsOfSpecialistRepair,expectedReturnDate FROM specialistRepairCenter where RegistrationNumber="+Long.parseLong(jTextField1.getText())+"";
+          
+            String query="SELECT Name,RegistrationNumber,expectedDeliveryDate,costsOfSpecialistRepair,expectedReturnDate FROM specialistRepairCenter where RegistrationNumber="+Long.parseLong(regisNumber.getText())+"";
             pst=mycon.prepareStatement(query);
             //pst.setString(1,"Value");
             rs =pst.executeQuery();
@@ -225,6 +213,40 @@ public class RepairDetails extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchVehicleActionPerformed
 
+    private void viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewActionPerformed
+        Database db = new Database();
+        db.connect();
+        DefaultTableModel model=(DefaultTableModel)jTable1.getModel();
+        try{
+            Connection mycon=db.getConnection();  
+            String query="SELECT ID from PartsRecord ";
+            pst=mycon.prepareStatement(query);
+            //pst.setString(1,"Value");
+            rs =pst.executeQuery();
+            
+           
+            int i=0;
+            while (rs.next()){
+              
+                String PartsID=rs.getString("ID");
+	        
+                model.addRow(new Object[]{ PartsID });
+                
+                i++;
+     
+	  }
+  
+          rs.close();
+            pst.close();
+          
+        }
+           
+           
+        catch(SQLException e){
+                 JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_viewActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -261,7 +283,6 @@ public class RepairDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -270,8 +291,9 @@ public class RepairDetails extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField regisNumber;
     private javax.swing.JButton searchVehicle;
     private javax.swing.JComboBox<String> selectSPCs;
+    private javax.swing.JButton view;
     // End of variables declaration//GEN-END:variables
 }
