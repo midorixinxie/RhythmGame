@@ -43,6 +43,13 @@ public class PartsAdd extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         num = new javax.swing.JTextField();
+        jMenuBar = new javax.swing.JMenuBar();
+        homeMenu = new javax.swing.JMenu();
+        custMenu = new javax.swing.JMenu();
+        vehicleMenu = new javax.swing.JMenu();
+        bookingMenu = new javax.swing.JMenu();
+        partsMenu = new javax.swing.JMenu();
+        SPCMenu = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +92,61 @@ public class PartsAdd extends javax.swing.JFrame {
 
         jLabel5.setText("Number");
 
+        homeMenu.setText("Homepage");
+        homeMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                homeMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(homeMenu);
+
+        custMenu.setText("Customer Account");
+        custMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                custMenuMouseClicked(evt);
+            }
+        });
+        custMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                custMenuActionPerformed(evt);
+            }
+        });
+        jMenuBar.add(custMenu);
+
+        vehicleMenu.setText("Vehicle Records");
+        vehicleMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vehicleMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(vehicleMenu);
+
+        bookingMenu.setText("Diagnosis & Repair Bookings");
+        bookingMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bookingMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(bookingMenu);
+
+        partsMenu.setText("Parts");
+        partsMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                partsMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(partsMenu);
+
+        SPCMenu.setText("Specialist Repairs");
+        SPCMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SPCMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar.add(SPCMenu);
+
+        setJMenuBar(jMenuBar);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,7 +175,7 @@ public class PartsAdd extends javax.swing.JFrame {
                     .addComponent(desc, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
                     .addComponent(cost)
                     .addComponent(num))
-                .addContainerGap(137, Short.MAX_VALUE))
+                .addContainerGap(440, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +198,7 @@ public class PartsAdd extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(num, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add)
                     .addComponent(back))
@@ -159,7 +221,7 @@ public class PartsAdd extends javax.swing.JFrame {
         parts.logic.Parts newPart = new parts.logic.Parts();
         for(int i=1;i<=count;i++){
           newPart.addPart(
-            (String)name.getSelectedItem(),
+            (String)name.getSelectedItem(),  
             desc.getText(),
             Integer.parseInt(cost.getText())     
           );
@@ -215,6 +277,46 @@ public class PartsAdd extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_nameActionPerformed
 
+    private void homeMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMenuMouseClicked
+        common.gui.Home homepage = new common.gui.Home();
+        homepage.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_homeMenuMouseClicked
+
+    private void custMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_custMenuMouseClicked
+        customers.GUI.CustomerHome custHome = new customers.GUI.CustomerHome();
+        custHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_custMenuMouseClicked
+
+    private void custMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custMenuActionPerformed
+
+    }//GEN-LAST:event_custMenuActionPerformed
+
+    private void vehicleMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vehicleMenuMouseClicked
+        vehicle.gui.VehicleHome indV = new vehicle.gui.VehicleHome();
+        indV.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_vehicleMenuMouseClicked
+
+    private void bookingMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookingMenuMouseClicked
+        diagRep.gui.BookingHomepage bookingHome = new diagRep.gui.BookingHomepage();
+        bookingHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bookingMenuMouseClicked
+
+    private void partsMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_partsMenuMouseClicked
+        parts.gui.PartsHome partsHome = new parts.gui.PartsHome();
+        partsHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_partsMenuMouseClicked
+
+    private void SPCMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SPCMenuMouseClicked
+        specRep.gui.SPCHome SPCHome = new specRep.gui.SPCHome();
+        SPCHome.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_SPCMenuMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -251,16 +353,23 @@ public class PartsAdd extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu SPCMenu;
     private javax.swing.JButton add;
     private javax.swing.JButton back;
+    private javax.swing.JMenu bookingMenu;
     private javax.swing.JTextField cost;
+    private javax.swing.JMenu custMenu;
     private javax.swing.JTextField desc;
+    private javax.swing.JMenu homeMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JComboBox name;
     private javax.swing.JTextField num;
+    private javax.swing.JMenu partsMenu;
+    private javax.swing.JMenu vehicleMenu;
     // End of variables declaration//GEN-END:variables
 }
